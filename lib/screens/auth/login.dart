@@ -2,7 +2,6 @@ import 'package:akgsetu/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 
-import '../common/waveClipper.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
