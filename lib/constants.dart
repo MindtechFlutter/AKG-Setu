@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 
-Color backgroundColor = HexColor("BDECF4");
+Color backgroundColor = Colors.blue.shade50.withOpacity(0.9);
 Color primaryColor = HexColor("2283A0");
 Color secondaryColor = Colors.grey;
 
