@@ -11,9 +11,9 @@ import 'package:nb_utils/nb_utils.dart';
 import 'package:pinput/pinput.dart';
 
 import '../../common/rounded_button.dart';
+import '../../common/routes/app_pages.dart';
 import '../../common/utils/Styles.dart';
 import '../../common/utils/utility.dart';
-import '../routes/app_pages.dart';
 
 class OtpVerifyScreen extends StatefulWidget {
   const OtpVerifyScreen({super.key});
@@ -132,7 +132,7 @@ class _OtpVerifyScreenState extends State<OtpVerifyScreen> {
                       buttonText: 'Verfiy & Continue',
                       width: width / 1.5,
                       onpressed: () {
-                        Get.toNamed(Routes.home);
+                        Get.toNamed(Routes.dashboard);
                       },
                     ),
                   )

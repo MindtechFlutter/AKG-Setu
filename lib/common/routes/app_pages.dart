@@ -1,11 +1,9 @@
-
 import 'package:akgsetu/screens/auth/login.dart';
 import 'package:akgsetu/screens/auth/otp_verify_screen.dart';
+import 'package:akgsetu/screens/home/dashboard.dart';
 import 'package:akgsetu/screens/home/home.dart';
 import 'package:get/get.dart';
-
-import '../ui/screens/splash_screen.dart';
-
+import '../../screens/splash_screen.dart';
 part 'app_routes.dart';
 
 class AppPages {
@@ -28,6 +26,9 @@ class AppPages {
         name: Routes.home,
         page: () => HomePage(),
         transition: Transition.rightToLeft),
-
+    GetPage(
+        name: Routes.dashboard,
+        page: () => Dashboard(),
+        transition: Transition.rightToLeft),
   ];
 }

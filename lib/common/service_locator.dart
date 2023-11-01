@@ -2,9 +2,9 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 
-import '../screens/network/api/getx_api.dart';
-import '../screens/network/api/getx_repository.dart';
-import '../screens/network/dio/dio_client.dart';
+import 'network/api/getx_api.dart';
+import 'network/api/getx_repository.dart';
+import 'network/dio/dio_client.dart';
 
 
 

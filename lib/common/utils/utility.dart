@@ -15,7 +15,7 @@ import 'package:intl/intl.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 
-import '../../screens/routes/app_pages.dart';
+import '../routes/app_pages.dart';
 import 'app_constants.dart';
 import 'color_constants.dart';
 import 'dimensions.dart';

@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gif/flutter_gif.dart';
 import 'package:get/get.dart';
-import '../../../common/utils/dimensions.dart';
-import '../../../common/utils/image_paths.dart';
-import '../../../constants.dart';
-import '../../auth/login.dart';
-import '../../controller/splash_controller.dart';
-import '../../routes/app_pages.dart';
+import '../common/routes/app_pages.dart';
+import '../common/utils/dimensions.dart';
+import '../common/utils/image_paths.dart';
+import '../constants.dart';
+import 'auth/login.dart';
 
 /*class SplashScreen extends StatefulWidget {
   SplashScreen({Key? key}) : super(key: key);

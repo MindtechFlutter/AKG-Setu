@@ -10,4 +10,10 @@ class AppIcons {
   static const String holiday = 'assets/images/holidays.png';
   static const String wip = 'assets/images/wip.png';
 
+//dashboard
+  static const String home = 'assets/images/home.svg';
+  static const String calendar = 'assets/images/calendar.svg';
+  static const String notification = 'assets/images/notification.svg';
+  static const String profile = 'assets/images/profile.svg';
+
 }

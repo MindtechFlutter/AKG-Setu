@@ -9,9 +9,9 @@ import 'package:get/get.dart';
 import 'package:nb_utils/nb_utils.dart';
 
 import '../../common/rounded_button.dart';
+import '../../common/routes/app_pages.dart';
 import '../../common/utils/Styles.dart';
 import '../../common/utils/utility.dart';
-import '../routes/app_pages.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});

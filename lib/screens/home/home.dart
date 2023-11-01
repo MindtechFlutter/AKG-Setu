@@ -90,26 +90,26 @@ class _HomePageState extends State<HomePage> {
 
   Widget cards(String text,String icon,String count) {
     return Container(
-      height: 120.sp,
+      height: 110.sp,
       decoration: BoxDecoration(
         color: AppColors.white,
         boxShadow: [
           BoxShadow(
               color: AppColors.black44.withOpacity(0.10),
               offset: Offset(0, 0),
-              spreadRadius: 4.sp,
-              blurRadius: 4.0.sp)
+              spreadRadius: 2.sp,
+              blurRadius: 2.0.sp)
         ],
         borderRadius: BorderRadius.circular(20.sp),
       ),
-      padding: EdgeInsets.all(8.sp),
+      padding: EdgeInsets.all(4.sp),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Image.asset(
             icon,
-            height: 24.sp,
-            width: 24 .sp,
+            height: 26.sp,
+            width: 26 .sp,
           ),
           Utils.addGap(5),
           Text(
@@ -117,15 +117,14 @@ class _HomePageState extends State<HomePage> {
             maxLines: 2,
             textAlign: TextAlign.center,
             style: Styles.textFontRegular(
-                size: 12.sp, weight: FontWeight.w500, color: AppColors.black44),
+                size: 10.sp, weight: FontWeight.w500, color: AppColors.black44),
           ),
           Utils.addGap(5),
           Text(
             count,
             style: Styles.textFontRegular(
-                size: 14.sp, weight: FontWeight.w600, color: AppColors.black),
+                size: 12.sp, weight: FontWeight.w600, color: AppColors.black),
           ),
-          Utils.addGap(5),
         ],
       ),
     );

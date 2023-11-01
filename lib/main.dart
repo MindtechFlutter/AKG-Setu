@@ -1,12 +1,10 @@
-import 'package:akgsetu/screens/auth/login.dart';
-import 'package:akgsetu/screens/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
 import 'common/dependency_injection.dart';
+import 'common/routes/app_pages.dart';
 import 'common/service_locator.dart';
 import 'common/utils/storage_service.dart';
 import 'common/utils/strings.dart';
