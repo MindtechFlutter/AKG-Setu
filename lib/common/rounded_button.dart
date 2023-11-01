@@ -13,7 +13,7 @@ class RoundedButton extends StatelessWidget {
   RoundedButton({
     required this.buttonText,
     required this.width,
-    this.height = 62,
+    this.height = 50,
     required this.onpressed
   });
 
@@ -57,16 +57,11 @@ class RoundedButton extends StatelessWidget {
           onPressed: () {
             onpressed();
           },
-          child: Padding(
-            padding:  EdgeInsets.only(
-              top: 10.sp,
-              bottom: 10.sp,
-            ),
-            child: Text(
+          child:  Text(
               buttonText,
               style: Styles.textFontRegular(size: 16.sp, weight: FontWeight.normal,color: AppColors.white),
             ),
-          ),
+          
         ),
       ),
     );
