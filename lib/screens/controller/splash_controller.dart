@@ -22,7 +22,7 @@ class SplashController extends BaseController {
       seconds: Dimensions.screenLoadTime,
     );
     Timer(_duration, () async {
-      Get.offNamedUntil(Routes.dashboard, (route) => false);
+      Get.offNamedUntil(Routes.home, (route) => false);
 
       /*try {
         if (storage.getString(AppConstants.eventId) != null) {

@@ -5,11 +5,13 @@ import 'package:akgsetu/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:nb_utils/nb_utils.dart';
 
 import '../../common/rounded_button.dart';
 import '../../common/utils/Styles.dart';
 import '../../common/utils/utility.dart';
+import '../routes/app_pages.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -149,13 +151,14 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
                 Utils.addHGap(60),
-
                 Padding(
                   padding:  EdgeInsets.only(top:40.0.sp),
                   child: RoundedButton(
                     buttonText: 'Get OTP',
                     width: width/1.5,
-                    onpressed: () {},
+                    onpressed: () {
+                      Get.toNamed(Routes.otpVerify);
+                    },
                   ),
                 )
               ],

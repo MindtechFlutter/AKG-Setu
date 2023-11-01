@@ -5,10 +5,14 @@ class AppConstants {
   static const String yes = 'Yes';
   static const String no = 'No';
   static const String enterPhnNo = 'Enter Your Phone Number';
-  static const String sendVerificationCode = 'We will send you 4 digit verification code';
+  static const String enterOtpSent = 'Enter OTP sent to';
+
+  static const String sendVerificationCode =
+      'We will send you 4 digit verification code';
   static const String mobileno = "Mobile number";
 
   static const String noInternet = 'Please check your internet connection';
+
   //keys for pref
   static const String tokenPr = 'tokenPr';
   static const String isLoggedIn = 'isLoggedInPr';
@@ -29,14 +33,20 @@ class AppConstants {
   static const String errorAddressType = "Please enter Address Type";
   static const String errorAddressDetails = "Please enter building/Flat.no";
   static const String errorPhone = "Please enter phone number";
-  static get validPwdField => "kindly use a mix of upper and lowercase \nletters,numbers, symbols and minimum \n6 characters length";
+
+  static get validPwdField =>
+      "kindly use a mix of upper and lowercase \nletters,numbers, symbols and minimum \n6 characters length";
   static const String errorPassword = "Please enter password";
   static const String errorNewPassword = "Please enter new password";
   static const String errorConfirmPassword = "Please enter confirm password";
 
   static const String logout = 'Logout';
-  static const String otpVerification  = 'OTP Verification';
+  static const String otpVerification = 'OTP Verification';
 
-
-
+      static const String activeTask = 'Active Task';
+  static const String visitsCompleted = 'Visits Completed';
+  static const String inventory = 'Inventory';
+  static const String vouchers = 'Vouchers';
+  static const String holidays = 'Holidays';
+  static const String WIP = 'WIP';
 }

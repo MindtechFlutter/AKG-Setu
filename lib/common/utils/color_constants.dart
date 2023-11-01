@@ -60,7 +60,7 @@ class AppColors {
   static const Color pink = Color(0xFFF95D5D);
   static const Color green1= Color(0xFF68A020);
   static const Color maroon= Color(0xFFA5376E);
-  static const Color lightblue= Color(0xFFBDECF4);
+  static const Color lightblue= Color(0xFFDDF4FA);
   static const Color darkblue= Color(0xFF2283A0);
 
 

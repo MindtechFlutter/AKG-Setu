@@ -10,6 +10,7 @@
 #include <file_selector_windows/file_selector_windows.h>
 #include <modal_progress_hud_nsn/modal_progress_hud_nsn_plugin.h>
 #include <nb_utils/nb_utils_plugin.h>
+#include <smart_auth/smart_auth_plugin.h>
 
 void RegisterPlugins(flutter::PluginRegistry* registry) {
   ConnectivityPlusWindowsPluginRegisterWithRegistrar(
@@ -20,4 +21,6 @@ void RegisterPlugins(flutter::PluginRegistry* registry) {
       registry->GetRegistrarForPlugin("ModalProgressHudNsnPlugin"));
   NbUtilsPluginRegisterWithRegistrar(
       registry->GetRegistrarForPlugin("NbUtilsPlugin"));
+  SmartAuthPluginRegisterWithRegistrar(
+      registry->GetRegistrarForPlugin("SmartAuthPlugin"));
 }

@@ -20,7 +20,7 @@ class RoundedButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(10.0),
+      padding:  EdgeInsets.all(10.0.sp),
       child: Container(
         decoration: BoxDecoration(
           boxShadow: [
@@ -46,7 +46,7 @@ class RoundedButton extends StatelessWidget {
           style: ButtonStyle(
             shape: MaterialStateProperty.all<RoundedRectangleBorder>(
               RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10.0),
+                borderRadius: BorderRadius.circular(8.0.sp),
               ),
             ),
             minimumSize: MaterialStateProperty.all(Size(width, height)),
