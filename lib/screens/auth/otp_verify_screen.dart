@@ -11,14 +11,14 @@ import '../../common/rounded_button.dart';
 import '../../common/utils/Styles.dart';
 import '../../common/utils/utility.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+class OtpVerifyScreen extends StatefulWidget {
+  const OtpVerifyScreen({super.key});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<OtpVerifyScreen> createState() => _OtpVerifyScreenState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _OtpVerifyScreenState extends State<OtpVerifyScreen> {
   @override
   Widget build(BuildContext context) {
     var width = Utils.getScreenWidth(context);
@@ -59,15 +59,15 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                       Utils.addHGap(3),
                       Text(
-                        "Login",
+                        AppConstants.otpVerification,
                         style: /*TextStyle(
                             color: Colors.brown,
                             fontSize: 30.sp,
                             fontWeight: FontWeight.w600),*/
-                            Styles.textFontRegular(
-                                size: 30.0.sp,
-                                weight: FontWeight.w600,
-                                color: Colors.brown),
+                        Styles.textFontRegular(
+                            size: 30.0.sp,
+                            weight: FontWeight.w600,
+                            color: Colors.brown),
                       ),
                     ],
                   ),
@@ -79,10 +79,10 @@ class _LoginPageState extends State<LoginPage> {
                       color: Colors.black,
                       fontSize: 14.sp,
                       fontWeight: FontWeight.w500),*/
-                      Styles.textFontRegular(
-                          size: 14.0.sp,
-                          weight: FontWeight.w500,
-                          color: Colors.black),
+                  Styles.textFontRegular(
+                      size: 14.0.sp,
+                      weight: FontWeight.w500,
+                      color: Colors.black),
                 ),
                 Utils.addGap(10),
                 Text(
@@ -91,10 +91,10 @@ class _LoginPageState extends State<LoginPage> {
                       color: Colors.black,
                       fontSize: 12.sp,
                       fontWeight: FontWeight.w400),*/
-                      Styles.textFontRegular(
-                          size: 12.0.sp,
-                          weight: FontWeight.w400,
-                          color: Colors.black),
+                  Styles.textFontRegular(
+                      size: 12.0.sp,
+                      weight: FontWeight.w400,
+                      color: Colors.black),
                 ),
                 Utils.addGap(40),
                 Row(
