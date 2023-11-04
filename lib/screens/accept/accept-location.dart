@@ -8,6 +8,8 @@ import 'package:nb_utils/nb_utils.dart';
 
 import '../../common/utils/utility.dart';
 import '../../constants.dart';
+import '../common/navToProfile.dart';
+import '../profile/profile.dart';
 import '../routes/app_pages.dart';
 
 class AcceptLocation extends StatefulWidget {
@@ -97,19 +99,7 @@ class _AcceptLocationState extends State<AcceptLocation> {
                             style: TextStyle(color: Colors.white, fontSize: 24),
                           ),
                           Spacer(),
-                          Container(
-                            decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                border: Border.all(color: Colors.white)),
-                            margin: EdgeInsets.only(bottom: 16.sp),
-                            padding: EdgeInsets.all(6.sp),
-                            child: Center(
-                              child: Icon(
-                                Icons.person_outlined,
-                                color: Colors.white,
-                              ),
-                            ),
-                          )
+                          NavToProfile(),
                         ],
                       )),
                 ),

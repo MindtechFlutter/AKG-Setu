@@ -6,6 +6,7 @@ import 'package:nb_utils/nb_utils.dart';
 
 import '../../common/utils/utility.dart';
 import '../../constants.dart';
+import '../common/navToProfile.dart';
 
 class InventoryPage extends StatefulWidget {
   const InventoryPage({super.key});
@@ -62,19 +63,8 @@ class _InventoryPageState extends State<InventoryPage>{
                           style: TextStyle(color: Colors.white, fontSize: 24),
                         ),
                         Spacer(),
-                        Container(
-                          decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              border: Border.all(color: Colors.white)),
-                          margin: EdgeInsets.only(bottom: 16.sp),
-                          padding: EdgeInsets.all(6.sp),
-                          child: Center(
-                            child: Icon(
-                              Icons.person_outlined,
-                              color: Colors.white,
-                            ),
-                          ),
-                        )
+                                                 NavToProfile(),
+
                       ],
                     )),
               ),

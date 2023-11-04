@@ -10,6 +10,7 @@ import '../../common/rounded_button.dart';
 import '../../common/utils/color_constants.dart';
 import '../../common/utils/utility.dart';
 import '../../constants.dart';
+import '../common/navToProfile.dart';
 import '../routes/app_pages.dart';
 
 class InventoryConsumed extends StatefulWidget {
@@ -164,19 +165,8 @@ class _InventoryConsumedState extends State<InventoryConsumed> {
                           style: TextStyle(color: Colors.white, fontSize: 24),
                         ),
                         Spacer(),
-                        Container(
-                          decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              border: Border.all(color: Colors.white)),
-                          margin: EdgeInsets.only(bottom: 16.sp),
-                          padding: EdgeInsets.all(6.sp),
-                          child: Center(
-                            child: Icon(
-                              Icons.person_outlined,
-                              color: Colors.white,
-                            ),
-                          ),
-                        )
+                                               NavToProfile(),
+
                       ],
                     )),
               ),
@@ -221,7 +211,7 @@ class _InventoryConsumedState extends State<InventoryConsumed> {
               padding: EdgeInsets.symmetric(horizontal: 50),
               child: RoundedButton(
                 buttonText: 'Request New Inventory',
-                width: width / 2,
+                width: width,
                 onpressed: () {
                   // Get.toNamed(Routes.otpVerify);
                 },
