@@ -5,12 +5,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:nb_utils/nb_utils.dart';
 
+import '../../common/routes/app_pages.dart';
 import '../../common/utils/color_constants.dart';
 import '../../common/utils/utility.dart';
 import '../../constants.dart';
 import '../common/navToProfile.dart';
 import '../common/ticket-details.dart';
-import '../routes/app_pages.dart';
 
 class ActiveTask extends StatefulWidget {
   const ActiveTask({super.key});

@@ -14,12 +14,12 @@ import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:nb_utils/nb_utils.dart';
+import '../../common/routes/app_pages.dart';
 import '../../common/utils/Styles.dart';
 import '../../common/utils/utility.dart';
 import '../../constants.dart';
 import '../common/navToProfile.dart';
 import '../common/ticket-details.dart';
-import '../routes/app_pages.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
