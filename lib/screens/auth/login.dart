@@ -67,7 +67,7 @@ class _LoginPageState extends State<LoginPage> {
                             fontSize: 30.sp,
                             fontWeight: FontWeight.w600),*/
                             Styles.textFontRegular(
-                                size: 30.0.sp,
+                                size: 26.0.sp,
                                 weight: FontWeight.w600,
                                 color: Colors.brown),
                       ),
@@ -155,7 +155,7 @@ class _LoginPageState extends State<LoginPage> {
                   padding:  EdgeInsets.only(top:40.0.sp),
                   child: RoundedButton(
                     buttonText: 'Get OTP',
-                    width: width/1.5,
+                    width: width/2,
                     onpressed: () {
                       Get.toNamed(Routes.otpVerify);
                     },
