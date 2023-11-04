@@ -155,7 +155,7 @@ class _LoginPageState extends State<LoginPage> {
                   padding:  EdgeInsets.only(top:40.0.sp),
                   child: RoundedButton(
                     buttonText: 'Get OTP',
-                    width: width/1.7,
+                    width: width/2,
                     onpressed: () {
                       Get.toNamed(Routes.otpVerify);
                     },

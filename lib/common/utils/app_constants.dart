@@ -44,7 +44,7 @@ class AppConstants {
   static const String otpVerification = 'OTP Verification';
 
       static const String activeTask = 'Active Task';
-  static const String visitsCompleted = 'Visits Completed';
+  static const String visitsCompleted = 'Visits';
   static const String inventory = 'Inventory';
   static const String vouchers = 'Vouchers';
   static const String holidays = 'Holidays';

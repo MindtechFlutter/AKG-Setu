@@ -1,4 +1,5 @@
-
+import 'package:akgsetu/screens/accept/accept-location.dart';
+import 'package:akgsetu/screens/accept/inventory-consumed.dart';
 import 'package:akgsetu/screens/auth/login.dart';
 import 'package:akgsetu/screens/auth/otp_verify_screen.dart';
 import 'package:akgsetu/screens/home/home.dart';
@@ -15,19 +16,26 @@ class AppPages {
     GetPage(
         name: Routes.root,
         page: () => SplashScreen(),
-        transition: Transition.rightToLeft),
+        transition: Transition.fadeIn),
     GetPage(
         name: Routes.login,
         page: () => LoginPage(),
-        transition: Transition.rightToLeft),
+        transition: Transition.fadeIn),
     GetPage(
         name: Routes.otpVerify,
         page: () => OtpVerifyScreen(),
-        transition: Transition.rightToLeft),
+        transition: Transition.fadeIn),
+    GetPage(
+        name: Routes.acceptLocation,
+        page: () => AcceptLocation(),
+        transition: Transition.fadeIn),
     GetPage(
         name: Routes.home,
         page: () => HomePage(),
-        transition: Transition.rightToLeft),
-
+        transition: Transition.fadeIn),
+          GetPage(
+        name: Routes.inventoryConsumed,
+        page: () => InventoryConsumed(),
+        transition: Transition.fadeIn),
   ];
 }

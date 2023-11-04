@@ -1,8 +1,9 @@
-
 import 'package:akgsetu/common/utils/Styles.dart';
 import 'package:akgsetu/common/utils/color_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:nb_utils/nb_utils.dart';
 
 class RoundedButton extends StatelessWidget {
   final String buttonText;
@@ -10,17 +11,16 @@ class RoundedButton extends StatelessWidget {
   final double height;
   final Function onpressed;
 
-  RoundedButton({
-    required this.buttonText,
-    required this.width,
-    this.height = 50,
-    required this.onpressed
-  });
+  RoundedButton(
+      {required this.buttonText,
+      required this.width,
+      this.height = 50,
+      required this.onpressed});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding:  EdgeInsets.all(10.0.sp),
+      padding: EdgeInsets.all(10.0.sp),
       child: Container(
         decoration: BoxDecoration(
           boxShadow: [
@@ -57,18 +57,16 @@ class RoundedButton extends StatelessWidget {
           onPressed: () {
             onpressed();
           },
-          child:  Text(
-              buttonText,
-              style: Styles.textFontRegular(size: 16.sp, weight: FontWeight.normal,color: AppColors.white),
-            ),
-          
+          child: Text(
+            buttonText,
+            style: Styles.textFontRegular(
+                size: 16.sp, weight: FontWeight.normal, color: AppColors.white),
+          ),
         ),
       ),
     );
   }
 }
-
-
 
 class RoundedButtonWIthLoading extends StatelessWidget {
   final String buttonText;
@@ -114,23 +112,87 @@ class RoundedButtonWIthLoading extends StatelessWidget {
             backgroundColor: MaterialStateProperty.all(Colors.transparent),
             shadowColor: MaterialStateProperty.all(Colors.transparent),
           ),
-          onPressed: isLoading ? null : () => onPressed(), // Disable the button when isLoading is true.
+          onPressed: isLoading
+              ? null
+              : () => onPressed(), // Disable the button when isLoading is true.
           child: Padding(
             padding: const EdgeInsets.only(
               top: 10,
               bottom: 10,
             ),
-            child: isLoading // Check if isLoading is true, show the loader, otherwise show the button text.
-                ? CircularProgressIndicator(
-              valueColor: AlwaysStoppedAnimation<Color>(AppColors.white),
-            )
-                : Text(
-              buttonText,
-              style: Styles.textFontRegular(
-                  size: 16, weight: FontWeight.normal, color: AppColors.white),
-            ),
+            child:
+                isLoading // Check if isLoading is true, show the loader, otherwise show the button text.
+                    ? CircularProgressIndicator(
+                        valueColor:
+                            AlwaysStoppedAnimation<Color>(AppColors.white),
+                      )
+                    : Text(
+                        buttonText,
+                        style: Styles.textFontRegular(
+                            size: 16,
+                            weight: FontWeight.normal,
+                            color: AppColors.white),
+                      ),
           ),
         ),
+      ),
+    );
+  }
+}
+
+class AcceptButton extends StatelessWidget {
+  final String buttonText;
+  final double width;
+  final double height;
+  final Function onpressed;
+
+  AcceptButton(
+      {required this.buttonText,
+      required this.width,
+      this.height = 50,
+      required this.onpressed});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: width / 2.5),
+      child: Container(
+        decoration: BoxDecoration(
+          color: greenColor.withOpacity(0.7),
+          borderRadius: BorderRadius.circular(10),
+        ),
+        child: ElevatedButton(
+            style: ButtonStyle(
+              shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(8.0.sp),
+                ),
+              ),
+              minimumSize: MaterialStateProperty.all(Size(width, height)),
+              backgroundColor: MaterialStateProperty.all(Colors.transparent),
+              // elevation: MaterialStateProperty.all(3),
+              shadowColor: MaterialStateProperty.all(Colors.transparent),
+            ),
+            onPressed: () {
+              onpressed();
+            },
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(
+                  FontAwesomeIcons.circleCheck,
+                  color: Colors.white,
+                ),
+                10.width,
+                Text(
+                  buttonText,
+                  style: Styles.textFontRegular(
+                      size: 16.sp,
+                      weight: FontWeight.normal,
+                      color: AppColors.white),
+                ),
+              ],
+            )),
       ),
     );
   }

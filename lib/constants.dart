@@ -6,6 +6,8 @@ import 'common/utils/color_constants.dart';
 Color backgroundColor =AppColors.lightblue;
 Color primaryColor = HexColor("2283A0");
 Color secondaryColor = Colors.grey;
+Color greenColor = HexColor("68A020");
+
 
 double borderRadius = 15;
 
