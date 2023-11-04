@@ -414,33 +414,35 @@ class _InventoryPageState extends State<InventoryPage> {
                                     child: Column(
                                         crossAxisAlignment: CrossAxisAlignment
                                             .start,
-
                                         children: [
-                                          Row(
-                                            mainAxisAlignment:
-                                            MainAxisAlignment.start,
-                                            children: [
-                                              Text(
-                                                "Item -1",
-                                                style: TextStyle(
-                                                  fontSize: 20,
-                                                  color: Colors.black87,
-                                                ),
-                                              ),
-                                              Spacer(),
-                                              Text("SKU-",
+                                          Padding(
+                                            padding:  EdgeInsets.only(left: 8.0,right: 8.0),
+                                            child: Row(
+                                              mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                              children: [
+                                                Text(
+                                                  "Item -1",
                                                   style: TextStyle(
-                                                    fontSize: 16,
-                                                    color: Colors.grey,
-                                                  )),
-                                              Text(
-                                                "#1234",
-                                                style: TextStyle(
-                                                  fontSize: 14,
-                                                  color: Colors.black87,
+                                                    fontSize: 20,
+                                                    color: Colors.black87,
+                                                  ),
                                                 ),
-                                              ),
-                                            ],
+                                                Spacer(),
+                                                Text("SKU-",
+                                                    style: TextStyle(
+                                                      fontSize: 16,
+                                                      color: Colors.grey,
+                                                    )),
+                                                Text(
+                                                  "#1234",
+                                                  style: TextStyle(
+                                                    fontSize: 14,
+                                                    color: Colors.black87,
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
                                           ),
                                           Utils.addGap(5),
                                           Row(
@@ -485,177 +487,180 @@ class _InventoryPageState extends State<InventoryPage> {
                                                                 borderRadius: BorderRadius.circular(15),
                                                                 color: Colors.white,
                                                               ),
-                                                              height: height * 0.49,
+                                                              height: height /2,
                                                               width: width * 0.8,
-                                                                child: Column(
-                                                                      children: [
-                                                                        Padding(
-                                                                          padding:  EdgeInsets.only(top:16.0),
-                                                                          child: Row(
-                                                                              mainAxisAlignment: MainAxisAlignment.end,
-                                                                              children: [
-                                                                            GestureDetector(
-                                                                              onTap:(){
-                                                                                Navigator.of(context).pop();
-                                                                              }
-                                                                              ,
-                                                                              child: Icon(
-                                                                                Icons.cancel,
-                                                                                color: Colors.black54,
-                                                                              ),
-                                                                            ),
-                                                                          ]),
-                                                                        ),
-                                                                        Text(
-                                                                          "Issued in",
-                                                                          style: TextStyle(fontSize: 18, color: AppColors.black,
-                                                                          ),),
-                                                                          Container(
-                                                                            color: Colors.blueAccent,
-                                                                            height: 1,
-                                                                            width: width/5,
-                                                                            child: Container(),
-                                                                          ),
-                                                                        Utils.addGap(40),
-                                                                        Row(
-                                                                          mainAxisAlignment:
-                                                                              MainAxisAlignment.start,
-                                                                          children: [
-                                                                            Column(
-                                                                              crossAxisAlignment: CrossAxisAlignment.start,
-                                                                              children: [
-                                                                                Text("Pradip kumar",
-                                                                                    style: TextStyle(
-                                                                                      fontSize: 14,
-                                                                                      color: Colors.black,
-                                                                                    )),
-                                                                                Text(
-                                                                                  "Item-1",
-                                                                                  style: TextStyle(fontSize: 14, color: Colors.black, fontWeight: FontWeight.w400),
-                                                                                ),
-                                                                              ],
-                                                                            ),
-                                                                            Spacer(),
-                                                                            Container(
-                                                                              padding: EdgeInsets.all(8.sp),
-                                                                              decoration: BoxDecoration(
-                                                                                borderRadius: BorderRadius.circular(8),
-                                                                                color: Colors.blue.withOpacity(0.3),
-                                                                              ),
-                                                                              // height: height / 19,
-
-                                                                              // margin: EdgeInsets.symmetric(horizontal: 20),
-                                                                              child: Row(
+                                                                child: Padding(
+                                                                  padding: const EdgeInsets.all(8.0),
+                                                                  child: Column(
+                                                                        children: [
+                                                                          Padding(
+                                                                            padding:  EdgeInsets.all(16.0),
+                                                                            child: Row(
+                                                                                mainAxisAlignment: MainAxisAlignment.end,
                                                                                 children: [
-                                                                                  Text("Qty: ",
+                                                                              GestureDetector(
+                                                                                onTap:(){
+                                                                                  Navigator.of(context).pop();
+                                                                                }
+                                                                                ,
+                                                                                child: Icon(
+                                                                                  Icons.cancel,
+                                                                                  color: Colors.black54,
+                                                                                ),
+                                                                              ),
+                                                                            ]),
+                                                                          ),
+                                                                          Text(
+                                                                            "Issued in",
+                                                                            style: TextStyle(fontSize: 18, color: AppColors.black,
+                                                                            ),),
+                                                                            Container(
+                                                                              color: Colors.blueAccent,
+                                                                              height: 1,
+                                                                              width: width/5,
+                                                                              child: Container(),
+                                                                            ),
+                                                                          Utils.addGap(40),
+                                                                          Row(
+                                                                            mainAxisAlignment:
+                                                                                MainAxisAlignment.start,
+                                                                            children: [
+                                                                              Column(
+                                                                                crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                children: [
+                                                                                  Text("Pradip kumar",
                                                                                       style: TextStyle(
                                                                                         fontSize: 14,
-                                                                                        color: Colors.grey,
+                                                                                        color: Colors.black,
                                                                                       )),
-                                                                                  Text("5",
-                                                                                      style: TextStyle(
-                                                                                        fontSize: 14,
-                                                                                        color: Colors.black87,
-                                                                                      )),
+                                                                                  Text(
+                                                                                    "Item-1",
+                                                                                    style: TextStyle(fontSize: 14, color: Colors.black, fontWeight: FontWeight.w400),
+                                                                                  ),
                                                                                 ],
                                                                               ),
-                                                                            ),
-                                                                          ],
-                                                                        ),
-                                                                        Utils.addGap(
-                                                                            10),
-                                                                        Container(
-                                                                          color: Colors.black45,
-                                                                          height: 1,
-                                                                          width: width-40,
-                                                                          child: Container(),
-                                                                        ),
-                                                                        Utils.addGap(20),
-                                                                        Text(
-                                                                          "Available - 10",
-                                                                          style: TextStyle(fontSize: 16, color: AppColors.black,fontWeight: FontWeight.normal
-                                                                          ),),
-                                                                        Utils.addGap(
-                                                                            20),
-                                                                        Row(
-                                                                          mainAxisAlignment: MainAxisAlignment.center,
-                                                                        children: [
-                                                                          Container(
-                                                                            height: 50.sp,
-                                                                            width: 50.sp,
-                                                                            padding:EdgeInsets.all(8),
-                                                                            decoration: BoxDecoration(
-                                                                              color:AppColors.darkblue,
-                                                                              borderRadius: BorderRadius.all(Radius.circular(10),
-                                                                              )
-                                                                            ),
-                                                                            child: Icon(Icons.add,color: AppColors.white,
-                                                                            size: 30, ),
-                                                                          ),
-                                                                          Utils.addHGap(10),
-                                                                          Container(
-                                                                            height: 50.sp,
-
-                                                                            width: MediaQuery.of(context).size.width/4,
-                                                                            decoration: BoxDecoration(
-                                                                                border: Border.all(
-                                                                                  color: Colors.black,
-                                                                                  width: 1.sp,
+                                                                              Spacer(),
+                                                                              Container(
+                                                                                padding: EdgeInsets.all(8.sp),
+                                                                                decoration: BoxDecoration(
+                                                                                  borderRadius: BorderRadius.circular(8),
+                                                                                  color: Colors.blue.withOpacity(0.3),
                                                                                 ),
-                                                                                borderRadius: BorderRadius.circular(10.sp)),
-                                                                            child:Center(
-                                                                              child: Text(
-                                                                                "1",
-                                                                               style: TextStyle(fontSize: 18, color: AppColors.black,fontWeight: FontWeight.normal
+                                                                                // height: height / 19,
+
+                                                                                // margin: EdgeInsets.symmetric(horizontal: 20),
+                                                                                child: Row(
+                                                                                  children: [
+                                                                                    Text("Qty: ",
+                                                                                        style: TextStyle(
+                                                                                          fontSize: 14,
+                                                                                          color: Colors.grey,
+                                                                                        )),
+                                                                                    Text("5",
+                                                                                        style: TextStyle(
+                                                                                          fontSize: 14,
+                                                                                          color: Colors.black87,
+                                                                                        )),
+                                                                                  ],
                                                                                 ),
                                                                               ),
-                                                                            )
-
-                                                                            /*getTransparentTextFormField(
-                                                                                validator: (String? value) {},
-                                                                                isObscureText: false,
-                                                                                hintText: "",
-                                                                                inputType: TextInputType.number,
-                                                                                onChanged: (String value) {}),*/
+                                                                            ],
                                                                           ),
-                                                                          Utils.addHGap(10),
+                                                                          Utils.addGap(
+                                                                              10),
                                                                           Container(
-                                                                            height: 50.sp,
-                                                                            width: 50.sp,
-                                                                            padding:EdgeInsets.all(8),
-                                                                            decoration: BoxDecoration(
+                                                                            color: Colors.black45,
+                                                                            height: 1,
+                                                                            width: width-40,
+                                                                            child: Container(),
+                                                                          ),
+                                                                          Utils.addGap(20),
+                                                                          Text(
+                                                                            "Available - 10",
+                                                                            style: TextStyle(fontSize: 16, color: AppColors.black,fontWeight: FontWeight.normal
+                                                                            ),),
+                                                                          Utils.addGap(
+                                                                              20),
+                                                                          Row(
+                                                                            mainAxisAlignment: MainAxisAlignment.center,
+                                                                          children: [
+                                                                            Container(
+                                                                              height: 50.sp,
+                                                                              width: 50.sp,
+                                                                              padding:EdgeInsets.all(8),
+                                                                              decoration: BoxDecoration(
                                                                                 color:AppColors.darkblue,
                                                                                 borderRadius: BorderRadius.all(Radius.circular(10),
                                                                                 )
-                                                                            ),
-                                                                            child: Icon(Icons.remove,color: AppColors.white,
+                                                                              ),
+                                                                              child: Icon(Icons.add,color: AppColors.white,
                                                                               size: 30, ),
+                                                                            ),
+                                                                            Utils.addHGap(10),
+                                                                            Container(
+                                                                              height: 50.sp,
+
+                                                                              width: MediaQuery.of(context).size.width/4,
+                                                                              decoration: BoxDecoration(
+                                                                                  border: Border.all(
+                                                                                    color: Colors.black,
+                                                                                    width: 1.sp,
+                                                                                  ),
+                                                                                  borderRadius: BorderRadius.circular(10.sp)),
+                                                                              child:Center(
+                                                                                child: Text(
+                                                                                  "1",
+                                                                                 style: TextStyle(fontSize: 18, color: AppColors.black,fontWeight: FontWeight.normal
+                                                                                  ),
+                                                                                ),
+                                                                              )
+
+                                                                              /*getTransparentTextFormField(
+                                                                                  validator: (String? value) {},
+                                                                                  isObscureText: false,
+                                                                                  hintText: "",
+                                                                                  inputType: TextInputType.number,
+                                                                                  onChanged: (String value) {}),*/
+                                                                            ),
+                                                                            Utils.addHGap(10),
+                                                                            Container(
+                                                                              height: 50.sp,
+                                                                              width: 50.sp,
+                                                                              padding:EdgeInsets.all(8),
+                                                                              decoration: BoxDecoration(
+                                                                                  color:AppColors.darkblue,
+                                                                                  borderRadius: BorderRadius.all(Radius.circular(10),
+                                                                                  )
+                                                                              ),
+                                                                              child: Icon(Icons.remove,color: AppColors.white,
+                                                                                size: 30, ),
+                                                                            ),
+
+
+                                                                          ],
                                                                           ),
-
-
-                                                                        ],
-                                                                        ),
-                                                                        Utils.addGap(50),
-                                                                        Container(
-                                                                          width: width/3,
-                                                                          height: 50.sp,
-                                                                          padding:
-                                                                          EdgeInsets.symmetric(horizontal: 15, vertical: 4),
-                                                                          decoration: BoxDecoration(
-                                                                              borderRadius: BorderRadius.circular(10),
-                                                                              color: AppColors.maroon),
-                                                                          child: Center(
-                                                                            child: Text(
-                                                                              "Decline",
-                                                                              style: TextStyle(
-                                                                                fontSize: 14,
-                                                                                color: AppColors.white,
+                                                                          Utils.addGap(50),
+                                                                          Container(
+                                                                            width: width/3,
+                                                                            height: 50.sp,
+                                                                            padding:
+                                                                            EdgeInsets.symmetric(horizontal: 15, vertical: 4),
+                                                                            decoration: BoxDecoration(
+                                                                                borderRadius: BorderRadius.circular(10),
+                                                                                color: AppColors.maroon),
+                                                                            child: Center(
+                                                                              child: Text(
+                                                                                "Issue",
+                                                                                style: TextStyle(
+                                                                                  fontSize: 14,
+                                                                                  color: AppColors.white,
+                                                                                ),
                                                                               ),
                                                                             ),
-                                                                          ),
-                                                                        )
-                                                                      ],
-                                                                    ),
+                                                                          )
+                                                                        ],
+                                                                      ),
+                                                                ),
                                                                   ),
                                                                 ));
                                                   },
@@ -751,8 +756,8 @@ class _InventoryPageState extends State<InventoryPage> {
                               borderRadius: BorderRadius.circular(15),
                               color: Colors.white,
                             ),
-                        height: height /1.5,
-                        width: width * 0.8,
+                      /*  height: height /1.5,
+                        width: width * 0.8,*/
                             padding: EdgeInsets.symmetric(horizontal: 20),
                             child: Column(children: [
                               Padding(
