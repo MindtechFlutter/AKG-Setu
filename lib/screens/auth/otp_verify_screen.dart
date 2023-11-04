@@ -2,6 +2,7 @@ import 'package:akgsetu/common/CommanTextField.dart';
 import 'package:akgsetu/common/utils/app_constants.dart';
 import 'package:akgsetu/common/utils/color_constants.dart';
 import 'package:akgsetu/constants.dart';
+import 'package:akgsetu/screens/home/dashboard.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
@@ -132,7 +133,7 @@ class _OtpVerifyScreenState extends State<OtpVerifyScreen> {
                       buttonText: 'Verfiy & Continue',
                       width: width / 1.5,
                       onpressed: () {
-                        Get.toNamed(Routes.home);
+                        Get.to(Dashboard(), transition: Transition.fadeIn);
                       },
                     ),
                   )

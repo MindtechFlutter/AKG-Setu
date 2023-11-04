@@ -1,10 +1,14 @@
 import 'package:akgsetu/constants.dart';
+import 'package:akgsetu/screens/attendance/attendance.dart';
+import 'package:akgsetu/screens/home/active-task.dart';
 import 'package:akgsetu/screens/home/home.dart';
+import 'package:akgsetu/screens/profile/profile.dart';
 import 'package:flutter/material.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 
 class Dashboard extends StatefulWidget {
-  const Dashboard({Key? key}) : super(key: key);
+  int? index;
+   Dashboard({Key? key, this.index}) : super(key: key);
 
   @override
   State<StatefulWidget> createState() => DashboardState();
@@ -17,15 +21,15 @@ class DashboardState extends State<Dashboard> {
   @override
   void initState() {
     super.initState();
-    _controller = PersistentTabController(initialIndex: 0);
+    _controller = PersistentTabController(initialIndex: widget.index ??  0);
     _hideNavBar = false;
   }
 
   List<Widget> _buildScreens() => [
         HomePage(),
-        HomePage(),
-        HomePage(),
-        HomePage(),
+        AttendancePage(),
+        ActiveTask(),
+        ProfilePage(),
       ];
 
   List<PersistentBottomNavBarItem> _navBarsItems() => [

@@ -158,8 +158,16 @@ class AcceptButton extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: width / 2.5),
       child: Container(
         decoration: BoxDecoration(
+              boxShadow: [
+            BoxShadow(
+                color: greenColor.withOpacity(0.15),
+                offset: Offset(0, 0),
+                spreadRadius: 10,
+                blurRadius: 10.0)
+          ],
           color: greenColor.withOpacity(0.7),
           borderRadius: BorderRadius.circular(10),
+          
         ),
         child: ElevatedButton(
             style: ButtonStyle(
