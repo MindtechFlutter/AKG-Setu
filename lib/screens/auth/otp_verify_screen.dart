@@ -132,7 +132,7 @@ class _OtpVerifyScreenState extends State<OtpVerifyScreen> {
                       buttonText: 'Verfiy & Continue',
                       width: width / 1.5,
                       onpressed: () {
-                        Get.toNamed(Routes.dashboard);
+                        Get.toNamed(Routes.home);
                       },
                     ),
                   )

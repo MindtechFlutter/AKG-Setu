@@ -1,4 +1,3 @@
-import 'package:akgsetu/screens/controller/inventory-consumed_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -6,11 +5,12 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:nb_utils/nb_utils.dart';
 
+import '../../common/controller/inventory-consumed_controller.dart';
 import '../../common/rounded_button.dart';
+import '../../common/routes/app_pages.dart';
 import '../../common/utils/color_constants.dart';
 import '../../common/utils/utility.dart';
 import '../../constants.dart';
-import '../routes/app_pages.dart';
 
 class InventoryConsumed extends StatefulWidget {
   InventoryConsumed({super.key});

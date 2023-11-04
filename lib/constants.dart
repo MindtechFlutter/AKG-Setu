@@ -10,6 +10,7 @@ Color greenColor = HexColor("68A020");
 
 
 double borderRadius = 15;
+double dialogueBorderRadius = 20;
 
 height(BuildContext context) {
   return MediaQuery.of(context).size.height;

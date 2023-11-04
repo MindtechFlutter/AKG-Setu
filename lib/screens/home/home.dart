@@ -9,10 +9,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:nb_utils/nb_utils.dart';
 import '../../common/rounded_button.dart';
+import '../../common/routes/app_pages.dart';
 import '../../common/utils/Styles.dart';
 import '../../common/utils/utility.dart';
 import '../../constants.dart';
-import '../routes/app_pages.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});

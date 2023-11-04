@@ -5,7 +5,8 @@ import 'package:akgsetu/screens/auth/otp_verify_screen.dart';
 import 'package:akgsetu/screens/home/home.dart';
 import 'package:get/get.dart';
 
-import '../ui/screens/splash_screen.dart';
+import '../../screens/splash_screen.dart';
+
 
 part 'app_routes.dart';
 

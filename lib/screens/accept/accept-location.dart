@@ -6,9 +6,9 @@ import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:nb_utils/nb_utils.dart';
 
+import '../../common/routes/app_pages.dart';
 import '../../common/utils/utility.dart';
 import '../../constants.dart';
-import '../routes/app_pages.dart';
 
 class AcceptLocation extends StatefulWidget {
   const AcceptLocation({super.key});
