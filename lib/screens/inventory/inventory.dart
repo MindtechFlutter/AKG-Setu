@@ -487,11 +487,12 @@ class _InventoryPageState extends State<InventoryPage> {
                                                                 borderRadius: BorderRadius.circular(15),
                                                                 color: Colors.white,
                                                               ),
-                                                              height: height /2,
+                                                              // height: height /2,
                                                               width: width * 0.8,
                                                                 child: Padding(
-                                                                  padding: const EdgeInsets.all(8.0),
+                                                                  padding:  EdgeInsets.all(12.0.sp),
                                                                   child: Column(
+                                                                    mainAxisSize: MainAxisSize.min,
                                                                         children: [
                                                                           Padding(
                                                                             padding:  EdgeInsets.all(16.0),
@@ -585,8 +586,8 @@ class _InventoryPageState extends State<InventoryPage> {
                                                                             mainAxisAlignment: MainAxisAlignment.center,
                                                                           children: [
                                                                             Container(
-                                                                              height: 50.sp,
-                                                                              width: 50.sp,
+                                                                              height: 40.sp,
+                                                                              width: 40.sp,
                                                                               padding:EdgeInsets.all(8),
                                                                               decoration: BoxDecoration(
                                                                                 color:AppColors.darkblue,
@@ -598,7 +599,7 @@ class _InventoryPageState extends State<InventoryPage> {
                                                                             ),
                                                                             Utils.addHGap(10),
                                                                             Container(
-                                                                              height: 50.sp,
+                                                                              height: 40.sp,
 
                                                                               width: MediaQuery.of(context).size.width/4,
                                                                               decoration: BoxDecoration(
@@ -624,8 +625,8 @@ class _InventoryPageState extends State<InventoryPage> {
                                                                             ),
                                                                             Utils.addHGap(10),
                                                                             Container(
-                                                                              height: 50.sp,
-                                                                              width: 50.sp,
+                                                                              height: 40.sp,
+                                                                              width: 40.sp,
                                                                               padding:EdgeInsets.all(8),
                                                                               decoration: BoxDecoration(
                                                                                   color:AppColors.darkblue,
@@ -642,7 +643,7 @@ class _InventoryPageState extends State<InventoryPage> {
                                                                           Utils.addGap(50),
                                                                           Container(
                                                                             width: width/3,
-                                                                            height: 50.sp,
+                                                                            height: 40.sp,
                                                                             padding:
                                                                             EdgeInsets.symmetric(horizontal: 15, vertical: 4),
                                                                             decoration: BoxDecoration(
@@ -657,7 +658,9 @@ class _InventoryPageState extends State<InventoryPage> {
                                                                                 ),
                                                                               ),
                                                                             ),
-                                                                          )
+                                                                          ),
+                                                                          Utils.addGap(20),
+
                                                                         ],
                                                                       ),
                                                                 ),
