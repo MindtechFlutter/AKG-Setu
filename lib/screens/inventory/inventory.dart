@@ -600,7 +600,6 @@ class _InventoryPageState extends State<InventoryPage> {
                                                                             Utils.addHGap(10),
                                                                             Container(
                                                                               height: 40.sp,
-
                                                                               width: MediaQuery.of(context).size.width/4,
                                                                               decoration: BoxDecoration(
                                                                                   border: Border.all(
@@ -636,8 +635,6 @@ class _InventoryPageState extends State<InventoryPage> {
                                                                               child: Icon(Icons.remove,color: AppColors.white,
                                                                                 size: 30, ),
                                                                             ),
-
-
                                                                           ],
                                                                           ),
                                                                           Utils.addGap(50),
@@ -808,9 +805,7 @@ class _InventoryPageState extends State<InventoryPage> {
                                     Expanded(
                                       child: InkWell(
                                         borderRadius: BorderRadius.all(Radius.circular(30)),
-                                        onTap: (){
-
-                                        },
+                                        onTap: _onFirstButtonDialog,
                                         child: Container(
                                           width: MediaQuery.of(context).size.width,
                                           padding: EdgeInsets.symmetric(vertical: 8),
@@ -834,7 +829,7 @@ class _InventoryPageState extends State<InventoryPage> {
                                     Expanded(
                                       child: InkWell(
                                         borderRadius: BorderRadius.all(Radius.circular(30)),
-                                        onTap: _onSecondButton,
+                                        onTap: _onSecondButtonDialog,
                                         child: Container(
                                           width: MediaQuery
                                               .of(context)
@@ -862,7 +857,7 @@ class _InventoryPageState extends State<InventoryPage> {
                                     Expanded(
                                       child: InkWell(
                                         borderRadius: BorderRadius.all(Radius.circular(dialogueBorderRadius)),
-                                        onTap: _onThirdButton,
+                                        onTap: _onThirdButtonDialog,
                                         child: Container(
                                           width: MediaQuery
                                               .of(context)
@@ -1505,17 +1500,44 @@ class _InventoryPageState extends State<InventoryPage> {
   }
 
   void _onFirstButton() {
-    /* _pageController!.animateToPage(0,
+    _pageController?.jumpToPage(0);
+     /*_pageController!.animateToPage(0,
         duration: const Duration(milliseconds: 500), curve: Curves.decelerate);*/
   }
 
   void _onSecondButton() {
-    /*  _pageController!.animateToPage(1,
-        duration: const Duration(milliseconds: 500), curve: Curves.decelerate);*/
+    _pageController?.jumpToPage(1);
+/*
+      _pageController!.animateToPage(1,
+        duration: const Duration(milliseconds: 500), curve: Curves.decelerate);
+*/
   }
 
   void _onThirdButton() {
-    /*_pageController!.animateToPage(2,
+    _pageController?.jumpToPage(2);
+   /* _pageController!.animateToPage(2,
+        duration: const Duration(milliseconds: 500), curve: Curves.decelerate);*/
+  }
+
+
+
+  void _onFirstButtonDialog() {
+    _dialogpageController?.jumpToPage(0);
+    /*_pageController!.animateToPage(0,
+        duration: const Duration(milliseconds: 500), curve: Curves.decelerate);*/
+  }
+
+  void _onSecondButtonDialog() {
+    _dialogpageController?.jumpToPage(1);
+/*
+      _pageController!.animateToPage(1,
+        duration: const Duration(milliseconds: 500), curve: Curves.decelerate);
+*/
+  }
+
+  void _onThirdButtonDialog() {
+    _dialogpageController?.jumpToPage(2);
+    /* _pageController!.animateToPage(2,
         duration: const Duration(milliseconds: 500), curve: Curves.decelerate);*/
   }
 }
