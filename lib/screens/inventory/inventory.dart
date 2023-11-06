@@ -487,12 +487,12 @@ class _InventoryPageState extends State<InventoryPage> {
                                                                 borderRadius: BorderRadius.circular(15),
                                                                 color: Colors.white,
                                                               ),
+                                                              height: height /2,
                                                               width: width * 0.8,
                                                                 child: Padding(
                                                                   padding: const EdgeInsets.all(8.0),
                                                                   child: Column(
-                                                                    mainAxisSize: MainAxisSize.min,
-                                                                    children: [
+                                                                        children: [
                                                                           Padding(
                                                                             padding:  EdgeInsets.all(16.0),
                                                                             child: Row(
@@ -501,7 +501,8 @@ class _InventoryPageState extends State<InventoryPage> {
                                                                               GestureDetector(
                                                                                 onTap:(){
                                                                                   Navigator.of(context).pop();
-                                                                                },
+                                                                                }
+                                                                                ,
                                                                                 child: Icon(
                                                                                   Icons.cancel,
                                                                                   color: Colors.black54,
@@ -745,21 +746,22 @@ class _InventoryPageState extends State<InventoryPage> {
                   child:
 
                   StatefulBuilder(builder: (context, DialogState) {
+
                     return GestureDetector(
                     onTap: () {
                           FocusScope.of(context).requestFocus(FocusNode());
                     },
                     child: Container(
+                    
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(15),
                               color: Colors.white,
                             ),
+                            height: height /1.5,
                       /*  height: height /1.5,
                         width: width * 0.8,*/
-                            padding: EdgeInsets.symmetric(horizontal: 8.sp),
-                            child: Column(
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
+                            padding: EdgeInsets.symmetric(horizontal: 20),
+                            child: Column(children: [
                               Padding(
                                 padding: EdgeInsets.only(top: 16.0),
                                 child: Row(
@@ -897,6 +899,7 @@ class _InventoryPageState extends State<InventoryPage> {
                               },
                               children: <Widget>[
                                 Container(
+                                  width: width,
                                   // constraints: const BoxConstraints.expand(),
                                   child: Column(
                                     children: [
@@ -1020,6 +1023,7 @@ class _InventoryPageState extends State<InventoryPage> {
                                   ),
                                 ),
                                 Container(
+                                  width: width,
                                   child: Column(
                                     children: [
                                       Utils.addGap(10),
@@ -1041,12 +1045,13 @@ class _InventoryPageState extends State<InventoryPage> {
                                                     width: 1.sp,
                                                   ),
                                                   borderRadius: BorderRadius.circular(5.sp)),
-                                              child: getTransparentTextFormField(
-                                                  validator: (String? value) {},
-                                                  isObscureText: false,
-                                                  hintText: "Pravin Kumar",
-                                                  inputType: TextInputType.text,
-                                                  onChanged: (String value) {}),
+                                              child:getTransparentTextFormField(
+                                                    validator: (String? value) {},
+                                                    isObscureText: false,
+                                                    hintText: "Pravin Kumar",
+                                                    inputType: TextInputType.text,
+                                                    onChanged: (String value) {}),
+                                              
                                             ),
                                           ),
                                           Utils.addHGap(10),
@@ -1171,7 +1176,9 @@ class _InventoryPageState extends State<InventoryPage> {
                                     ],
                                   ),
                                 ),
-                                Container(                                    child: Column(
+                                Container(
+                                    width: width,
+                                    child: Column(
                                         children: [
                                           Utils.addGap(10),
                                           Row(
@@ -1193,11 +1200,12 @@ class _InventoryPageState extends State<InventoryPage> {
                                                       ),
                                                       borderRadius: BorderRadius.circular(5.sp)),
                                                   child: getTransparentTextFormField(
-                                                      validator: (String? value) {},
-                                                      isObscureText: false,
-                                                      hintText: "",
-                                                      inputType: TextInputType.text,
-                                                      onChanged: (String value) {}),
+                                                        validator: (String? value) {},
+                                                        isObscureText: false,
+                                                        hintText: "",
+                                                        inputType: TextInputType.text,
+                                                        onChanged: (String value) {}),
+                                                  
                                                 ),
                                               ),
                                               Utils.addHGap(10),
@@ -1223,13 +1231,14 @@ class _InventoryPageState extends State<InventoryPage> {
                                                         width: 1.sp,
                                                       ),
                                                       borderRadius: BorderRadius.circular(5.sp)),
-                                                  child: getTransparentTextFormField(
-                                                      validator: (String? value) {},
-                                                      isObscureText: false,
-                                                      hintText: "",
-                                                      inputType: TextInputType.text,
-                                                      onChanged: (String value) {}),
-                                                ),
+                                                  child:  getTransparentTextFormField(
+                                                        validator: (String? value) {},
+                                                        isObscureText: false,
+                                                        hintText: "",
+                                                        inputType: TextInputType.text,
+                                                        onChanged: (String value) {}),
+                                                  ),
+                                              
                                               ),
                                               Utils.addHGap(10),
 
@@ -1255,12 +1264,13 @@ class _InventoryPageState extends State<InventoryPage> {
                                                         width: 1.sp,
                                                       ),
                                                       borderRadius: BorderRadius.circular(5.sp)),
-                                                  child: getTransparentTextFormField(
-                                                      validator: (String? value) {},
-                                                      isObscureText: false,
-                                                      hintText: "",
-                                                      inputType: TextInputType.text,
-                                                      onChanged: (String value) {}),
+                                                  child:  getTransparentTextFormField(
+                                                        validator: (String? value) {},
+                                                        isObscureText: false,
+                                                        hintText: "",
+                                                        inputType: TextInputType.text,
+                                                        onChanged: (String value) {}),
+                                                
                                                 ),
                                               ),
                                               Utils.addHGap(10),
@@ -1279,8 +1289,7 @@ class _InventoryPageState extends State<InventoryPage> {
                                                         width: 1.sp,
                                                       ),
                                                       borderRadius: BorderRadius.circular(5.sp)),
-                                                  child: Expanded(
-                                                    child: getTransparentTextFormField(
+                                                  child: getTransparentTextFormField(
                                                         validator: (String? value) {},
                                                         isObscureText: false,
                                                         hintText: "",
@@ -1288,7 +1297,7 @@ class _InventoryPageState extends State<InventoryPage> {
                                                         onChanged: (String value) {}),
                                                   ),
                                                 ),
-                                              ),
+                                            
                                               Utils.addHGap(10),
                                             ],
                                           ),
@@ -1311,14 +1320,13 @@ class _InventoryPageState extends State<InventoryPage> {
                                                         width: 1.sp,
                                                       ),
                                                       borderRadius: BorderRadius.circular(5.sp)),
-                                                  child: Expanded(
-                                                    child: getTransparentTextFormField(
+                                                  child: getTransparentTextFormField(
                                                         validator: (String? value) {},
                                                         isObscureText: false,
                                                         hintText: "",
                                                         inputType: TextInputType.text,
                                                         onChanged: (String value) {}),
-                                                  ),
+                                                  
                                                 ),
                                               ),
                                               Utils.addHGap(10),
@@ -1340,7 +1348,7 @@ class _InventoryPageState extends State<InventoryPage> {
                                     },
                                     child: Container(
                                       padding:
-                                      EdgeInsets.all(16),
+                                      EdgeInsets.all(10),
                                       width: width/3,
                                       decoration: BoxDecoration(
                                           borderRadius: BorderRadius.circular(5),
@@ -1362,7 +1370,7 @@ class _InventoryPageState extends State<InventoryPage> {
                                       },
                                       child: Container(
                                         padding:
-                                        EdgeInsets.all(16),
+                                        EdgeInsets.all(10),
                                         width: width/3,
 
                                         decoration: BoxDecoration(
@@ -1380,7 +1388,7 @@ class _InventoryPageState extends State<InventoryPage> {
                                       )),
                                 ],
                               ),
-                              Utils.addGap(30),
+                              Utils.addGap(20),
 
                             ])),
                   );
