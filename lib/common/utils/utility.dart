@@ -2,8 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:akgsetu/common/utils/storage_service.dart';
-import 'package:cached_network_image/cached_network_image.dart';
-import 'package:connectivity/connectivity.dart';
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -12,7 +11,6 @@ import 'package:flutter_svg/svg.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 
 import '../routes/app_pages.dart';
@@ -136,23 +134,23 @@ class Utils {
     );
   }
 
-  static Widget loadNetworkImage({url, mWidth, fit, mHeight}) {
-    return CachedNetworkImage(
-      imageUrl: url,
-      width: mWidth,
-      height: mHeight,
-      imageBuilder: (context, imageProvider) => Container(
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: imageProvider,
-            fit: fit,
-          ),
-        ),
-      ),
-      placeholder: (context, url) => Center(child: CircularProgressIndicator()),
-      errorWidget: (context, url, error) => Center(child: Icon(Icons.error)),
-    );
-  }
+  // static Widget loadNetworkImage({url, mWidth, fit, mHeight}) {
+  //   return CachedNetworkImage(
+  //     imageUrl: url,
+  //     width: mWidth,
+  //     height: mHeight,
+  //     imageBuilder: (context, imageProvider) => Container(
+  //       decoration: BoxDecoration(
+  //         image: DecorationImage(
+  //           image: imageProvider,
+  //           fit: fit,
+  //         ),
+  //       ),
+  //     ),
+  //     placeholder: (context, url) => Center(child: CircularProgressIndicator()),
+  //     errorWidget: (context, url, error) => Center(child: Icon(Icons.error)),
+  //   );
+  // }
 
   static addSmallGap10() {
     return SizedBox(

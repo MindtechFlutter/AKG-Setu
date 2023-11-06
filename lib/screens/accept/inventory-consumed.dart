@@ -1,3 +1,4 @@
+import 'package:akgsetu/screens/home/dashboard.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -109,23 +110,27 @@ class _InventoryConsumedState extends State<InventoryConsumed> {
                         Colors.amber.shade800),
                     Padding(
                         padding: EdgeInsets.only(top: 35.sp),
-                        child: InkWell(onTap: () {
-                          Navigator.of(context).pop();
-                          Get.toNamed(Routes.home);}, child: Container(
-                          width: width(context) * 0.4,
-                          padding: EdgeInsets.symmetric(vertical: 10),
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(15),
-                              color: AppColors.maroon),
-                          child: Center(
-                            child: Text(
-                              "Save & update",
-                              style: TextStyle(
-                                  fontSize: 18,
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold),
+                        child: InkWell(
+                          onTap: () {
+                            Navigator.of(context).pop();
+                            Get.to(Dashboard(), transition: Transition.fadeIn);
+                          },
+                          child: Container(
+                            width: width(context) * 0.4,
+                            padding: EdgeInsets.symmetric(vertical: 10),
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(15),
+                                color: AppColors.maroon),
+                            child: Center(
+                              child: Text(
+                                "Save & update",
+                                style: TextStyle(
+                                    fontSize: 18,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold),
+                              ),
                             ),
-                          ),),
+                          ),
                         ))
                   ],
                 ),
@@ -165,8 +170,7 @@ class _InventoryConsumedState extends State<InventoryConsumed> {
                           style: TextStyle(color: Colors.white, fontSize: 24),
                         ),
                         Spacer(),
-                                               NavToProfile(),
-
+                        NavToProfile(),
                       ],
                     )),
               ),
