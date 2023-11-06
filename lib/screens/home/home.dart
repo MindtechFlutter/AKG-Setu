@@ -55,8 +55,7 @@ class _HomePageState extends State<HomePage> {
                         height: 33.sp,
                       ),
                       Spacer(),
-                                             NavToProfile(),
-
+                      NavToProfile(),
                     ],
                   )),
             ),
@@ -64,20 +63,64 @@ class _HomePageState extends State<HomePage> {
           Align(
             alignment: Alignment.topRight,
             child: Padding(
-              padding: EdgeInsets.only(right: 10),
-              child: CupertinoSwitch(
-                activeColor: AppColors.green1,
-                trackColor: AppColors.maroon,
-                value: _switchValue,
-                onChanged: (value) {
+              padding: EdgeInsets.only(right: 20),
+              child: GestureDetector(
+                onTap: () {
                   setState(() {
-                    _switchValue = value;
+                    _switchValue = !_switchValue;
                   });
                 },
+                child: _switchValue
+                    ? Container(
+                        width: width * 0.22,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(30),
+                            color: Colors.green.withOpacity(0.5)),
+                        child: Padding(
+                          padding: const EdgeInsets.all(5.0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Container(
+                                width: 25,
+                                height: 25,
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(30),
+                                    color: Colors.green),
+                              ),
+                              5.width,
+                              Text("Online")
+                            ],
+                          ),
+                        ),
+                      )
+                    : Container(
+                        width: width * 0.22,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(30),
+                            color: Colors.redAccent.withOpacity(0.5)),
+                        child: Padding(
+                          padding: const EdgeInsets.all(5.0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Text("Offline", ),
+                              5.width,
+                              Container(
+                                width: 25,
+                                height: 25,
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(30),
+                                    color: Colors.redAccent),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
               ),
             ),
           ),
-          Utils.addGap(15),
+          Utils.addGap(20),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -286,6 +329,9 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
             ),
+          ),
+          SizedBox(
+            height: height / 8,
           ),
         ],
       ),

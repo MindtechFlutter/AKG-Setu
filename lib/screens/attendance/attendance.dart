@@ -63,14 +63,29 @@ class _AttendancePageState extends State<AttendancePage> {
             color: Colors.white,
           ),
           padding: EdgeInsets.symmetric(horizontal: 15),
-          height: height(context) * 0.4,
+          height: height(context) * 0.6,
           width: width(context) * 0.9,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
-              Utils.addGap(10),
               Column(
                 children: [
+                  Padding(
+                    padding: EdgeInsets.only(top: 15.0),
+                    child: Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.of(context).pop();
+                            },
+                            child: Icon(
+                              Icons.cancel,
+                              color: Colors.black54,
+                            ),
+                          ),
+                        ]),
+                  ),
                   Text(
                     "Attendance",
                     style: TextStyle(fontSize: 19),
@@ -119,16 +134,14 @@ class _AttendancePageState extends State<AttendancePage> {
                     ),
                   ),
                   30.width,
-                  Expanded( child: Text("In Time - 11:00 AM")),
+                  Expanded(child: Text("In Time - 11:00 AM")),
                   Expanded(
-                  
                       child: Text(
-                        "Out Time - 11:00 PM",
-                      )),
+                    "Out Time - 11:00 PM",
+                  )),
                 ]),
               ),
-
-                Utils.addGap(5),
+              Utils.addGap(5),
               Container(
                 padding: EdgeInsets.symmetric(horizontal: 20),
                 color: primaryColor.withOpacity(0.4),
@@ -147,12 +160,11 @@ class _AttendancePageState extends State<AttendancePage> {
                     ),
                   ),
                   30.width,
-                  Expanded( child: Text("In Time - 11:00 AM")),
+                  Expanded(child: Text("In Time - 11:00 AM")),
                   Expanded(
-                  
                       child: Text(
-                        "Out Time - 11:00 PM",
-                      )),
+                    "Out Time - 11:00 PM",
+                  )),
                 ]),
               )
             ],
@@ -188,8 +200,7 @@ class _AttendancePageState extends State<AttendancePage> {
                         style: TextStyle(color: Colors.white, fontSize: 24),
                       ),
                       Spacer(),
-                                               NavToProfile(),
-
+                      NavToProfile(),
                     ],
                   )),
             ),

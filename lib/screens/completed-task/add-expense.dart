@@ -18,6 +18,9 @@ class AddExpense extends StatefulWidget {
 }
 
 class _AddExpenseState extends State<AddExpense> {
+  bool isFood = true;
+  bool isTravel = false;
+  bool isOthers = false;
   @override
   Widget build(BuildContext context) {
     var width = Utils.getScreenWidth(context);
@@ -50,8 +53,7 @@ class _AddExpenseState extends State<AddExpense> {
                         style: TextStyle(color: Colors.white, fontSize: 24),
                       ),
                       Spacer(),
-                                             NavToProfile(),
-
+                      NavToProfile(),
                     ],
                   )),
             ),
@@ -88,21 +90,43 @@ class _AddExpenseState extends State<AddExpense> {
             child: Row(
               children: [
                 Checkbox(
-                  value: true,
-                  onChanged: (val) {},
+                  value: isFood,
+                  onChanged: (val) {
+                    setState(() {
+                      isFood = true;
+                      isTravel = false;
+                      isOthers = false;
+                    });
+                  },
                 ),
                 Text(
                   "Food",
                   style: TextStyle(fontSize: 17, color: Colors.black87),
                 ),
                 Spacer(),
-                Checkbox(value: true, onChanged: (val) {}),
+                Checkbox(
+                    value: isTravel,
+                    onChanged: (val) {
+                      setState(() {
+                        isFood = false;
+                        isTravel = true;
+                        isOthers = false;
+                      });
+                    }),
                 Text(
                   "Travel",
                   style: TextStyle(fontSize: 17, color: Colors.black87),
                 ),
                 Spacer(),
-                Checkbox(value: true, onChanged: (val) {}),
+                Checkbox(
+                    value: isOthers,
+                    onChanged: (val) {
+                      setState(() {
+                        isFood = false;
+                        isTravel = false;
+                        isOthers = true;
+                      });
+                    }),
                 Text(
                   "Other",
                   style: TextStyle(fontSize: 17, color: Colors.black87),

@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:akgsetu/screens/home/dashboard.dart';
 import 'package:get/get.dart';
 import '../../common/service_locator.dart';
 import '../../common/utils/dimensions.dart';
@@ -22,7 +23,7 @@ class SplashController extends BaseController {
       seconds: Dimensions.screenLoadTime,
     );
     Timer(_duration, () async {
-      Get.offNamedUntil(Routes.home, (route) => false);
+      Get.to(Dashboard(), transition: Transition.fadeIn);
 
       /*try {
         if (storage.getString(AppConstants.eventId) != null) {

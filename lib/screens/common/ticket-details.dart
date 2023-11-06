@@ -16,7 +16,7 @@ showTicketDetails(BuildContext context) {
           color: Colors.white,
         ),
         padding: EdgeInsets.symmetric(horizontal: 20),
-        height: height(context) * 0.34,
+        height: height(context) * 0.42,
         width: width(context) * 0.8,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -80,7 +80,7 @@ showDeclineDialog(BuildContext context) {
           color: Colors.white,
         ),
         padding: EdgeInsets.symmetric(horizontal: 20),
-        height: height(context) * 0.49,
+        height: height(context) * 0.6,
         width: width(context) * 0.8,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

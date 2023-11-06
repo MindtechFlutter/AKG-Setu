@@ -19,6 +19,9 @@ class CompletedTask extends StatefulWidget {
 }
 
 class _CompletedTaskState extends State<CompletedTask> {
+
+
+
   @override
   Widget build(BuildContext context) {
     var width = Utils.getScreenWidth(context);
