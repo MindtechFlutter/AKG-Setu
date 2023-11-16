@@ -768,7 +768,6 @@ class _InventoryPageState extends State<InventoryPage> {
         backgroundColor: AppColors.pink,
         onPressed: () {
           int dialogActivePageIndex = 0;
-
           showDialog(
               context: context,
               builder: (BuildContext context) => Dialog(
@@ -968,8 +967,8 @@ class _InventoryPageState extends State<InventoryPage> {
                                                         BorderRadius.circular(
                                                             5),
                                                     border: Border.all(
-                                                      color: AppColors
-                                                          .black44, // Gray color for the border
+                                                      color: AppColors.black44,
+                                                      // Gray color for the border
                                                       width:
                                                           1.0, // Border width
                                                     ),
@@ -1157,8 +1156,8 @@ class _InventoryPageState extends State<InventoryPage> {
                                                         BorderRadius.circular(
                                                             5),
                                                     border: Border.all(
-                                                      color: AppColors
-                                                          .black44, // Gray color for the border
+                                                      color: AppColors.black44,
+                                                      // Gray color for the border
                                                       width:
                                                           1.0, // Border width
                                                     ),

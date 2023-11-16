@@ -24,13 +24,18 @@ class _HolidayPageState extends State<HolidayPage> {
   bool isApproved = false;
   bool isPending = false;
   bool isRejected = false;
+
   @override
   Widget build(BuildContext context) {
     var width = Utils.getScreenWidth(context);
     var height = Utils.getScreenHeight(context);
+
     return Scaffold(
       floatingActionButton: FloatingActionButton(
-        backgroundColor: AppColors.maroon,
+        shape: CircleBorder(
+          eccentricity: 0.9,
+        ),
+        backgroundColor: AppColors.pink,
         onPressed: () => Get.to(ApplyHoliday(), transition: Transition.fadeIn),
         child: Center(
           child: Icon(
@@ -66,8 +71,7 @@ class _HolidayPageState extends State<HolidayPage> {
                         style: TextStyle(color: Colors.white, fontSize: 24),
                       ),
                       Spacer(),
-                                              NavToProfile(),
-
+                      NavToProfile(),
                     ],
                   )),
             ),

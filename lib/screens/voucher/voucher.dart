@@ -3,12 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:nb_utils/nb_utils.dart';
 
 import '../../common/utils/utility.dart';
 import '../../constants.dart';
 import '../common/navToProfile.dart';
 import '../common/ticket-details.dart';
+import '../completed-task/add-expense.dart';
 
 class VoucherPage extends StatefulWidget {
   const VoucherPage({super.key});
@@ -22,7 +25,7 @@ class _VoucherPageState extends State<VoucherPage> {
   bool isApproved = false;
   bool isPending = false;
   bool isRejected = false;
-  @override
+    @override
   Widget build(BuildContext context) {
     var width = Utils.getScreenWidth(context);
     var height = Utils.getScreenHeight(context);
@@ -125,6 +128,19 @@ class _VoucherPageState extends State<VoucherPage> {
           Utils.addGap(10),
           ticket(Colors.red, false, false, true),
         ],
+      ),
+      floatingActionButton:  FloatingActionButton(
+        shape: CircleBorder(
+          eccentricity: 0.9,
+        ),
+        backgroundColor: AppColors.pink,
+        onPressed: () => Get.to(AddExpense(), transition: Transition.fadeIn),
+        child: Center(
+          child: Icon(
+            Icons.add,
+            color: Colors.white,
+          ),
+        ),
       ),
     );
   }

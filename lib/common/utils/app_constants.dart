@@ -46,6 +46,7 @@ class AppConstants {
       static const String activeTask = 'Active Task';
   static const String visitsCompleted = 'Visits';
     static const String completedTasks = 'Completed';
+  static const String dsr = 'Digital Service Report';
 
   static const String inventory = 'Inventory';
   static const String vouchers = 'Vouchers';

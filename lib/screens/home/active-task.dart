@@ -112,7 +112,7 @@ class _ActiveTaskState extends State<ActiveTask> {
             ),
           ),
           Utils.addGap(10),
-          InkWell(      splashColor: Colors.transparent,
+          InkWell(splashColor: Colors.transparent,
       highlightColor: Colors.transparent,
             onTap: () => showTicketDetails(context),
             child: Container(
@@ -232,6 +232,7 @@ class _ActiveTaskState extends State<ActiveTask> {
           ),
         ],
       ),
+
     );
   }
 }
