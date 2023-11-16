@@ -104,7 +104,9 @@ class _HomePageState extends State<HomePage> {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
-                              Text("Offline", ),
+                              Text(
+                                "Offline",
+                              ),
                               5.width,
                               Container(
                                 width: 25,
@@ -285,7 +287,10 @@ class _HomePageState extends State<HomePage> {
                       ),
                       10.width,
                       InkWell(
-                          onTap: () => Get.toNamed(Routes.acceptLocation),
+                          onTap: () =>
+                              //Vedant 16/11/2023
+                              // Get.toNamed(Routes.acceptLocation),
+                              Get.toNamed(Routes.inventoryConsumed),
                           child: Container(
                             padding: EdgeInsets.symmetric(
                                 horizontal: 15, vertical: 4),

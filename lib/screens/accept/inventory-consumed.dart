@@ -46,16 +46,25 @@ class _InventoryConsumedState extends State<InventoryConsumed> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Icon(
-              icon,
-              color: val.value ? Colors.white : color,
+            Expanded(
+              flex: 4,
+              child: Container(
+                alignment: Alignment.centerRight,
+                child: Icon(
+                  icon,
+                  color: val.value ? Colors.white : color,
+                ),
+              ),
             ),
-            10.width,
-            Text(
-              text,
-              style: TextStyle(
-                fontSize: 18,
-                color: val.value ? Colors.white : Colors.black,
+            6.width,
+            Expanded(
+              flex: 6,
+              child: Text(
+                text,
+                style: TextStyle(
+                  fontSize: 18,
+                  color: val.value ? Colors.white : Colors.black,
+                ),
               ),
             )
           ],
