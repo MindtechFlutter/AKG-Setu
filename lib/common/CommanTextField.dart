@@ -205,6 +205,7 @@ class getTransparentTextFormField extends StatelessWidget {
     this.autovalidateMode,
     required this.onChanged,
     this.minlines,
+    this.maxlines,
     this.readMode,
     this.focusNode})
       : super(key: key);
@@ -213,6 +214,7 @@ class getTransparentTextFormField extends StatelessWidget {
   final String? labelText;
   final int? length;
   final int? minlines;
+  final int? maxlines;
 
   final String? Function(String?)? validator;
   final VoidCallback? callback;
@@ -247,6 +249,7 @@ class getTransparentTextFormField extends StatelessWidget {
       cursorColor: Colors.grey,
       keyboardType: inputType,
       minLines: minlines,
+      maxLines: maxlines,
       readOnly: readMode ?? false,
       decoration: InputDecoration(
         filled: true,

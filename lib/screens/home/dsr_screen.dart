@@ -1,3 +1,5 @@
+import 'package:akgsetu/common/rounded_button.dart';
+import 'package:akgsetu/common/routes/app_pages.dart';
 import 'package:akgsetu/common/utils/app_constants.dart';
 import 'package:akgsetu/screens/holiday/apply-holiday.dart';
 import 'package:flutter/material.dart';
@@ -22,25 +24,15 @@ class DsrScreen extends StatefulWidget {
 }
 
 class _DsrScreenState extends State<DsrScreen> {
+  int selectedOption = 1;
+  String _partStatus = 'returned';
+
   @override
   Widget build(BuildContext context) {
     var width = Utils.getScreenWidth(context);
     var height = Utils.getScreenHeight(context);
 
     return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        shape: CircleBorder(
-          eccentricity: 0.9,
-        ),
-        backgroundColor: AppColors.pink,
-        onPressed: () => Get.to(ApplyHoliday(), transition: Transition.fadeIn),
-        child: Center(
-          child: Icon(
-            Icons.add,
-            color: Colors.white,
-          ),
-        ),
-      ),
       backgroundColor: backgroundColor,
       body: ListView(
           padding: EdgeInsets.zero,
@@ -149,7 +141,7 @@ class _DsrScreenState extends State<DsrScreen> {
                           ],
                         ),
                       ),
-                      Utils.addHGap(5),
+                      Utils.addHGap(8),
                       Expanded(
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -182,6 +174,1303 @@ class _DsrScreenState extends State<DsrScreen> {
                       ),
                     ],
                   ),
+                  Utils.addGap(15),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Society Code",
+                              style: TextStyle(
+                                  fontSize: 12.sp,
+                                  color: Colors.black87,
+                                  fontWeight: FontWeight.w400),
+                            ),
+                            Container(
+                              height: 50.sp,
+                              width: MediaQuery.of(context).size.width,
+                              decoration: BoxDecoration(
+                                  border: Border.all(
+                                    color: Colors.black,
+                                    width: 1.sp,
+                                  ),
+                                  borderRadius: BorderRadius.circular(10.sp)),
+                              child: getTransparentTextFormField(
+                                  validator: (String? value) {},
+                                  isObscureText: false,
+                                  hintText: "",
+                                  inputType: TextInputType.text,
+                                  onChanged: (String value) {}),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Utils.addHGap(8),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Society Name",
+                              style: TextStyle(
+                                  fontSize: 12.sp,
+                                  color: Colors.black87,
+                                  fontWeight: FontWeight.w400),
+                            ),
+                            Container(
+                              height: 50.sp,
+                              width: MediaQuery.of(context).size.width,
+                              decoration: BoxDecoration(
+                                  border: Border.all(
+                                    color: Colors.black,
+                                    width: 1.sp,
+                                  ),
+                                  borderRadius: BorderRadius.circular(10.sp)),
+                              child: getTransparentTextFormField(
+                                  validator: (String? value) {},
+                                  isObscureText: false,
+                                  hintText: "",
+                                  inputType: TextInputType.text,
+                                  onChanged: (String value) {}),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                  Utils.addGap(15),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Employee Name",
+                              style: TextStyle(
+                                  fontSize: 12.sp,
+                                  color: Colors.black87,
+                                  fontWeight: FontWeight.w400),
+                            ),
+                            Container(
+                              height: 50.sp,
+                              width: MediaQuery.of(context).size.width,
+                              decoration: BoxDecoration(
+                                  border: Border.all(
+                                    color: Colors.black,
+                                    width: 1.sp,
+                                  ),
+                                  borderRadius: BorderRadius.circular(10.sp)),
+                              child: getTransparentTextFormField(
+                                  validator: (String? value) {},
+                                  isObscureText: false,
+                                  hintText: "",
+                                  inputType: TextInputType.text,
+                                  onChanged: (String value) {}),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Utils.addHGap(8),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Employee Number",
+                              style: TextStyle(
+                                  fontSize: 12.sp,
+                                  color: Colors.black87,
+                                  fontWeight: FontWeight.w400),
+                            ),
+                            Container(
+                              height: 50.sp,
+                              width: MediaQuery.of(context).size.width,
+                              decoration: BoxDecoration(
+                                  border: Border.all(
+                                    color: Colors.black,
+                                    width: 1.sp,
+                                  ),
+                                  borderRadius: BorderRadius.circular(10.sp)),
+                              child: getTransparentTextFormField(
+                                  validator: (String? value) {},
+                                  isObscureText: false,
+                                  hintText: "",
+                                  inputType: TextInputType.text,
+                                  onChanged: (String value) {}),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                  Utils.addGap(15),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Service Place",
+                              style: TextStyle(
+                                  fontSize: 12.sp,
+                                  color: Colors.black87,
+                                  fontWeight: FontWeight.w400),
+                            ),
+                            Container(
+                              height: 50.sp,
+                              width: MediaQuery.of(context).size.width,
+                              decoration: BoxDecoration(
+                                  border: Border.all(
+                                    color: Colors.black,
+                                    width: 1.sp,
+                                  ),
+                                  borderRadius: BorderRadius.circular(10.sp)),
+                              child: getTransparentTextFormField(
+                                  validator: (String? value) {},
+                                  isObscureText: false,
+                                  hintText: "",
+                                  inputType: TextInputType.text,
+                                  onChanged: (String value) {}),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Utils.addHGap(8),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Service Call",
+                              style: TextStyle(
+                                  fontSize: 12.sp,
+                                  color: Colors.black87,
+                                  fontWeight: FontWeight.w400),
+                            ),
+                            Container(
+                              height: 50.sp,
+                              width: MediaQuery.of(context).size.width,
+                              decoration: BoxDecoration(
+                                  border: Border.all(
+                                    color: Colors.black,
+                                    width: 1.sp,
+                                  ),
+                                  borderRadius: BorderRadius.circular(10.sp)),
+                              child: getTransparentTextFormField(
+                                  validator: (String? value) {},
+                                  isObscureText: false,
+                                  hintText: "",
+                                  inputType: TextInputType.text,
+                                  onChanged: (String value) {}),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                  Utils.addGap(15),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "From Place",
+                              style: TextStyle(
+                                  fontSize: 12.sp,
+                                  color: Colors.black87,
+                                  fontWeight: FontWeight.w400),
+                            ),
+                            Container(
+                              height: 50.sp,
+                              width: MediaQuery.of(context).size.width,
+                              decoration: BoxDecoration(
+                                  border: Border.all(
+                                    color: Colors.black,
+                                    width: 1.sp,
+                                  ),
+                                  borderRadius: BorderRadius.circular(10.sp)),
+                              child: getTransparentTextFormField(
+                                  validator: (String? value) {},
+                                  isObscureText: false,
+                                  hintText: "",
+                                  inputType: TextInputType.text,
+                                  onChanged: (String value) {}),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Utils.addHGap(8),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Kilometers",
+                              style: TextStyle(
+                                  fontSize: 12.sp,
+                                  color: Colors.black87,
+                                  fontWeight: FontWeight.w400),
+                            ),
+                            Container(
+                              height: 50.sp,
+                              width: MediaQuery.of(context).size.width,
+                              decoration: BoxDecoration(
+                                  border: Border.all(
+                                    color: Colors.black,
+                                    width: 1.sp,
+                                  ),
+                                  borderRadius: BorderRadius.circular(10.sp)),
+                              child: getTransparentTextFormField(
+                                  validator: (String? value) {},
+                                  isObscureText: false,
+                                  hintText: "",
+                                  inputType: TextInputType.text,
+                                  onChanged: (String value) {}),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                  Utils.addGap(15),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Chairman Name",
+                              style: TextStyle(
+                                  fontSize: 12.sp,
+                                  color: Colors.black87,
+                                  fontWeight: FontWeight.w400),
+                            ),
+                            Container(
+                              height: 50.sp,
+                              width: MediaQuery.of(context).size.width,
+                              decoration: BoxDecoration(
+                                  border: Border.all(
+                                    color: Colors.black,
+                                    width: 1.sp,
+                                  ),
+                                  borderRadius: BorderRadius.circular(10.sp)),
+                              child: getTransparentTextFormField(
+                                  validator: (String? value) {},
+                                  isObscureText: false,
+                                  hintText: "",
+                                  inputType: TextInputType.text,
+                                  onChanged: (String value) {}),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Utils.addHGap(8),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Secretary Name",
+                              style: TextStyle(
+                                  fontSize: 12.sp,
+                                  color: Colors.black87,
+                                  fontWeight: FontWeight.w400),
+                            ),
+                            Container(
+                              height: 50.sp,
+                              width: MediaQuery.of(context).size.width,
+                              decoration: BoxDecoration(
+                                  border: Border.all(
+                                    color: Colors.black,
+                                    width: 1.sp,
+                                  ),
+                                  borderRadius: BorderRadius.circular(10.sp)),
+                              child: getTransparentTextFormField(
+                                  validator: (String? value) {},
+                                  isObscureText: false,
+                                  hintText: "",
+                                  inputType: TextInputType.text,
+                                  onChanged: (String value) {}),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                  Utils.addGap(15),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Taluka",
+                              style: TextStyle(
+                                  fontSize: 12.sp,
+                                  color: Colors.black87,
+                                  fontWeight: FontWeight.w400),
+                            ),
+                            Container(
+                              height: 50.sp,
+                              width: MediaQuery.of(context).size.width,
+                              decoration: BoxDecoration(
+                                  border: Border.all(
+                                    color: Colors.black,
+                                    width: 1.sp,
+                                  ),
+                                  borderRadius: BorderRadius.circular(10.sp)),
+                              child: getTransparentTextFormField(
+                                  validator: (String? value) {},
+                                  isObscureText: false,
+                                  hintText: "",
+                                  inputType: TextInputType.text,
+                                  onChanged: (String value) {}),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Utils.addHGap(8),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "District",
+                              style: TextStyle(
+                                  fontSize: 12.sp,
+                                  color: Colors.black87,
+                                  fontWeight: FontWeight.w400),
+                            ),
+                            Container(
+                              height: 50.sp,
+                              width: MediaQuery.of(context).size.width,
+                              decoration: BoxDecoration(
+                                  border: Border.all(
+                                    color: Colors.black,
+                                    width: 1.sp,
+                                  ),
+                                  borderRadius: BorderRadius.circular(10.sp)),
+                              child: getTransparentTextFormField(
+                                  validator: (String? value) {},
+                                  isObscureText: false,
+                                  hintText: "",
+                                  inputType: TextInputType.text,
+                                  onChanged: (String value) {}),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                  Utils.addGap(15),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Issue",
+                              style: TextStyle(
+                                  fontSize: 12.sp,
+                                  color: Colors.black87,
+                                  fontWeight: FontWeight.w400),
+                            ),
+                            Container(
+                              height: 50.sp,
+                              width: MediaQuery.of(context).size.width,
+                              decoration: BoxDecoration(
+                                  border: Border.all(
+                                    color: Colors.black,
+                                    width: 1.sp,
+                                  ),
+                                  borderRadius: BorderRadius.circular(10.sp)),
+                              child: getTransparentTextFormField(
+                                  validator: (String? value) {},
+                                  isObscureText: false,
+                                  hintText: "",
+                                  inputType: TextInputType.text,
+                                  onChanged: (String value) {}),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Utils.addHGap(8),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            SizedBox(
+                              height: 50.sp,
+                              width: MediaQuery.of(context).size.width,
+                            )
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                  Utils.addGap(15),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Solutions",
+                              style: TextStyle(
+                                  fontSize: 12.sp,
+                                  color: Colors.black87,
+                                  fontWeight: FontWeight.w400),
+                            ),
+                            Container(
+                              height: 90.sp,
+                              width: MediaQuery.of(context).size.width,
+                              decoration: BoxDecoration(
+                                  border: Border.all(
+                                    color: Colors.black,
+                                    width: 1.sp,
+                                  ),
+                                  borderRadius: BorderRadius.circular(10.sp)),
+                              child: getTransparentTextFormField(
+                                  validator: (String? value) {},
+                                  isObscureText: false,
+                                  maxlines: null,
+                                  minlines: 2,
+                                  hintText: "",
+                                  inputType: TextInputType.multiline,
+                                  onChanged: (String value) {}),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                  Utils.addGap(15),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Service Status",
+                              style: TextStyle(
+                                  fontSize: 12.sp,
+                                  color: Colors.black87,
+                                  fontWeight: FontWeight.w400),
+                            ),
+                            Container(
+                              height: 50.sp,
+                              width: MediaQuery.of(context).size.width,
+                              decoration: BoxDecoration(
+                                  border: Border.all(
+                                    color: Colors.black,
+                                    width: 1.sp,
+                                  ),
+                                  borderRadius: BorderRadius.circular(10.sp)),
+                              child: getTransparentTextFormField(
+                                  validator: (String? value) {},
+                                  isObscureText: false,
+                                  hintText: "",
+                                  inputType: TextInputType.text,
+                                  onChanged: (String value) {}),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Utils.addHGap(8),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Problem Part Name",
+                              style: TextStyle(
+                                  fontSize: 12.sp,
+                                  color: Colors.black87,
+                                  fontWeight: FontWeight.w400),
+                            ),
+                            Container(
+                              height: 50.sp,
+                              width: MediaQuery.of(context).size.width,
+                              decoration: BoxDecoration(
+                                  border: Border.all(
+                                    color: Colors.black,
+                                    width: 1.sp,
+                                  ),
+                                  borderRadius: BorderRadius.circular(10.sp)),
+                              child: getTransparentTextFormField(
+                                  validator: (String? value) {},
+                                  isObscureText: false,
+                                  hintText: "",
+                                  inputType: TextInputType.text,
+                                  onChanged: (String value) {}),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                  Utils.addGap(15),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Machine Name",
+                              style: TextStyle(
+                                  fontSize: 12.sp,
+                                  color: Colors.black87,
+                                  fontWeight: FontWeight.w400),
+                            ),
+                            Container(
+                              height: 50.sp,
+                              width: MediaQuery.of(context).size.width,
+                              decoration: BoxDecoration(
+                                  border: Border.all(
+                                    color: Colors.black,
+                                    width: 1.sp,
+                                  ),
+                                  borderRadius: BorderRadius.circular(10.sp)),
+                              child: getTransparentTextFormField(
+                                  validator: (String? value) {},
+                                  isObscureText: false,
+                                  hintText: "",
+                                  inputType: TextInputType.text,
+                                  onChanged: (String value) {}),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Utils.addHGap(8),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Module/Serial Number",
+                              style: TextStyle(
+                                  fontSize: 12.sp,
+                                  color: Colors.black87,
+                                  fontWeight: FontWeight.w400),
+                            ),
+                            Container(
+                              height: 50.sp,
+                              width: MediaQuery.of(context).size.width,
+                              decoration: BoxDecoration(
+                                  border: Border.all(
+                                    color: Colors.black,
+                                    width: 1.sp,
+                                  ),
+                                  borderRadius: BorderRadius.circular(10.sp)),
+                              child: getTransparentTextFormField(
+                                  validator: (String? value) {},
+                                  isObscureText: false,
+                                  hintText: "",
+                                  inputType: TextInputType.text,
+                                  onChanged: (String value) {}),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                  Utils.addGap(15),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Problem Details",
+                              style: TextStyle(
+                                  fontSize: 12.sp,
+                                  color: Colors.black87,
+                                  fontWeight: FontWeight.w400),
+                            ),
+                            Container(
+                              height: 50.sp,
+                              width: MediaQuery.of(context).size.width,
+                              decoration: BoxDecoration(
+                                  border: Border.all(
+                                    color: Colors.black,
+                                    width: 1.sp,
+                                  ),
+                                  borderRadius: BorderRadius.circular(10.sp)),
+                              child: getTransparentTextFormField(
+                                  validator: (String? value) {},
+                                  isObscureText: false,
+                                  maxlines: null,
+                                  minlines: 2,
+                                  hintText: "",
+                                  inputType: TextInputType.multiline,
+                                  onChanged: (String value) {}),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                  Utils.addGap(15),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Solution Details",
+                              style: TextStyle(
+                                  fontSize: 12.sp,
+                                  color: Colors.black87,
+                                  fontWeight: FontWeight.w400),
+                            ),
+                            Container(
+                              height: 50.sp,
+                              width: MediaQuery.of(context).size.width,
+                              decoration: BoxDecoration(
+                                  border: Border.all(
+                                    color: Colors.black,
+                                    width: 1.sp,
+                                  ),
+                                  borderRadius: BorderRadius.circular(10.sp)),
+                              child: getTransparentTextFormField(
+                                  validator: (String? value) {},
+                                  isObscureText: false,
+                                  maxlines: null,
+                                  minlines: 2,
+                                  hintText: "",
+                                  inputType: TextInputType.multiline,
+                                  onChanged: (String value) {}),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                  Utils.addGap(15),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Remark",
+                              style: TextStyle(
+                                  fontSize: 12.sp,
+                                  color: Colors.black87,
+                                  fontWeight: FontWeight.w400),
+                            ),
+                            Container(
+                              height: 90.sp,
+                              width: MediaQuery.of(context).size.width,
+                              decoration: BoxDecoration(
+                                  border: Border.all(
+                                    color: Colors.black,
+                                    width: 1.sp,
+                                  ),
+                                  borderRadius: BorderRadius.circular(10.sp)),
+                              child: getTransparentTextFormField(
+                                  validator: (String? value) {},
+                                  isObscureText: false,
+                                  maxlines: null,
+                                  minlines: 2,
+                                  hintText: "",
+                                  inputType: TextInputType.multiline,
+                                  onChanged: (String value) {}),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                  Utils.addGap(15),
+                  // Row(
+                  //   mainAxisAlignment: MainAxisAlignment.start,
+                  //   children: [
+                  //
+                  //     Column(crossAxisAlignment: CrossAxisAlignment.start,
+                  //       children: [Text("Defective Part Return to society"),
+                  //       Row(mainAxisAlignment: MainAxisAlignment.start,
+                  //         children: [
+                  //           // Radio(
+                  //           //   value: 'returned',
+                  //           //   groupValue: _partStatus,
+                  //           //   onChanged: (value) {
+                  //           //     setState(() {
+                  //           //       _partStatus = value!;
+                  //           //     });
+                  //           //   },
+                  //           //   activeColor: Colors.green,
+                  //           // ),
+                  //           // Text('yes'),
+                  //           // Radio(
+                  //           //   value: 'not_returned',
+                  //           //   groupValue: _partStatus,
+                  //           //   onChanged: (value) {
+                  //           //     setState(() {
+                  //           //       _partStatus = value!;
+                  //           //     });
+                  //           //   },
+                  //           //   activeColor: Colors.red,
+                  //           // ),
+                  //           // Text('no'),
+                  //         ],
+                  //       ),
+                  //     ],),
+                  //
+                  //     Column(crossAxisAlignment: CrossAxisAlignment.start,
+                  //       children: [Text("Amount Recieved"),
+                  //         Row(mainAxisAlignment: MainAxisAlignment.start,
+                  //           children: [
+                  //             // Radio(
+                  //             //   value: 'returned',
+                  //             //   groupValue: _partStatus,
+                  //             //   onChanged: (value) {
+                  //             //     setState(() {
+                  //             //       _partStatus = value!;
+                  //             //     });
+                  //             //   },
+                  //             //   activeColor: Colors.green,
+                  //             // ),
+                  //             // Text('yes'),
+                  //             // Radio(
+                  //             //   value: 'not_returned',
+                  //             //   groupValue: _partStatus,
+                  //             //   onChanged: (value) {
+                  //             //     setState(() {
+                  //             //       _partStatus = value!;
+                  //             //     });
+                  //             //   },
+                  //             //   activeColor: Colors.red,
+                  //             // ),
+                  //             // Text('no'),
+                  //           ],
+                  //         ),
+                  //       ],),
+                  //   ],
+                  // ),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              textAlign: TextAlign.start,
+                              "Defective Part Return to society",
+                              style: TextStyle(
+                                  fontSize: 10.sp,
+                                  color: Colors.black87,
+                                  fontWeight: FontWeight.w400),
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Radio(
+                                  value: 'returned',
+                                  groupValue: _partStatus,
+                                  onChanged: (value) {
+                                    setState(() {
+                                      _partStatus = value!;
+                                    });
+                                  },
+                                  activeColor: Colors.green,
+                                ),
+                                Text('Yes'),
+                                Radio(
+                                  value: 'not_returned',
+                                  groupValue: _partStatus,
+                                  onChanged: (value) {
+                                    setState(() {
+                                      _partStatus = value!;
+                                    });
+                                  },
+                                  activeColor: Colors.red,
+                                ),
+                                Text('No'),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                      Utils.addHGap(2),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              textAlign: TextAlign.start,
+                              "Amount Recived",
+                              style: TextStyle(
+                                  fontSize: 10.sp,
+                                  color: Colors.black87,
+                                  fontWeight: FontWeight.w400),
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Radio(
+                                  value: 'returned',
+                                  groupValue: _partStatus,
+                                  onChanged: (value) {
+                                    setState(() {
+                                      _partStatus = value!;
+                                    });
+                                  },
+                                  activeColor: Colors.green,
+                                ),
+                                Text('Yes'),
+                                Radio(
+                                  value: 'not_returned',
+                                  groupValue: _partStatus,
+                                  onChanged: (value) {
+                                    setState(() {
+                                      _partStatus = value!;
+                                    });
+                                  },
+                                  activeColor: Colors.red,
+                                ),
+                                Text('No'),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                  Utils.addGap(15),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              textAlign: TextAlign.start,
+                              "Deduction Letter",
+                              style: TextStyle(
+                                  fontSize: 10.sp,
+                                  color: Colors.black87,
+                                  fontWeight: FontWeight.w400),
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Radio(
+                                  value: 'returned',
+                                  groupValue: _partStatus,
+                                  onChanged: (value) {
+                                    setState(() {
+                                      _partStatus = value!;
+                                    });
+                                  },
+                                  activeColor: Colors.green,
+                                ),
+                                Text('Yes'),
+                                Radio(
+                                  value: 'not_returned',
+                                  groupValue: _partStatus,
+                                  onChanged: (value) {
+                                    setState(() {
+                                      _partStatus = value!;
+                                    });
+                                  },
+                                  activeColor: Colors.red,
+                                ),
+                                Text('No'),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                      Utils.addHGap(2),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Modal Signal",
+                              style: TextStyle(
+                                  fontSize: 12.sp,
+                                  color: Colors.black87,
+                                  fontWeight: FontWeight.w400),
+                            ),
+                            Container(
+                              height: 50.sp,
+                              width: MediaQuery.of(context).size.width,
+                              decoration: BoxDecoration(
+                                  border: Border.all(
+                                    color: Colors.black,
+                                    width: 1.sp,
+                                  ),
+                                  borderRadius: BorderRadius.circular(10.sp)),
+                              child: getTransparentTextFormField(
+                                  validator: (String? value) {},
+                                  isObscureText: false,
+                                  hintText: "",
+                                  inputType: TextInputType.text,
+                                  onChanged: (String value) {}),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                  Utils.addGap(15),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              textAlign: TextAlign.start,
+                              "Online Status",
+                              style: TextStyle(
+                                  fontSize: 10.sp,
+                                  color: Colors.black87,
+                                  fontWeight: FontWeight.w400),
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Radio(
+                                  value: 'returned',
+                                  groupValue: _partStatus,
+                                  onChanged: (value) {
+                                    setState(() {
+                                      _partStatus = value!;
+                                    });
+                                  },
+                                  activeColor: Colors.green,
+                                ),
+                                Text('Yes'),
+                                Radio(
+                                  value: 'not_returned',
+                                  groupValue: _partStatus,
+                                  onChanged: (value) {
+                                    setState(() {
+                                      _partStatus = value!;
+                                    });
+                                  },
+                                  activeColor: Colors.red,
+                                ),
+                                Text('No'),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                      Utils.addHGap(2),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Online Weight",
+                              style: TextStyle(
+                                  fontSize: 12.sp,
+                                  color: Colors.black87,
+                                  fontWeight: FontWeight.w400),
+                            ),
+                            Container(
+                              height: 50.sp,
+                              width: MediaQuery.of(context).size.width,
+                              decoration: BoxDecoration(
+                                  border: Border.all(
+                                    color: Colors.black,
+                                    width: 1.sp,
+                                  ),
+                                  borderRadius: BorderRadius.circular(10.sp)),
+                              child: getTransparentTextFormField(
+                                  validator: (String? value) {},
+                                  isObscureText: false,
+                                  hintText: "",
+                                  inputType: TextInputType.text,
+                                  onChanged: (String value) {}),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                  Utils.addGap(15),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Online Fat",
+                              style: TextStyle(
+                                  fontSize: 12.sp,
+                                  color: Colors.black87,
+                                  fontWeight: FontWeight.w400),
+                            ),
+                            Container(
+                              height: 50.sp,
+                              width: MediaQuery.of(context).size.width,
+                              decoration: BoxDecoration(
+                                  border: Border.all(
+                                    color: Colors.black,
+                                    width: 1.sp,
+                                  ),
+                                  borderRadius: BorderRadius.circular(10.sp)),
+                              child: getTransparentTextFormField(
+                                  validator: (String? value) {},
+                                  isObscureText: false,
+                                  hintText: "",
+                                  inputType: TextInputType.text,
+                                  onChanged: (String value) {}),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Utils.addHGap(10),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              textAlign: TextAlign.start,
+                              "Electricity Issue",
+                              style: TextStyle(
+                                  fontSize: 10.sp,
+                                  color: Colors.black87,
+                                  fontWeight: FontWeight.w400),
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Radio(
+                                  value: 'returned',
+                                  groupValue: _partStatus,
+                                  onChanged: (value) {
+                                    setState(() {
+                                      _partStatus = value!;
+                                    });
+                                  },
+                                  activeColor: Colors.green,
+                                ),
+                                Text('Yes'),
+                                Radio(
+                                  value: 'not_returned',
+                                  groupValue: _partStatus,
+                                  onChanged: (value) {
+                                    setState(() {
+                                      _partStatus = value!;
+                                    });
+                                  },
+                                  activeColor: Colors.red,
+                                ),
+                                Text('No'),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                  Utils.addGap(15),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Item details of society taken by engineer",
+                              style: TextStyle(
+                                  fontSize: 12.sp,
+                                  color: Colors.black87,
+                                  fontWeight: FontWeight.w400),
+                            ),
+                            Container(
+                              height: 50.sp,
+                              width: MediaQuery.of(context).size.width,
+                              decoration: BoxDecoration(
+                                  border: Border.all(
+                                    color: Colors.black,
+                                    width: 1.sp,
+                                  ),
+                                  borderRadius: BorderRadius.circular(10.sp)),
+                              child: getTransparentTextFormField(
+                                  validator: (String? value) {},
+                                  isObscureText: false,
+                                  hintText: "",
+                                  inputType: TextInputType.multiline,
+                                  onChanged: (String value) {}),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                  Utils.addGap(15),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Over all action taken on society items",
+                              style: TextStyle(
+                                  fontSize: 12.sp,
+                                  color: Colors.black87,
+                                  fontWeight: FontWeight.w400),
+                            ),
+                            Container(
+                              height: 50.sp,
+                              width: MediaQuery.of(context).size.width,
+                              decoration: BoxDecoration(
+                                  border: Border.all(
+                                    color: Colors.black,
+                                    width: 1.sp,
+                                  ),
+                                  borderRadius: BorderRadius.circular(10.sp)),
+                              child: getTransparentTextFormField(
+                                  validator: (String? value) {},
+                                  isObscureText: false,
+                                  hintText: "",
+                                  inputType: TextInputType.multiline,
+                                  onChanged: (String value) {}),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                  Utils.addGap(15),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Changed products/Stand by product given to society",
+                              style: TextStyle(
+                                  fontSize: 12.sp,
+                                  color: Colors.black87,
+                                  fontWeight: FontWeight.w400),
+                            ),
+                            Container(
+                              height: 50.sp,
+                              width: MediaQuery.of(context).size.width,
+                              decoration: BoxDecoration(
+                                  border: Border.all(
+                                    color: Colors.black,
+                                    width: 1.sp,
+                                  ),
+                                  borderRadius: BorderRadius.circular(10.sp)),
+                              child: getTransparentTextFormField(
+                                  validator: (String? value) {},
+                                  isObscureText: false,
+                                  hintText: "",
+                                  inputType: TextInputType.multiline,
+                                  onChanged: (String value) {}),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                  Utils.addGap(15),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Engineer Name",
+                              style: TextStyle(
+                                  fontSize: 12.sp,
+                                  color: Colors.black87,
+                                  fontWeight: FontWeight.w400),
+                            ),
+                            Container(
+                              height: 50.sp,
+                              width: MediaQuery.of(context).size.width,
+                              decoration: BoxDecoration(
+                                  border: Border.all(
+                                    color: Colors.black,
+                                    width: 1.sp,
+                                  ),
+                                  borderRadius: BorderRadius.circular(10.sp)),
+                              child: getTransparentTextFormField(
+                                  validator: (String? value) {},
+                                  isObscureText: false,
+                                  hintText: "",
+                                  inputType: TextInputType.text,
+                                  onChanged: (String value) {}),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Utils.addHGap(8),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Society representative Name",
+                              style: TextStyle(
+                                  fontSize: 12.sp,
+                                  color: Colors.black87,
+                                  fontWeight: FontWeight.w400),
+                            ),
+                            Container(
+                              height: 50.sp,
+                              width: MediaQuery.of(context).size.width,
+                              decoration: BoxDecoration(
+                                  border: Border.all(
+                                    color: Colors.black,
+                                    width: 1.sp,
+                                  ),
+                                  borderRadius: BorderRadius.circular(10.sp)),
+                              child: getTransparentTextFormField(
+                                  validator: (String? value) {},
+                                  isObscureText: false,
+                                  hintText: "",
+                                  inputType: TextInputType.text,
+                                  onChanged: (String value) {}),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                  Utils.addGap(15),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      RoundedButton(
+                        buttonText: 'Submit & Save',
+                        width: width / 2,
+                        onpressed: () {
+                          Get.offAllNamed(Routes.home);
+                        },
+                      ),
+                    ],
+                  )
                 ],
               ),
             ),
