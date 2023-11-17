@@ -1,6 +1,7 @@
 import 'package:akgsetu/common/utils/app_constants.dart';
 import 'package:akgsetu/common/utils/color_constants.dart';
 import 'package:akgsetu/common/utils/image_paths.dart';
+import 'package:akgsetu/screens/accept/inventory-consumed.dart';
 import 'package:akgsetu/screens/completed-task/completed-task.dart';
 import 'package:akgsetu/screens/home/active-task.dart';
 import 'package:akgsetu/screens/holiday/holiday.dart';

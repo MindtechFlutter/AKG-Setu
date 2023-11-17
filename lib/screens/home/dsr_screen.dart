@@ -67,7 +67,7 @@ class _DsrScreenState extends State<DsrScreen> {
             ),
             Utils.addGap(10),
             Padding(
-              padding: EdgeInsets.all(8.0.sp),
+              padding: EdgeInsets.all(15.0.sp),
               child: Column(
                 children: [
                   Row(
@@ -126,8 +126,9 @@ class _DsrScreenState extends State<DsrScreen> {
                               height: 50.sp,
                               width: MediaQuery.of(context).size.width,
                               decoration: BoxDecoration(
+                                  color: AppColors.white,
                                   border: Border.all(
-                                    color: Colors.black,
+                                    color: AppColors.grayA5,
                                     width: 1.sp,
                                   ),
                                   borderRadius: BorderRadius.circular(10.sp)),
@@ -141,7 +142,7 @@ class _DsrScreenState extends State<DsrScreen> {
                           ],
                         ),
                       ),
-                      Utils.addHGap(8),
+                      Utils.addHGap(15),
                       Expanded(
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -157,8 +158,9 @@ class _DsrScreenState extends State<DsrScreen> {
                               height: 50.sp,
                               width: MediaQuery.of(context).size.width,
                               decoration: BoxDecoration(
+                                  color: AppColors.white,
                                   border: Border.all(
-                                    color: Colors.black,
+                                    color: AppColors.grayA5,
                                     width: 1.sp,
                                   ),
                                   borderRadius: BorderRadius.circular(10.sp)),
@@ -192,8 +194,9 @@ class _DsrScreenState extends State<DsrScreen> {
                               height: 50.sp,
                               width: MediaQuery.of(context).size.width,
                               decoration: BoxDecoration(
+                                  color: AppColors.white,
                                   border: Border.all(
-                                    color: Colors.black,
+                                    color: AppColors.grayA5,
                                     width: 1.sp,
                                   ),
                                   borderRadius: BorderRadius.circular(10.sp)),
@@ -223,8 +226,9 @@ class _DsrScreenState extends State<DsrScreen> {
                               height: 50.sp,
                               width: MediaQuery.of(context).size.width,
                               decoration: BoxDecoration(
+                                  color: AppColors.white,
                                   border: Border.all(
-                                    color: Colors.black,
+                                    color: AppColors.grayA5,
                                     width: 1.sp,
                                   ),
                                   borderRadius: BorderRadius.circular(10.sp)),
@@ -258,8 +262,9 @@ class _DsrScreenState extends State<DsrScreen> {
                               height: 50.sp,
                               width: MediaQuery.of(context).size.width,
                               decoration: BoxDecoration(
+                                  color: AppColors.white,
                                   border: Border.all(
-                                    color: Colors.black,
+                                    color: AppColors.grayA5,
                                     width: 1.sp,
                                   ),
                                   borderRadius: BorderRadius.circular(10.sp)),
@@ -289,8 +294,9 @@ class _DsrScreenState extends State<DsrScreen> {
                               height: 50.sp,
                               width: MediaQuery.of(context).size.width,
                               decoration: BoxDecoration(
+                                  color: AppColors.white,
                                   border: Border.all(
-                                    color: Colors.black,
+                                    color: AppColors.grayA5,
                                     width: 1.sp,
                                   ),
                                   borderRadius: BorderRadius.circular(10.sp)),
@@ -324,8 +330,9 @@ class _DsrScreenState extends State<DsrScreen> {
                               height: 50.sp,
                               width: MediaQuery.of(context).size.width,
                               decoration: BoxDecoration(
+                                  color: AppColors.white,
                                   border: Border.all(
-                                    color: Colors.black,
+                                    color: AppColors.grayA5,
                                     width: 1.sp,
                                   ),
                                   borderRadius: BorderRadius.circular(10.sp)),
@@ -355,8 +362,9 @@ class _DsrScreenState extends State<DsrScreen> {
                               height: 50.sp,
                               width: MediaQuery.of(context).size.width,
                               decoration: BoxDecoration(
+                                  color: AppColors.white,
                                   border: Border.all(
-                                    color: Colors.black,
+                                    color: AppColors.grayA5,
                                     width: 1.sp,
                                   ),
                                   borderRadius: BorderRadius.circular(10.sp)),
@@ -390,8 +398,9 @@ class _DsrScreenState extends State<DsrScreen> {
                               height: 50.sp,
                               width: MediaQuery.of(context).size.width,
                               decoration: BoxDecoration(
+                                  color: AppColors.white,
                                   border: Border.all(
-                                    color: Colors.black,
+                                    color: AppColors.grayA5,
                                     width: 1.sp,
                                   ),
                                   borderRadius: BorderRadius.circular(10.sp)),
@@ -421,8 +430,9 @@ class _DsrScreenState extends State<DsrScreen> {
                               height: 50.sp,
                               width: MediaQuery.of(context).size.width,
                               decoration: BoxDecoration(
+                                  color: AppColors.white,
                                   border: Border.all(
-                                    color: Colors.black,
+                                    color: AppColors.grayA5,
                                     width: 1.sp,
                                   ),
                                   borderRadius: BorderRadius.circular(10.sp)),
@@ -456,8 +466,9 @@ class _DsrScreenState extends State<DsrScreen> {
                               height: 50.sp,
                               width: MediaQuery.of(context).size.width,
                               decoration: BoxDecoration(
+                                  color: AppColors.white,
                                   border: Border.all(
-                                    color: Colors.black,
+                                    color: AppColors.grayA5,
                                     width: 1.sp,
                                   ),
                                   borderRadius: BorderRadius.circular(10.sp)),
@@ -487,8 +498,9 @@ class _DsrScreenState extends State<DsrScreen> {
                               height: 50.sp,
                               width: MediaQuery.of(context).size.width,
                               decoration: BoxDecoration(
+                                  color: AppColors.white,
                                   border: Border.all(
-                                    color: Colors.black,
+                                    color: AppColors.grayA5,
                                     width: 1.sp,
                                   ),
                                   borderRadius: BorderRadius.circular(10.sp)),
@@ -522,8 +534,9 @@ class _DsrScreenState extends State<DsrScreen> {
                               height: 50.sp,
                               width: MediaQuery.of(context).size.width,
                               decoration: BoxDecoration(
+                                  color: AppColors.white,
                                   border: Border.all(
-                                    color: Colors.black,
+                                    color: AppColors.grayA5,
                                     width: 1.sp,
                                   ),
                                   borderRadius: BorderRadius.circular(10.sp)),
@@ -553,8 +566,9 @@ class _DsrScreenState extends State<DsrScreen> {
                               height: 50.sp,
                               width: MediaQuery.of(context).size.width,
                               decoration: BoxDecoration(
+                                  color: AppColors.white,
                                   border: Border.all(
-                                    color: Colors.black,
+                                    color: AppColors.grayA5,
                                     width: 1.sp,
                                   ),
                                   borderRadius: BorderRadius.circular(10.sp)),
@@ -588,8 +602,9 @@ class _DsrScreenState extends State<DsrScreen> {
                               height: 50.sp,
                               width: MediaQuery.of(context).size.width,
                               decoration: BoxDecoration(
+                                  color: AppColors.white,
                                   border: Border.all(
-                                    color: Colors.black,
+                                    color: AppColors.grayA5,
                                     width: 1.sp,
                                   ),
                                   borderRadius: BorderRadius.circular(10.sp)),
@@ -635,8 +650,9 @@ class _DsrScreenState extends State<DsrScreen> {
                               height: 90.sp,
                               width: MediaQuery.of(context).size.width,
                               decoration: BoxDecoration(
+                                  color: AppColors.white,
                                   border: Border.all(
-                                    color: Colors.black,
+                                    color: AppColors.grayA5,
                                     width: 1.sp,
                                   ),
                                   borderRadius: BorderRadius.circular(10.sp)),
@@ -672,8 +688,9 @@ class _DsrScreenState extends State<DsrScreen> {
                               height: 50.sp,
                               width: MediaQuery.of(context).size.width,
                               decoration: BoxDecoration(
+                                  color: AppColors.white,
                                   border: Border.all(
-                                    color: Colors.black,
+                                    color: AppColors.grayA5,
                                     width: 1.sp,
                                   ),
                                   borderRadius: BorderRadius.circular(10.sp)),
@@ -703,8 +720,9 @@ class _DsrScreenState extends State<DsrScreen> {
                               height: 50.sp,
                               width: MediaQuery.of(context).size.width,
                               decoration: BoxDecoration(
+                                  color: AppColors.white,
                                   border: Border.all(
-                                    color: Colors.black,
+                                    color: AppColors.grayA5,
                                     width: 1.sp,
                                   ),
                                   borderRadius: BorderRadius.circular(10.sp)),
@@ -738,8 +756,9 @@ class _DsrScreenState extends State<DsrScreen> {
                               height: 50.sp,
                               width: MediaQuery.of(context).size.width,
                               decoration: BoxDecoration(
+                                  color: AppColors.white,
                                   border: Border.all(
-                                    color: Colors.black,
+                                    color: AppColors.grayA5,
                                     width: 1.sp,
                                   ),
                                   borderRadius: BorderRadius.circular(10.sp)),
@@ -769,8 +788,9 @@ class _DsrScreenState extends State<DsrScreen> {
                               height: 50.sp,
                               width: MediaQuery.of(context).size.width,
                               decoration: BoxDecoration(
+                                  color: AppColors.white,
                                   border: Border.all(
-                                    color: Colors.black,
+                                    color: AppColors.grayA5,
                                     width: 1.sp,
                                   ),
                                   borderRadius: BorderRadius.circular(10.sp)),
@@ -804,8 +824,9 @@ class _DsrScreenState extends State<DsrScreen> {
                               height: 50.sp,
                               width: MediaQuery.of(context).size.width,
                               decoration: BoxDecoration(
+                                  color: AppColors.white,
                                   border: Border.all(
-                                    color: Colors.black,
+                                    color: AppColors.grayA5,
                                     width: 1.sp,
                                   ),
                                   borderRadius: BorderRadius.circular(10.sp)),
@@ -841,8 +862,9 @@ class _DsrScreenState extends State<DsrScreen> {
                               height: 50.sp,
                               width: MediaQuery.of(context).size.width,
                               decoration: BoxDecoration(
+                                  color: AppColors.white,
                                   border: Border.all(
-                                    color: Colors.black,
+                                    color: AppColors.grayA5,
                                     width: 1.sp,
                                   ),
                                   borderRadius: BorderRadius.circular(10.sp)),
@@ -878,8 +900,9 @@ class _DsrScreenState extends State<DsrScreen> {
                               height: 90.sp,
                               width: MediaQuery.of(context).size.width,
                               decoration: BoxDecoration(
+                                  color: AppColors.white,
                                   border: Border.all(
-                                    color: Colors.black,
+                                    color: AppColors.grayA5,
                                     width: 1.sp,
                                   ),
                                   borderRadius: BorderRadius.circular(10.sp)),
@@ -1113,8 +1136,9 @@ class _DsrScreenState extends State<DsrScreen> {
                               height: 50.sp,
                               width: MediaQuery.of(context).size.width,
                               decoration: BoxDecoration(
+                                  color: AppColors.white,
                                   border: Border.all(
-                                    color: Colors.black,
+                                    color: AppColors.grayA5,
                                     width: 1.sp,
                                   ),
                                   borderRadius: BorderRadius.circular(10.sp)),
@@ -1191,8 +1215,9 @@ class _DsrScreenState extends State<DsrScreen> {
                               height: 50.sp,
                               width: MediaQuery.of(context).size.width,
                               decoration: BoxDecoration(
+                                  color: AppColors.white,
                                   border: Border.all(
-                                    color: Colors.black,
+                                    color: AppColors.grayA5,
                                     width: 1.sp,
                                   ),
                                   borderRadius: BorderRadius.circular(10.sp)),
@@ -1226,8 +1251,9 @@ class _DsrScreenState extends State<DsrScreen> {
                               height: 50.sp,
                               width: MediaQuery.of(context).size.width,
                               decoration: BoxDecoration(
+                                  color: AppColors.white,
                                   border: Border.all(
-                                    color: Colors.black,
+                                    color: AppColors.grayA5,
                                     width: 1.sp,
                                   ),
                                   borderRadius: BorderRadius.circular(10.sp)),
@@ -1241,7 +1267,7 @@ class _DsrScreenState extends State<DsrScreen> {
                           ],
                         ),
                       ),
-                      Utils.addHGap(10),
+                      Utils.addHGap(12),
                       Expanded(
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -1304,8 +1330,9 @@ class _DsrScreenState extends State<DsrScreen> {
                               height: 50.sp,
                               width: MediaQuery.of(context).size.width,
                               decoration: BoxDecoration(
+                                  color: AppColors.white,
                                   border: Border.all(
-                                    color: Colors.black,
+                                    color: AppColors.grayA5,
                                     width: 1.sp,
                                   ),
                                   borderRadius: BorderRadius.circular(10.sp)),
@@ -1339,8 +1366,9 @@ class _DsrScreenState extends State<DsrScreen> {
                               height: 50.sp,
                               width: MediaQuery.of(context).size.width,
                               decoration: BoxDecoration(
+                                  color: AppColors.white,
                                   border: Border.all(
-                                    color: Colors.black,
+                                    color: AppColors.grayA5,
                                     width: 1.sp,
                                   ),
                                   borderRadius: BorderRadius.circular(10.sp)),
@@ -1374,8 +1402,9 @@ class _DsrScreenState extends State<DsrScreen> {
                               height: 50.sp,
                               width: MediaQuery.of(context).size.width,
                               decoration: BoxDecoration(
+                                  color: AppColors.white,
                                   border: Border.all(
-                                    color: Colors.black,
+                                    color: AppColors.grayA5,
                                     width: 1.sp,
                                   ),
                                   borderRadius: BorderRadius.circular(10.sp)),
@@ -1409,8 +1438,9 @@ class _DsrScreenState extends State<DsrScreen> {
                               height: 50.sp,
                               width: MediaQuery.of(context).size.width,
                               decoration: BoxDecoration(
+                                  color: AppColors.white,
                                   border: Border.all(
-                                    color: Colors.black,
+                                    color: AppColors.grayA5,
                                     width: 1.sp,
                                   ),
                                   borderRadius: BorderRadius.circular(10.sp)),
@@ -1440,8 +1470,9 @@ class _DsrScreenState extends State<DsrScreen> {
                               height: 50.sp,
                               width: MediaQuery.of(context).size.width,
                               decoration: BoxDecoration(
+                                  color: AppColors.white,
                                   border: Border.all(
-                                    color: Colors.black,
+                                    color: AppColors.grayA5,
                                     width: 1.sp,
                                   ),
                                   borderRadius: BorderRadius.circular(10.sp)),

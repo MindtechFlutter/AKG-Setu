@@ -40,7 +40,8 @@ class _ActiveTaskState extends State<ActiveTask> {
                   child: Row(
                     children: [
                       InkWell(
-                        onTap: () => Get.to(Dashboard(), transition: Transition.fadeIn),
+                        onTap: () =>
+                            Get.to(Dashboard(), transition: Transition.fadeIn),
                         child: Icon(
                           Icons.arrow_back,
                           color: Colors.white,
@@ -52,8 +53,7 @@ class _ActiveTaskState extends State<ActiveTask> {
                         style: TextStyle(color: Colors.white, fontSize: 24),
                       ),
                       Spacer(),
-                                            NavToProfile(),
-
+                      NavToProfile(),
                     ],
                   )),
             ),
@@ -112,8 +112,9 @@ class _ActiveTaskState extends State<ActiveTask> {
             ),
           ),
           Utils.addGap(10),
-          InkWell(splashColor: Colors.transparent,
-      highlightColor: Colors.transparent,
+          InkWell(
+            splashColor: Colors.transparent,
+            highlightColor: Colors.transparent,
             onTap: () => showTicketDetails(context),
             child: Container(
               margin: EdgeInsets.symmetric(horizontal: 20),
@@ -185,7 +186,9 @@ class _ActiveTaskState extends State<ActiveTask> {
                       ),
                       10.width,
                       InkWell(
-                          onTap: () => Get.toNamed(Routes.acceptLocation),
+                          //17/11/2023 Vedant Changed Route
+                          //onTap: () => Get.toNamed(Routes.acceptLocation),
+                          onTap: () => Get.toNamed(Routes.inventoryConsumed),
                           child: Container(
                             padding: EdgeInsets.symmetric(
                                 horizontal: 15, vertical: 4),
@@ -232,7 +235,6 @@ class _ActiveTaskState extends State<ActiveTask> {
           ),
         ],
       ),
-
     );
   }
 }
