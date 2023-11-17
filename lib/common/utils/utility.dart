@@ -3,6 +3,8 @@ import 'dart:io';
 
 import 'package:akgsetu/common/utils/storage_service.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
+import 'package:device_info_plus/device_info_plus.dart';
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -11,6 +13,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 
 import '../routes/app_pages.dart';
@@ -328,4 +331,70 @@ class Utils {
         height: height,
         width: width,
       );
+
+
+
+ static Future<String?> pickImageOrPDF() async {
+
+    if (Platform.isAndroid) {
+      final DeviceInfoPlugin deviceInfoPlugin = DeviceInfoPlugin();
+      final AndroidDeviceInfo info = await deviceInfoPlugin.androidInfo;
+      if ((info.version.sdkInt ?? 0) >= 33){
+        return await _pickFile();
+      } else{
+        final permissionStatus = await Permission.storage.request();
+        if (permissionStatus.isDenied) {
+          // Here just ask for the permission for the first time
+          await Permission.storage.request();
+
+          // I noticed that sometimes popup won't show after user press deny
+          // so I do the check once again but now go straight to appSettings
+          if (permissionStatus.isDenied) {
+            await openAppSettings();
+          }
+        } else if (permissionStatus.isPermanentlyDenied) {
+          // Here open app settings for user to manually enable permission in case
+          // where permission was permanently denied
+          await openAppSettings();
+        } else {
+          return await _pickFile();
+        }
+      }
+
+    }else{
+      final permissionStatus = await Permission.storage.request();
+      if (permissionStatus.isDenied) {
+        // Here just ask for the permission for the first time
+        await Permission.storage.request();
+
+        // I noticed that sometimes popup won't show after user press deny
+        // so I do the check once again but now go straight to appSettings
+        if (permissionStatus.isDenied) {
+          await openAppSettings();
+        }
+      } else if (permissionStatus.isPermanentlyDenied) {
+        // Here open app settings for user to manually enable permission in case
+        // where permission was permanently denied
+        await openAppSettings();
+      } else {
+        return await _pickFile();
+      }
+    }
+  }
+
+  static Future<String?> _pickFile() async {
+    FilePickerResult? result = await FilePicker.platform.pickFiles(
+      allowMultiple: false,
+      type: FileType.custom,
+      allowedExtensions: ['jpg', 'jpeg', 'png', 'pdf'],
+    );
+
+    if (result != null) {
+      PlatformFile file = result.files.first;
+      return file.path;
+    } else {
+      return null;
+    }
+  }
+
 }

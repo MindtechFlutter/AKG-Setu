@@ -245,7 +245,7 @@ class getTransparentTextFormField extends StatelessWidget {
       obscureText: isObscureText,
       enabled: enabled,
       focusNode: focusNode,
-      style: Styles.midContrassText(value: 16.0),
+      style: Styles.midContrassText(value: 14.0),
       cursorColor: Colors.grey,
       keyboardType: inputType,
       minLines: minlines,

@@ -1,10 +1,15 @@
+import 'dart:io';
+
 import 'package:akgsetu/screens/home/dashboard.dart';
+import 'package:device_info_plus/device_info_plus.dart';
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:nb_utils/nb_utils.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 import '../../common/CommanTextField.dart';
 import '../../common/controller/inventory-consumed_controller.dart';
@@ -124,7 +129,7 @@ class _InventoryConsumedState extends State<InventoryConsumed> {
                         child: InkWell(
                           onTap: () {
                             Navigator.of(context).pop();
-                            Get.to(DsrScreen(), transition: Transition.fadeIn);
+                            Get.to( ()=>DsrScreen(), transition: Transition.fadeIn);
                           },
                           child: Container(
                             width: width(context) * 0.4,
@@ -148,6 +153,7 @@ class _InventoryConsumedState extends State<InventoryConsumed> {
               )));
         });
   }
+
 
   @override
   Widget build(BuildContext context) {
@@ -472,7 +478,7 @@ class _InventoryConsumedState extends State<InventoryConsumed> {
                                                               Radius.circular(8),
                                                             )),
                                                         child: Icon(
-                                                          Icons.add,
+                                                          Icons.remove,
                                                           color: AppColors.white,
                                                           size: 10,
                                                         ),
@@ -523,7 +529,7 @@ class _InventoryConsumedState extends State<InventoryConsumed> {
                                                               Radius.circular(8),
                                                             )),
                                                         child: Icon(
-                                                          Icons.remove,
+                                                          Icons.add,
                                                           color: AppColors.white,
                                                           size: 10,
                                                         ),
@@ -661,7 +667,7 @@ class _InventoryConsumedState extends State<InventoryConsumed> {
                                                               Radius.circular(8),
                                                             )),
                                                         child: Icon(
-                                                          Icons.add,
+                                                          Icons.remove,
                                                           color: AppColors.white,
                                                           size: 10,
                                                         ),
@@ -712,7 +718,7 @@ class _InventoryConsumedState extends State<InventoryConsumed> {
                                                               Radius.circular(8),
                                                             )),
                                                         child: Icon(
-                                                          Icons.remove,
+                                                          Icons.add,
                                                           color: AppColors.white,
                                                           size: 10,
                                                         ),
@@ -1006,29 +1012,41 @@ class _InventoryConsumedState extends State<InventoryConsumed> {
                 style: TextStyle(color: Colors.black, fontSize: 18),
               ),
             ),
-            Container(
-                height: height / 8,
-                margin: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                padding: EdgeInsets.symmetric(vertical: 15, horizontal: 10),
-                decoration: BoxDecoration(
-                    color: Colors.grey.withOpacity(0.2),
-                    border: Border.all(color: Colors.grey.shade700, width: 1),
-                    borderRadius: BorderRadius.circular(10)),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(
-                      FontAwesomeIcons.upload,
-                      color: Colors.grey.shade800,
-                    ),
-                    5.height,
-                    Text(
-                      "Drag and Drop file",
-                      style:
-                          TextStyle(color: Colors.grey.shade800, fontSize: 17),
-                    ),
-                  ],
-                )),
+            GestureDetector(
+              onTap: () async {
+                String? imagePath = await Utils.pickImageOrPDF();
+
+                if (imagePath != null) {
+                  print('Selected file path: $imagePath');
+                  // Use the imagePath variable to access the selected file
+                } else {
+                  print('No file selected');
+                }
+              },
+              child: Container(
+                  height: height / 8,
+                  margin: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                  padding: EdgeInsets.symmetric(vertical: 15, horizontal: 10),
+                  decoration: BoxDecoration(
+                      color: Colors.grey.withOpacity(0.2),
+                      border: Border.all(color: Colors.grey.shade700, width: 1),
+                      borderRadius: BorderRadius.circular(10)),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(
+                        FontAwesomeIcons.upload,
+                        color: Colors.grey.shade800,
+                      ),
+                      5.height,
+                      Text(
+                        "Drag and Drop file",
+                        style:
+                            TextStyle(color: Colors.grey.shade800, fontSize: 17),
+                      ),
+                    ],
+                  )),
+            ),
             Container(
               padding: EdgeInsets.symmetric(horizontal: 20),
               height: height / 19,

@@ -10,6 +10,7 @@ import 'package:get/get.dart';
 import 'package:nb_utils/nb_utils.dart';
 
 import '../../common/CommanTextField.dart';
+import '../../common/utils/Styles.dart';
 import '../../common/utils/color_constants.dart';
 import '../../common/utils/utility.dart';
 import '../../constants.dart';
@@ -76,20 +77,20 @@ class _DsrScreenState extends State<DsrScreen> {
                       Text(
                         "Call Id-",
                         style: TextStyle(
-                            fontSize: 18.sp,
+                            fontSize: 16.sp,
                             color: Colors.grey,
                             fontWeight: FontWeight.w400),
                       ),
                       Text("#03s5468",
                           style: TextStyle(
-                              fontSize: 18.sp,
+                              fontSize: 16.sp,
                               color: Colors.black,
                               fontWeight: FontWeight.w400)),
                       Spacer(),
                       Text(
                         "22-05-2023 12 : 30 pm",
                         style: TextStyle(
-                            fontSize: 14,
+                            fontSize: 12.sp,
                             color: Colors.black87,
                             fontWeight: FontWeight.w400),
                       ),
@@ -117,10 +118,10 @@ class _DsrScreenState extends State<DsrScreen> {
                           children: [
                             Text(
                               "Service employee Id No.",
-                              style: TextStyle(
-                                  fontSize: 12.sp,
+                              style: Styles.textFontRegular(
+                                  size: 12.sp,
                                   color: Colors.black87,
-                                  fontWeight: FontWeight.w400),
+                                  weight: FontWeight.w400),
                             ),
                             Container(
                               height: 50.sp,
@@ -149,10 +150,10 @@ class _DsrScreenState extends State<DsrScreen> {
                           children: [
                             Text(
                               "Service employee Name",
-                              style: TextStyle(
-                                  fontSize: 12.sp,
+                              style: Styles.textFontRegular(
+                                  size: 12.sp,
                                   color: Colors.black87,
-                                  fontWeight: FontWeight.w400),
+                                  weight: FontWeight.w400),
                             ),
                             Container(
                               height: 50.sp,
@@ -185,10 +186,10 @@ class _DsrScreenState extends State<DsrScreen> {
                           children: [
                             Text(
                               "Society Code",
-                              style: TextStyle(
-                                  fontSize: 12.sp,
+                              style: Styles.textFontRegular(
+                                  size: 12.sp,
                                   color: Colors.black87,
-                                  fontWeight: FontWeight.w400),
+                                  weight: FontWeight.w400),
                             ),
                             Container(
                               height: 50.sp,
@@ -217,10 +218,10 @@ class _DsrScreenState extends State<DsrScreen> {
                           children: [
                             Text(
                               "Society Name",
-                              style: TextStyle(
-                                  fontSize: 12.sp,
+                              style: Styles.textFontRegular(
+                                  size: 12.sp,
                                   color: Colors.black87,
-                                  fontWeight: FontWeight.w400),
+                                  weight: FontWeight.w400),
                             ),
                             Container(
                               height: 50.sp,
@@ -253,10 +254,10 @@ class _DsrScreenState extends State<DsrScreen> {
                           children: [
                             Text(
                               "Employee Name",
-                              style: TextStyle(
-                                  fontSize: 12.sp,
+                              style: Styles.textFontRegular(
+                                  size: 12.sp,
                                   color: Colors.black87,
-                                  fontWeight: FontWeight.w400),
+                                  weight: FontWeight.w400),
                             ),
                             Container(
                               height: 50.sp,
@@ -285,10 +286,10 @@ class _DsrScreenState extends State<DsrScreen> {
                           children: [
                             Text(
                               "Employee Number",
-                              style: TextStyle(
-                                  fontSize: 12.sp,
+                              style: Styles.textFontRegular(
+                                  size: 12.sp,
                                   color: Colors.black87,
-                                  fontWeight: FontWeight.w400),
+                                  weight: FontWeight.w400),
                             ),
                             Container(
                               height: 50.sp,
@@ -321,10 +322,10 @@ class _DsrScreenState extends State<DsrScreen> {
                           children: [
                             Text(
                               "Service Place",
-                              style: TextStyle(
-                                  fontSize: 12.sp,
+                              style: Styles.textFontRegular(
+                                  size: 12.sp,
                                   color: Colors.black87,
-                                  fontWeight: FontWeight.w400),
+                                  weight: FontWeight.w400),
                             ),
                             Container(
                               height: 50.sp,
@@ -353,10 +354,10 @@ class _DsrScreenState extends State<DsrScreen> {
                           children: [
                             Text(
                               "Service Call",
-                              style: TextStyle(
-                                  fontSize: 12.sp,
+                              style: Styles.textFontRegular(
+                                  size: 12.sp,
                                   color: Colors.black87,
-                                  fontWeight: FontWeight.w400),
+                                  weight: FontWeight.w400),
                             ),
                             Container(
                               height: 50.sp,
@@ -389,10 +390,10 @@ class _DsrScreenState extends State<DsrScreen> {
                           children: [
                             Text(
                               "From Place",
-                              style: TextStyle(
-                                  fontSize: 12.sp,
+                              style: Styles.textFontRegular(
+                                  size: 12.sp,
                                   color: Colors.black87,
-                                  fontWeight: FontWeight.w400),
+                                  weight: FontWeight.w400),
                             ),
                             Container(
                               height: 50.sp,
@@ -421,10 +422,10 @@ class _DsrScreenState extends State<DsrScreen> {
                           children: [
                             Text(
                               "Kilometers",
-                              style: TextStyle(
-                                  fontSize: 12.sp,
+                              style: Styles.textFontRegular(
+                                  size: 12.sp,
                                   color: Colors.black87,
-                                  fontWeight: FontWeight.w400),
+                                  weight: FontWeight.w400),
                             ),
                             Container(
                               height: 50.sp,
@@ -457,10 +458,10 @@ class _DsrScreenState extends State<DsrScreen> {
                           children: [
                             Text(
                               "Chairman Name",
-                              style: TextStyle(
-                                  fontSize: 12.sp,
+                              style: Styles.textFontRegular(
+                                  size: 12.sp,
                                   color: Colors.black87,
-                                  fontWeight: FontWeight.w400),
+                                  weight: FontWeight.w400),
                             ),
                             Container(
                               height: 50.sp,
@@ -489,10 +490,10 @@ class _DsrScreenState extends State<DsrScreen> {
                           children: [
                             Text(
                               "Secretary Name",
-                              style: TextStyle(
-                                  fontSize: 12.sp,
+                              style: Styles.textFontRegular(
+                                  size: 12.sp,
                                   color: Colors.black87,
-                                  fontWeight: FontWeight.w400),
+                                  weight: FontWeight.w400),
                             ),
                             Container(
                               height: 50.sp,
@@ -525,10 +526,10 @@ class _DsrScreenState extends State<DsrScreen> {
                           children: [
                             Text(
                               "Taluka",
-                              style: TextStyle(
-                                  fontSize: 12.sp,
+                              style: Styles.textFontRegular(
+                                  size: 12.sp,
                                   color: Colors.black87,
-                                  fontWeight: FontWeight.w400),
+                                  weight: FontWeight.w400),
                             ),
                             Container(
                               height: 50.sp,
@@ -557,10 +558,10 @@ class _DsrScreenState extends State<DsrScreen> {
                           children: [
                             Text(
                               "District",
-                              style: TextStyle(
-                                  fontSize: 12.sp,
+                              style: Styles.textFontRegular(
+                                  size: 12.sp,
                                   color: Colors.black87,
-                                  fontWeight: FontWeight.w400),
+                                  weight: FontWeight.w400),
                             ),
                             Container(
                               height: 50.sp,
@@ -593,10 +594,10 @@ class _DsrScreenState extends State<DsrScreen> {
                           children: [
                             Text(
                               "Issue",
-                              style: TextStyle(
-                                  fontSize: 12.sp,
+                              style: Styles.textFontRegular(
+                                  size: 12.sp,
                                   color: Colors.black87,
-                                  fontWeight: FontWeight.w400),
+                                  weight: FontWeight.w400),
                             ),
                             Container(
                               height: 50.sp,
@@ -641,10 +642,10 @@ class _DsrScreenState extends State<DsrScreen> {
                           children: [
                             Text(
                               "Solutions",
-                              style: TextStyle(
-                                  fontSize: 12.sp,
+                              style: Styles.textFontRegular(
+                                  size: 12.sp,
                                   color: Colors.black87,
-                                  fontWeight: FontWeight.w400),
+                                  weight: FontWeight.w400),
                             ),
                             Container(
                               height: 90.sp,
@@ -679,10 +680,10 @@ class _DsrScreenState extends State<DsrScreen> {
                           children: [
                             Text(
                               "Service Status",
-                              style: TextStyle(
-                                  fontSize: 12.sp,
+                              style: Styles.textFontRegular(
+                                  size: 12.sp,
                                   color: Colors.black87,
-                                  fontWeight: FontWeight.w400),
+                                  weight: FontWeight.w400),
                             ),
                             Container(
                               height: 50.sp,
@@ -711,10 +712,10 @@ class _DsrScreenState extends State<DsrScreen> {
                           children: [
                             Text(
                               "Problem Part Name",
-                              style: TextStyle(
-                                  fontSize: 12.sp,
+                              style: Styles.textFontRegular(
+                                  size: 12.sp,
                                   color: Colors.black87,
-                                  fontWeight: FontWeight.w400),
+                                  weight: FontWeight.w400),
                             ),
                             Container(
                               height: 50.sp,
@@ -747,10 +748,10 @@ class _DsrScreenState extends State<DsrScreen> {
                           children: [
                             Text(
                               "Machine Name",
-                              style: TextStyle(
-                                  fontSize: 12.sp,
+                              style: Styles.textFontRegular(
+                                  size: 12.sp,
                                   color: Colors.black87,
-                                  fontWeight: FontWeight.w400),
+                                  weight: FontWeight.w400),
                             ),
                             Container(
                               height: 50.sp,
@@ -779,10 +780,10 @@ class _DsrScreenState extends State<DsrScreen> {
                           children: [
                             Text(
                               "Module/Serial Number",
-                              style: TextStyle(
-                                  fontSize: 12.sp,
+                              style: Styles.textFontRegular(
+                                  size: 12.sp,
                                   color: Colors.black87,
-                                  fontWeight: FontWeight.w400),
+                                  weight: FontWeight.w400),
                             ),
                             Container(
                               height: 50.sp,
@@ -815,10 +816,10 @@ class _DsrScreenState extends State<DsrScreen> {
                           children: [
                             Text(
                               "Problem Details",
-                              style: TextStyle(
-                                  fontSize: 12.sp,
+                              style: Styles.textFontRegular(
+                                  size: 12.sp,
                                   color: Colors.black87,
-                                  fontWeight: FontWeight.w400),
+                                  weight: FontWeight.w400),
                             ),
                             Container(
                               height: 50.sp,
@@ -853,10 +854,10 @@ class _DsrScreenState extends State<DsrScreen> {
                           children: [
                             Text(
                               "Solution Details",
-                              style: TextStyle(
-                                  fontSize: 12.sp,
+                              style: Styles.textFontRegular(
+                                  size: 12.sp,
                                   color: Colors.black87,
-                                  fontWeight: FontWeight.w400),
+                                  weight: FontWeight.w400),
                             ),
                             Container(
                               height: 50.sp,
@@ -891,10 +892,10 @@ class _DsrScreenState extends State<DsrScreen> {
                           children: [
                             Text(
                               "Remark",
-                              style: TextStyle(
-                                  fontSize: 12.sp,
+                              style: Styles.textFontRegular(
+                                  size: 12.sp,
                                   color: Colors.black87,
-                                  fontWeight: FontWeight.w400),
+                                  weight: FontWeight.w400),
                             ),
                             Container(
                               height: 90.sp,
@@ -1127,10 +1128,10 @@ class _DsrScreenState extends State<DsrScreen> {
                           children: [
                             Text(
                               "Modal Signal",
-                              style: TextStyle(
-                                  fontSize: 12.sp,
+                              style: Styles.textFontRegular(
+                                  size: 12.sp,
                                   color: Colors.black87,
-                                  fontWeight: FontWeight.w400),
+                                  weight: FontWeight.w400),
                             ),
                             Container(
                               height: 50.sp,
@@ -1206,10 +1207,10 @@ class _DsrScreenState extends State<DsrScreen> {
                           children: [
                             Text(
                               "Online Weight",
-                              style: TextStyle(
-                                  fontSize: 12.sp,
+                              style: Styles.textFontRegular(
+                                  size: 12.sp,
                                   color: Colors.black87,
-                                  fontWeight: FontWeight.w400),
+                                  weight: FontWeight.w400),
                             ),
                             Container(
                               height: 50.sp,
@@ -1242,10 +1243,10 @@ class _DsrScreenState extends State<DsrScreen> {
                           children: [
                             Text(
                               "Online Fat",
-                              style: TextStyle(
-                                  fontSize: 12.sp,
+                              style: Styles.textFontRegular(
+                                  size: 12.sp,
                                   color: Colors.black87,
-                                  fontWeight: FontWeight.w400),
+                                  weight: FontWeight.w400),
                             ),
                             Container(
                               height: 50.sp,
@@ -1321,10 +1322,10 @@ class _DsrScreenState extends State<DsrScreen> {
                           children: [
                             Text(
                               "Item details of society taken by engineer",
-                              style: TextStyle(
-                                  fontSize: 12.sp,
+                              style: Styles.textFontRegular(
+                                  size: 12.sp,
                                   color: Colors.black87,
-                                  fontWeight: FontWeight.w400),
+                                  weight: FontWeight.w400),
                             ),
                             Container(
                               height: 50.sp,
@@ -1357,10 +1358,10 @@ class _DsrScreenState extends State<DsrScreen> {
                           children: [
                             Text(
                               "Over all action taken on society items",
-                              style: TextStyle(
-                                  fontSize: 12.sp,
+                              style: Styles.textFontRegular(
+                                  size: 12.sp,
                                   color: Colors.black87,
-                                  fontWeight: FontWeight.w400),
+                                  weight: FontWeight.w400),
                             ),
                             Container(
                               height: 50.sp,
@@ -1393,10 +1394,10 @@ class _DsrScreenState extends State<DsrScreen> {
                           children: [
                             Text(
                               "Changed products/Stand by product given to society",
-                              style: TextStyle(
-                                  fontSize: 12.sp,
+                              style: Styles.textFontRegular(
+                                  size: 12.sp,
                                   color: Colors.black87,
-                                  fontWeight: FontWeight.w400),
+                                  weight: FontWeight.w400),
                             ),
                             Container(
                               height: 50.sp,
@@ -1425,14 +1426,15 @@ class _DsrScreenState extends State<DsrScreen> {
                     children: [
                       Expanded(
                         child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
                               "Engineer Name",
-                              style: TextStyle(
-                                  fontSize: 12.sp,
+                              style: Styles.textFontRegular(
+                                  size: 12.sp,
                                   color: Colors.black87,
-                                  fontWeight: FontWeight.w400),
+                                  weight: FontWeight.w400),
                             ),
                             Container(
                               height: 50.sp,
@@ -1457,14 +1459,18 @@ class _DsrScreenState extends State<DsrScreen> {
                       Utils.addHGap(8),
                       Expanded(
                         child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
                               "Society representative Name",
-                              style: TextStyle(
-                                  fontSize: 12.sp,
+                              maxLines: 1,
+                              overflow:
+                              TextOverflow.ellipsis,
+                              style: Styles.textFontRegular(
+                                  size: 12.sp,
                                   color: Colors.black87,
-                                  fontWeight: FontWeight.w400),
+                                  weight: FontWeight.w400),
                             ),
                             Container(
                               height: 50.sp,

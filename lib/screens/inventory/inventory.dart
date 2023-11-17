@@ -609,7 +609,7 @@ class _InventoryPageState extends State<InventoryPage> {
                                                                                       Radius.circular(10),
                                                                                     )),
                                                                                 child: Icon(
-                                                                                  Icons.add,
+                                                                                  Icons.remove,
                                                                                   color: AppColors.white,
                                                                                   size: 30,
                                                                                 ),
@@ -649,7 +649,7 @@ class _InventoryPageState extends State<InventoryPage> {
                                                                                       Radius.circular(10),
                                                                                     )),
                                                                                 child: Icon(
-                                                                                  Icons.remove,
+                                                                                  Icons.add,
                                                                                   color: AppColors.white,
                                                                                   size: 30,
                                                                                 ),
@@ -1028,7 +1028,7 @@ class _InventoryPageState extends State<InventoryPage> {
                                                         Radius.circular(8),
                                                       )),
                                                   child: Icon(
-                                                    Icons.add,
+                                                    Icons.remove,
                                                     color: AppColors.white,
                                                     size: 10,
                                                   ),
@@ -1079,7 +1079,7 @@ class _InventoryPageState extends State<InventoryPage> {
                                                         Radius.circular(8),
                                                       )),
                                                   child: Icon(
-                                                    Icons.remove,
+                                                    Icons.add,
                                                     color: AppColors.white,
                                                     size: 10,
                                                   ),
@@ -1217,7 +1217,7 @@ class _InventoryPageState extends State<InventoryPage> {
                                                         Radius.circular(8),
                                                       )),
                                                   child: Icon(
-                                                    Icons.add,
+                                                    Icons.remove,
                                                     color: AppColors.white,
                                                     size: 10,
                                                   ),
@@ -1268,7 +1268,7 @@ class _InventoryPageState extends State<InventoryPage> {
                                                         Radius.circular(8),
                                                       )),
                                                   child: Icon(
-                                                    Icons.remove,
+                                                    Icons.add,
                                                     color: AppColors.white,
                                                     size: 10,
                                                   ),

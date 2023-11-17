@@ -188,7 +188,20 @@ class _AddExpenseState extends State<AddExpense> {
           AcceptButton(
             buttonText: "Choose file(s)",
             width: width / 2,
-            onpressed: () {},
+            onpressed: ()async {
+
+
+                String? imagePath = await Utils.pickImageOrPDF();
+
+                if (imagePath != null) {
+                  print('Selected file path: $imagePath');
+                  // Use the imagePath variable to access the selected file
+                } else {
+                  print('No file selected');
+                }
+
+
+            },
           ),
           Utils.addGap(20),
           Container(
