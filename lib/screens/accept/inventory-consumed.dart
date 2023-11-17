@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:akgsetu/common/utils/Styles.dart';
 import 'package:akgsetu/screens/home/dashboard.dart';
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:file_picker/file_picker.dart';
@@ -66,8 +67,9 @@ class _InventoryConsumedState extends State<InventoryConsumed> {
               flex: 6,
               child: Text(
                 text,
-                style: TextStyle(
-                  fontSize: 18,
+                style: Styles.textFontRegular(
+                  size: 14.0.sp,
+                  weight: FontWeight.w400,
                   color: val.value ? Colors.white : Colors.black,
                 ),
               ),
@@ -98,7 +100,10 @@ class _InventoryConsumedState extends State<InventoryConsumed> {
                       children: [
                         Text(
                           "Service Status",
-                          style: TextStyle(fontSize: 19),
+                          style: Styles.textFontRegular(
+                              size: 14.0.sp,
+                              weight: FontWeight.w500,
+                              color: AppColors.black),
                         ),
                         Container(
                           height: 2,
@@ -110,7 +115,10 @@ class _InventoryConsumedState extends State<InventoryConsumed> {
                     Utils.addGap(15),
                     Text(
                       "Select and update your status",
-                      style: TextStyle(fontSize: 15, color: Colors.black54),
+                      style: Styles.textFontRegular(
+                          size: 12.0.sp,
+                          weight: FontWeight.w400,
+                          color: AppColors.black),
                     ),
                     Utils.addGap(15),
                     statusContainer(inventoryCont.isComplete,
@@ -129,7 +137,8 @@ class _InventoryConsumedState extends State<InventoryConsumed> {
                         child: InkWell(
                           onTap: () {
                             Navigator.of(context).pop();
-                            Get.to( ()=>DsrScreen(), transition: Transition.fadeIn);
+                            Get.to(() => DsrScreen(),
+                                transition: Transition.fadeIn);
                           },
                           child: Container(
                             width: width(context) * 0.4,
@@ -140,10 +149,10 @@ class _InventoryConsumedState extends State<InventoryConsumed> {
                             child: Center(
                               child: Text(
                                 "Save & update",
-                                style: TextStyle(
-                                    fontSize: 18,
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold),
+                                style: Styles.textFontRegular(
+                                    size: 14.0.sp,
+                                    weight: FontWeight.w500,
+                                    color: AppColors.white),
                               ),
                             ),
                           ),
@@ -153,7 +162,6 @@ class _InventoryConsumedState extends State<InventoryConsumed> {
               )));
         });
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -184,7 +192,10 @@ class _InventoryConsumedState extends State<InventoryConsumed> {
                         10.width,
                         Text(
                           "Inventory Consumed",
-                          style: TextStyle(color: Colors.white, fontSize: 24),
+                          style: Styles.textFontRegular(
+                              size: 20.0.sp,
+                              weight: FontWeight.w500,
+                              color: Colors.white),
                         ),
                         Spacer(),
                         NavToProfile(),
@@ -198,11 +209,27 @@ class _InventoryConsumedState extends State<InventoryConsumed> {
               child: Row(
                 children: [
                   Text(
-                    "Ticket No - #03s5468",
-                    style: TextStyle(fontSize: 19, color: Colors.black87),
+                    "Ticket No -",
+                    style: Styles.textFontRegular(
+                        size: 14.0.sp,
+                        weight: FontWeight.w400,
+                        color: AppColors.black),
+                  ),
+                  Text(
+                    " #03s5468",
+                    style: Styles.textFontRegular(
+                        size: 14.0.sp,
+                        weight: FontWeight.w400,
+                        color: Colors.brown),
                   ),
                   Spacer(),
-                  Text("22-05-2023"),
+                  Text(
+                    "22-05-2023",
+                    style: Styles.textFontRegular(
+                        size: 12.0.sp,
+                        weight: FontWeight.w400,
+                        color: AppColors.black),
+                  ),
                 ],
               ),
             ),
@@ -211,17 +238,20 @@ class _InventoryConsumedState extends State<InventoryConsumed> {
               padding: EdgeInsets.symmetric(horizontal: 20),
               child: Text(
                 "Inventory Consumed",
-                style: TextStyle(color: Colors.black, fontSize: 18),
+                style: Styles.textFontRegular(
+                    size: 12.0.sp,
+                    weight: FontWeight.w500,
+                    color: AppColors.black),
               ),
             ),
             Utils.addGap(5),
             GestureDetector(
-              onTap: (){
+              onTap: () {
                 int dialogActivePageIndex = 0;
                 showDialog(
                     context: context,
-                    builder: (BuildContext context) => Dialog(
-                        child: StatefulBuilder(builder: (context, DialogState) {
+                    builder: (BuildContext context) => Dialog(child:
+                            StatefulBuilder(builder: (context, DialogState) {
                           return GestureDetector(
                             onTap: () {
                               FocusScope.of(context).requestFocus(FocusNode());
@@ -239,7 +269,8 @@ class _InventoryConsumedState extends State<InventoryConsumed> {
                                   Padding(
                                     padding: EdgeInsets.only(top: 16.0),
                                     child: Row(
-                                        mainAxisAlignment: MainAxisAlignment.end,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.end,
                                         children: [
                                           GestureDetector(
                                             onTap: () {
@@ -254,10 +285,10 @@ class _InventoryConsumedState extends State<InventoryConsumed> {
                                   ),
                                   Text(
                                     "Inventory Request",
-                                    style: TextStyle(
-                                      fontSize: 18,
-                                      color: AppColors.black,
-                                    ),
+                                    style: Styles.textFontRegular(
+                                        size: 14.0.sp,
+                                        weight: FontWeight.w500,
+                                        color: AppColors.black),
                                   ),
                                   Container(
                                     color: Colors.blueAccent,
@@ -272,74 +303,90 @@ class _InventoryConsumedState extends State<InventoryConsumed> {
                                     decoration: BoxDecoration(
                                       color: Color(0XFFE0E0E0),
                                       borderRadius:
-                                      BorderRadius.all(Radius.circular(30)),
+                                          BorderRadius.all(Radius.circular(30)),
                                     ),
                                     child: Row(
                                       mainAxisAlignment:
-                                      MainAxisAlignment.spaceEvenly,
+                                          MainAxisAlignment.spaceEvenly,
                                       children: <Widget>[
                                         Expanded(
                                           child: InkWell(
-                                            borderRadius:
-                                            BorderRadius.all(Radius.circular(30)),
+                                            borderRadius: BorderRadius.all(
+                                                Radius.circular(30)),
                                             onTap: _onFirstButtonDialog,
                                             child: Container(
-                                              width:
-                                              MediaQuery.of(context).size.width,
-                                              padding:
-                                              EdgeInsets.symmetric(vertical: 8),
+                                              width: MediaQuery.of(context)
+                                                  .size
+                                                  .width,
+                                              padding: EdgeInsets.symmetric(
+                                                  vertical: 8),
                                               alignment: Alignment.center,
                                               height: 40,
-                                              decoration: (dialogActivePageIndex == 0)
-                                                  ? const BoxDecoration(
-                                                color: AppColors.darkblue,
-                                                borderRadius: BorderRadius.all(
-                                                    Radius.circular(30)),
-                                              )
-                                                  : null,
+                                              decoration:
+                                                  (dialogActivePageIndex == 0)
+                                                      ? const BoxDecoration(
+                                                          color: AppColors
+                                                              .darkblue,
+                                                          borderRadius:
+                                                              BorderRadius.all(
+                                                                  Radius
+                                                                      .circular(
+                                                                          30)),
+                                                        )
+                                                      : null,
                                               child: Text(
                                                 "Office",
-                                                style: (dialogActivePageIndex == 0)
+                                                style: (dialogActivePageIndex ==
+                                                        0)
                                                     ? TextStyle(
-                                                    color: Colors.white,
-                                                    fontWeight: FontWeight.normal)
+                                                        color: Colors.white,
+                                                        fontWeight:
+                                                            FontWeight.normal)
                                                     : TextStyle(
-                                                    color: Colors.black54,
-                                                    fontWeight:
-                                                    FontWeight.normal),
+                                                        color: Colors.black54,
+                                                        fontWeight:
+                                                            FontWeight.normal),
                                               ),
                                             ),
                                           ),
                                         ),
                                         Expanded(
                                           child: InkWell(
-                                            borderRadius:
-                                            BorderRadius.all(Radius.circular(30)),
+                                            borderRadius: BorderRadius.all(
+                                                Radius.circular(30)),
                                             onTap: _onSecondButtonDialog,
                                             child: Container(
-                                              width:
-                                              MediaQuery.of(context).size.width,
+                                              width: MediaQuery.of(context)
+                                                  .size
+                                                  .width,
                                               height: 40,
-                                              padding:
-                                              EdgeInsets.symmetric(vertical: 8),
+                                              padding: EdgeInsets.symmetric(
+                                                  vertical: 8),
                                               alignment: Alignment.center,
-                                              decoration: (dialogActivePageIndex == 1)
-                                                  ? const BoxDecoration(
-                                                color: AppColors.darkblue,
-                                                borderRadius: BorderRadius.all(
-                                                    Radius.circular(30)),
-                                              )
-                                                  : null,
+                                              decoration:
+                                                  (dialogActivePageIndex == 1)
+                                                      ? const BoxDecoration(
+                                                          color: AppColors
+                                                              .darkblue,
+                                                          borderRadius:
+                                                              BorderRadius.all(
+                                                                  Radius
+                                                                      .circular(
+                                                                          30)),
+                                                        )
+                                                      : null,
                                               child: Text(
                                                 "Colleagues",
-                                                style: (dialogActivePageIndex == 1)
+                                                style: (dialogActivePageIndex ==
+                                                        1)
                                                     ? TextStyle(
-                                                    color: Colors.white,
-                                                    fontWeight: FontWeight.normal)
+                                                        color: Colors.white,
+                                                        fontWeight:
+                                                            FontWeight.normal)
                                                     : TextStyle(
-                                                    color: Colors.black54,
-                                                    fontWeight:
-                                                    FontWeight.normal),
+                                                        color: Colors.black54,
+                                                        fontWeight:
+                                                            FontWeight.normal),
                                               ),
                                             ),
                                           ),
@@ -351,29 +398,37 @@ class _InventoryConsumedState extends State<InventoryConsumed> {
                                                     dialogueBorderRadius)),
                                             onTap: _onThirdButtonDialog,
                                             child: Container(
-                                              width:
-                                              MediaQuery.of(context).size.width,
+                                              width: MediaQuery.of(context)
+                                                  .size
+                                                  .width,
                                               height: 40,
-                                              padding:
-                                              EdgeInsets.symmetric(vertical: 8),
+                                              padding: EdgeInsets.symmetric(
+                                                  vertical: 8),
                                               alignment: Alignment.center,
-                                              decoration: (dialogActivePageIndex == 2)
-                                                  ? const BoxDecoration(
-                                                color: AppColors.darkblue,
-                                                borderRadius: BorderRadius.all(
-                                                    Radius.circular(30)),
-                                              )
-                                                  : null,
+                                              decoration:
+                                                  (dialogActivePageIndex == 2)
+                                                      ? const BoxDecoration(
+                                                          color: AppColors
+                                                              .darkblue,
+                                                          borderRadius:
+                                                              BorderRadius.all(
+                                                                  Radius
+                                                                      .circular(
+                                                                          30)),
+                                                        )
+                                                      : null,
                                               child: Text(
                                                 "Purchase",
-                                                style: (dialogActivePageIndex == 2)
+                                                style: (dialogActivePageIndex ==
+                                                        2)
                                                     ? TextStyle(
-                                                    color: Colors.white,
-                                                    fontWeight: FontWeight.normal)
+                                                        color: Colors.white,
+                                                        fontWeight:
+                                                            FontWeight.normal)
                                                     : TextStyle(
-                                                    color: Colors.black54,
-                                                    fontWeight:
-                                                    FontWeight.normal),
+                                                        color: Colors.black54,
+                                                        fontWeight:
+                                                            FontWeight.normal),
                                               ),
                                             ),
                                           ),
@@ -397,13 +452,17 @@ class _InventoryConsumedState extends State<InventoryConsumed> {
                                               child: Column(
                                                 children: [
                                                   Padding(
-                                                    padding: EdgeInsets.symmetric(
-                                                        horizontal: 4, vertical: 16),
+                                                    padding:
+                                                        EdgeInsets.symmetric(
+                                                            horizontal: 4,
+                                                            vertical: 16),
                                                     child: Container(
-                                                        padding: EdgeInsets.symmetric(
-                                                            horizontal: 10),
+                                                        padding: EdgeInsets
+                                                            .symmetric(
+                                                                horizontal: 10),
                                                         width: width,
-                                                        decoration: BoxDecoration(
+                                                        decoration:
+                                                            BoxDecoration(
                                                           /*  boxShadow: [
                                                   BoxShadow(
                                                       color: AppColors.black53
@@ -414,31 +473,42 @@ class _InventoryConsumedState extends State<InventoryConsumed> {
                                                 ],*/
                                                           color: Colors.white,
                                                           borderRadius:
-                                                          BorderRadius.circular(
-                                                              5),
+                                                              BorderRadius
+                                                                  .circular(5),
                                                           border: Border.all(
-                                                            color: AppColors.black44,
+                                                            color: AppColors
+                                                                .black44,
                                                             // Gray color for the border
                                                             width:
-                                                            1.0, // Border width
+                                                                1.0, // Border width
                                                           ),
                                                         ),
                                                         child: Row(
                                                           children: [
                                                             Icon(
                                                               Icons.search,
-                                                              color: primaryColor,
+                                                              color:
+                                                                  primaryColor,
                                                             ),
                                                             10.width,
                                                             Expanded(
-                                                              child: TextFormField(
+                                                              child:
+                                                                  TextFormField(
                                                                 decoration:
-                                                                InputDecoration(
-                                                                    border:
-                                                                    InputBorder
-                                                                        .none,
-                                                                    hintText:
-                                                                    "Search"),
+                                                                    InputDecoration(
+                                                                  border:
+                                                                      InputBorder
+                                                                          .none,
+                                                                  hintText:
+                                                                      "Search",
+                                                                  hintStyle: Styles.textFontRegular(
+                                                                      size: 12.0
+                                                                          .sp,
+                                                                      weight: FontWeight
+                                                                          .w400,
+                                                                      color: AppColors
+                                                                          .grayA5),
+                                                                ),
                                                               ),
                                                             ),
                                                           ],
@@ -446,23 +516,25 @@ class _InventoryConsumedState extends State<InventoryConsumed> {
                                                   ),
                                                   Row(
                                                     mainAxisAlignment:
-                                                    MainAxisAlignment.start,
+                                                        MainAxisAlignment.start,
                                                     children: [
                                                       Utils.addHGap(10),
                                                       Column(
                                                         crossAxisAlignment:
-                                                        CrossAxisAlignment.start,
+                                                            CrossAxisAlignment
+                                                                .start,
                                                         children: [
                                                           Text("Item -1",
                                                               style: TextStyle(
                                                                 fontSize: 14,
-                                                                color: Colors.black87,
+                                                                color: Colors
+                                                                    .black87,
                                                               )),
                                                           Text("Available -5",
                                                               style: TextStyle(
                                                                 fontSize: 14,
-                                                                color:
-                                                                AppColors.green1,
+                                                                color: AppColors
+                                                                    .green1,
                                                               )),
                                                         ],
                                                       ),
@@ -470,16 +542,23 @@ class _InventoryConsumedState extends State<InventoryConsumed> {
                                                       Container(
                                                         height: 30.sp,
                                                         width: 30.sp,
-                                                        padding: EdgeInsets.all(6),
-                                                        decoration: BoxDecoration(
-                                                            color: AppColors.darkblue,
-                                                            borderRadius:
-                                                            BorderRadius.all(
-                                                              Radius.circular(8),
-                                                            )),
+                                                        padding:
+                                                            EdgeInsets.all(6),
+                                                        decoration:
+                                                            BoxDecoration(
+                                                                color: AppColors
+                                                                    .darkblue,
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .all(
+                                                                  Radius
+                                                                      .circular(
+                                                                          8),
+                                                                )),
                                                         child: Icon(
                                                           Icons.remove,
-                                                          color: AppColors.white,
+                                                          color:
+                                                              AppColors.white,
                                                           size: 10,
                                                         ),
                                                       ),
@@ -487,50 +566,62 @@ class _InventoryConsumedState extends State<InventoryConsumed> {
                                                       Container(
                                                           height: 30.sp,
                                                           width: 30.sp,
-                                                          padding: EdgeInsets.all(6),
-                                                          decoration: BoxDecoration(
-                                                              border: Border.all(
-                                                                color: Colors.black,
-                                                                width: 1.sp,
-                                                              ),
-                                                              borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                  5.sp)),
+                                                          padding:
+                                                              EdgeInsets.all(6),
+                                                          decoration:
+                                                              BoxDecoration(
+                                                                  border: Border
+                                                                      .all(
+                                                                    color: Colors
+                                                                        .black,
+                                                                    width: 1.sp,
+                                                                  ),
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              5.sp)),
                                                           child: Center(
                                                             child: Text(
                                                               "1",
                                                               style: TextStyle(
                                                                   fontSize: 14,
                                                                   color:
-                                                                  AppColors.black,
+                                                                      AppColors
+                                                                          .black,
                                                                   fontWeight:
-                                                                  FontWeight
-                                                                      .normal),
+                                                                      FontWeight
+                                                                          .normal),
                                                             ),
                                                           )
 
-                                                        /*getTransparentTextFormField(
+                                                          /*getTransparentTextFormField(
                                                                                     validator: (String? value) {},
                                                                                     isObscureText: false,
                                                                                     hintText: "",
                                                                                     inputType: TextInputType.number,
                                                                                     onChanged: (String value) {}),*/
-                                                      ),
+                                                          ),
                                                       Utils.addHGap(10),
                                                       Container(
                                                         height: 30.sp,
                                                         width: 30.sp,
-                                                        padding: EdgeInsets.all(6),
-                                                        decoration: BoxDecoration(
-                                                            color: AppColors.darkblue,
-                                                            borderRadius:
-                                                            BorderRadius.all(
-                                                              Radius.circular(8),
-                                                            )),
+                                                        padding:
+                                                            EdgeInsets.all(6),
+                                                        decoration:
+                                                            BoxDecoration(
+                                                                color: AppColors
+                                                                    .darkblue,
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .all(
+                                                                  Radius
+                                                                      .circular(
+                                                                          8),
+                                                                )),
                                                         child: Icon(
                                                           Icons.add,
-                                                          color: AppColors.white,
+                                                          color:
+                                                              AppColors.white,
                                                           size: 10,
                                                         ),
                                                       ),
@@ -546,7 +637,7 @@ class _InventoryConsumedState extends State<InventoryConsumed> {
                                                   Utils.addGap(10),
                                                   Row(
                                                     mainAxisAlignment:
-                                                    MainAxisAlignment.start,
+                                                        MainAxisAlignment.start,
                                                     children: [
                                                       Text("From: ",
                                                           style: TextStyle(
@@ -557,28 +648,31 @@ class _InventoryConsumedState extends State<InventoryConsumed> {
                                                       Expanded(
                                                         child: Container(
                                                           height: 40.sp,
-                                                          decoration: BoxDecoration(
-                                                              border: Border.all(
-                                                                color: Colors.black,
-                                                                width: 1.sp,
-                                                              ),
-                                                              borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                  5.sp)),
-                                                          child:
-                                                          getTransparentTextFormField(
-                                                              validator: (String?
-                                                              value) {},
+                                                          decoration:
+                                                              BoxDecoration(
+                                                                  border: Border
+                                                                      .all(
+                                                                    color: Colors
+                                                                        .black,
+                                                                    width: 1.sp,
+                                                                  ),
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              5.sp)),
+                                                          child: getTransparentTextFormField(
+                                                              validator:
+                                                                  (String?
+                                                                      value) {},
                                                               isObscureText:
-                                                              false,
+                                                                  false,
                                                               hintText:
-                                                              "Pravin Kumar",
+                                                                  "Pravin Kumar",
                                                               inputType:
-                                                              TextInputType
-                                                                  .text,
+                                                                  TextInputType
+                                                                      .text,
                                                               onChanged: (String
-                                                              value) {}),
+                                                                  value) {}),
                                                         ),
                                                       ),
                                                       Utils.addHGap(10),
@@ -586,13 +680,17 @@ class _InventoryConsumedState extends State<InventoryConsumed> {
                                                   ),
                                                   // Utils.addGap(10),
                                                   Padding(
-                                                    padding: EdgeInsets.symmetric(
-                                                        horizontal: 4, vertical: 16),
+                                                    padding:
+                                                        EdgeInsets.symmetric(
+                                                            horizontal: 4,
+                                                            vertical: 16),
                                                     child: Container(
-                                                        padding: EdgeInsets.symmetric(
-                                                            horizontal: 10),
+                                                        padding: EdgeInsets
+                                                            .symmetric(
+                                                                horizontal: 10),
                                                         width: width,
-                                                        decoration: BoxDecoration(
+                                                        decoration:
+                                                            BoxDecoration(
                                                           /*  boxShadow: [
                                                   BoxShadow(
                                                       color: AppColors.black53
@@ -603,31 +701,33 @@ class _InventoryConsumedState extends State<InventoryConsumed> {
                                                 ],*/
                                                           color: Colors.white,
                                                           borderRadius:
-                                                          BorderRadius.circular(
-                                                              5),
+                                                              BorderRadius
+                                                                  .circular(5),
                                                           border: Border.all(
-                                                            color: AppColors.black44,
+                                                            color: AppColors
+                                                                .black44,
                                                             // Gray color for the border
                                                             width:
-                                                            1.0, // Border width
+                                                                1.0, // Border width
                                                           ),
                                                         ),
                                                         child: Row(
                                                           children: [
                                                             Icon(
                                                               Icons.search,
-                                                              color: primaryColor,
+                                                              color:
+                                                                  primaryColor,
                                                             ),
                                                             10.width,
                                                             Expanded(
-                                                              child: TextFormField(
-                                                                decoration:
-                                                                InputDecoration(
+                                                              child:
+                                                                  TextFormField(
+                                                                decoration: InputDecoration(
                                                                     border:
-                                                                    InputBorder
-                                                                        .none,
+                                                                        InputBorder
+                                                                            .none,
                                                                     hintText:
-                                                                    "Search"),
+                                                                        "Search"),
                                                               ),
                                                             ),
                                                           ],
@@ -635,23 +735,25 @@ class _InventoryConsumedState extends State<InventoryConsumed> {
                                                   ),
                                                   Row(
                                                     mainAxisAlignment:
-                                                    MainAxisAlignment.start,
+                                                        MainAxisAlignment.start,
                                                     children: [
                                                       Utils.addHGap(10),
                                                       Column(
                                                         crossAxisAlignment:
-                                                        CrossAxisAlignment.start,
+                                                            CrossAxisAlignment
+                                                                .start,
                                                         children: [
                                                           Text("Item -1",
                                                               style: TextStyle(
                                                                 fontSize: 14,
-                                                                color: Colors.black87,
+                                                                color: Colors
+                                                                    .black87,
                                                               )),
                                                           Text("Available -5",
                                                               style: TextStyle(
                                                                 fontSize: 14,
-                                                                color:
-                                                                AppColors.green1,
+                                                                color: AppColors
+                                                                    .green1,
                                                               )),
                                                         ],
                                                       ),
@@ -659,16 +761,23 @@ class _InventoryConsumedState extends State<InventoryConsumed> {
                                                       Container(
                                                         height: 30.sp,
                                                         width: 30.sp,
-                                                        padding: EdgeInsets.all(6),
-                                                        decoration: BoxDecoration(
-                                                            color: AppColors.darkblue,
-                                                            borderRadius:
-                                                            BorderRadius.all(
-                                                              Radius.circular(8),
-                                                            )),
+                                                        padding:
+                                                            EdgeInsets.all(6),
+                                                        decoration:
+                                                            BoxDecoration(
+                                                                color: AppColors
+                                                                    .darkblue,
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .all(
+                                                                  Radius
+                                                                      .circular(
+                                                                          8),
+                                                                )),
                                                         child: Icon(
                                                           Icons.remove,
-                                                          color: AppColors.white,
+                                                          color:
+                                                              AppColors.white,
                                                           size: 10,
                                                         ),
                                                       ),
@@ -676,50 +785,62 @@ class _InventoryConsumedState extends State<InventoryConsumed> {
                                                       Container(
                                                           height: 30.sp,
                                                           width: 30.sp,
-                                                          padding: EdgeInsets.all(6),
-                                                          decoration: BoxDecoration(
-                                                              border: Border.all(
-                                                                color: Colors.black,
-                                                                width: 1.sp,
-                                                              ),
-                                                              borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                  5.sp)),
+                                                          padding:
+                                                              EdgeInsets.all(6),
+                                                          decoration:
+                                                              BoxDecoration(
+                                                                  border: Border
+                                                                      .all(
+                                                                    color: Colors
+                                                                        .black,
+                                                                    width: 1.sp,
+                                                                  ),
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              5.sp)),
                                                           child: Center(
                                                             child: Text(
                                                               "1",
                                                               style: TextStyle(
                                                                   fontSize: 14,
                                                                   color:
-                                                                  AppColors.black,
+                                                                      AppColors
+                                                                          .black,
                                                                   fontWeight:
-                                                                  FontWeight
-                                                                      .normal),
+                                                                      FontWeight
+                                                                          .normal),
                                                             ),
                                                           )
 
-                                                        /*getTransparentTextFormField(
+                                                          /*getTransparentTextFormField(
                                                                                     validator: (String? value) {},
                                                                                     isObscureText: false,
                                                                                     hintText: "",
                                                                                     inputType: TextInputType.number,
                                                                                     onChanged: (String value) {}),*/
-                                                      ),
+                                                          ),
                                                       Utils.addHGap(10),
                                                       Container(
                                                         height: 30.sp,
                                                         width: 30.sp,
-                                                        padding: EdgeInsets.all(6),
-                                                        decoration: BoxDecoration(
-                                                            color: AppColors.darkblue,
-                                                            borderRadius:
-                                                            BorderRadius.all(
-                                                              Radius.circular(8),
-                                                            )),
+                                                        padding:
+                                                            EdgeInsets.all(6),
+                                                        decoration:
+                                                            BoxDecoration(
+                                                                color: AppColors
+                                                                    .darkblue,
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .all(
+                                                                  Radius
+                                                                      .circular(
+                                                                          8),
+                                                                )),
                                                         child: Icon(
                                                           Icons.add,
-                                                          color: AppColors.white,
+                                                          color:
+                                                              AppColors.white,
                                                           size: 10,
                                                         ),
                                                       ),
@@ -734,7 +855,7 @@ class _InventoryConsumedState extends State<InventoryConsumed> {
                                                   Utils.addGap(10),
                                                   Row(
                                                     mainAxisAlignment:
-                                                    MainAxisAlignment.start,
+                                                        MainAxisAlignment.start,
                                                     children: [
                                                       Text("From: ",
                                                           style: TextStyle(
@@ -745,27 +866,30 @@ class _InventoryConsumedState extends State<InventoryConsumed> {
                                                       Expanded(
                                                         child: Container(
                                                           height: 40.sp,
-                                                          decoration: BoxDecoration(
-                                                              border: Border.all(
-                                                                color: Colors.black,
-                                                                width: 1.sp,
-                                                              ),
-                                                              borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                  5.sp)),
-                                                          child:
-                                                          getTransparentTextFormField(
-                                                              validator: (String?
-                                                              value) {},
+                                                          decoration:
+                                                              BoxDecoration(
+                                                                  border: Border
+                                                                      .all(
+                                                                    color: Colors
+                                                                        .black,
+                                                                    width: 1.sp,
+                                                                  ),
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              5.sp)),
+                                                          child: getTransparentTextFormField(
+                                                              validator:
+                                                                  (String?
+                                                                      value) {},
                                                               isObscureText:
-                                                              false,
+                                                                  false,
                                                               hintText: "",
                                                               inputType:
-                                                              TextInputType
-                                                                  .text,
+                                                                  TextInputType
+                                                                      .text,
                                                               onChanged: (String
-                                                              value) {}),
+                                                                  value) {}),
                                                         ),
                                                       ),
                                                       Utils.addHGap(10),
@@ -774,7 +898,7 @@ class _InventoryConsumedState extends State<InventoryConsumed> {
                                                   Utils.addGap(10),
                                                   Row(
                                                     mainAxisAlignment:
-                                                    MainAxisAlignment.start,
+                                                        MainAxisAlignment.start,
                                                     children: [
                                                       Text("Items: ",
                                                           style: TextStyle(
@@ -785,27 +909,30 @@ class _InventoryConsumedState extends State<InventoryConsumed> {
                                                       Expanded(
                                                         child: Container(
                                                           height: 40.sp,
-                                                          decoration: BoxDecoration(
-                                                              border: Border.all(
-                                                                color: Colors.black,
-                                                                width: 1.sp,
-                                                              ),
-                                                              borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                  5.sp)),
-                                                          child:
-                                                          getTransparentTextFormField(
-                                                              validator: (String?
-                                                              value) {},
+                                                          decoration:
+                                                              BoxDecoration(
+                                                                  border: Border
+                                                                      .all(
+                                                                    color: Colors
+                                                                        .black,
+                                                                    width: 1.sp,
+                                                                  ),
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              5.sp)),
+                                                          child: getTransparentTextFormField(
+                                                              validator:
+                                                                  (String?
+                                                                      value) {},
                                                               isObscureText:
-                                                              false,
+                                                                  false,
                                                               hintText: "",
                                                               inputType:
-                                                              TextInputType
-                                                                  .text,
+                                                                  TextInputType
+                                                                      .text,
                                                               onChanged: (String
-                                                              value) {}),
+                                                                  value) {}),
                                                         ),
                                                       ),
                                                       Utils.addHGap(10),
@@ -814,7 +941,7 @@ class _InventoryConsumedState extends State<InventoryConsumed> {
                                                   Utils.addGap(10),
                                                   Row(
                                                     mainAxisAlignment:
-                                                    MainAxisAlignment.start,
+                                                        MainAxisAlignment.start,
                                                     children: [
                                                       Text("Qty: ",
                                                           style: TextStyle(
@@ -825,27 +952,30 @@ class _InventoryConsumedState extends State<InventoryConsumed> {
                                                       Expanded(
                                                         child: Container(
                                                           height: 40.sp,
-                                                          decoration: BoxDecoration(
-                                                              border: Border.all(
-                                                                color: Colors.black,
-                                                                width: 1.sp,
-                                                              ),
-                                                              borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                  5.sp)),
-                                                          child:
-                                                          getTransparentTextFormField(
-                                                              validator: (String?
-                                                              value) {},
+                                                          decoration:
+                                                              BoxDecoration(
+                                                                  border: Border
+                                                                      .all(
+                                                                    color: Colors
+                                                                        .black,
+                                                                    width: 1.sp,
+                                                                  ),
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              5.sp)),
+                                                          child: getTransparentTextFormField(
+                                                              validator:
+                                                                  (String?
+                                                                      value) {},
                                                               isObscureText:
-                                                              false,
+                                                                  false,
                                                               hintText: "",
                                                               inputType:
-                                                              TextInputType
-                                                                  .text,
+                                                                  TextInputType
+                                                                      .text,
                                                               onChanged: (String
-                                                              value) {}),
+                                                                  value) {}),
                                                         ),
                                                       ),
                                                       Utils.addHGap(10),
@@ -858,27 +988,30 @@ class _InventoryConsumedState extends State<InventoryConsumed> {
                                                       Expanded(
                                                         child: Container(
                                                           height: 40.sp,
-                                                          decoration: BoxDecoration(
-                                                              border: Border.all(
-                                                                color: Colors.black,
-                                                                width: 1.sp,
-                                                              ),
-                                                              borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                  5.sp)),
-                                                          child:
-                                                          getTransparentTextFormField(
-                                                              validator: (String?
-                                                              value) {},
+                                                          decoration:
+                                                              BoxDecoration(
+                                                                  border: Border
+                                                                      .all(
+                                                                    color: Colors
+                                                                        .black,
+                                                                    width: 1.sp,
+                                                                  ),
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              5.sp)),
+                                                          child: getTransparentTextFormField(
+                                                              validator:
+                                                                  (String?
+                                                                      value) {},
                                                               isObscureText:
-                                                              false,
+                                                                  false,
                                                               hintText: "",
                                                               inputType:
-                                                              TextInputType
-                                                                  .text,
+                                                                  TextInputType
+                                                                      .text,
                                                               onChanged: (String
-                                                              value) {}),
+                                                                  value) {}),
                                                         ),
                                                       ),
                                                       Utils.addHGap(10),
@@ -887,7 +1020,7 @@ class _InventoryConsumedState extends State<InventoryConsumed> {
                                                   Utils.addGap(10),
                                                   Row(
                                                     mainAxisAlignment:
-                                                    MainAxisAlignment.start,
+                                                        MainAxisAlignment.start,
                                                     children: [
                                                       Text("Approved by: ",
                                                           style: TextStyle(
@@ -898,27 +1031,30 @@ class _InventoryConsumedState extends State<InventoryConsumed> {
                                                       Expanded(
                                                         child: Container(
                                                           height: 40.sp,
-                                                          decoration: BoxDecoration(
-                                                              border: Border.all(
-                                                                color: Colors.black,
-                                                                width: 1.sp,
-                                                              ),
-                                                              borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                  5.sp)),
-                                                          child:
-                                                          getTransparentTextFormField(
-                                                              validator: (String?
-                                                              value) {},
+                                                          decoration:
+                                                              BoxDecoration(
+                                                                  border: Border
+                                                                      .all(
+                                                                    color: Colors
+                                                                        .black,
+                                                                    width: 1.sp,
+                                                                  ),
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              5.sp)),
+                                                          child: getTransparentTextFormField(
+                                                              validator:
+                                                                  (String?
+                                                                      value) {},
                                                               isObscureText:
-                                                              false,
+                                                                  false,
                                                               hintText: "",
                                                               inputType:
-                                                              TextInputType
-                                                                  .text,
+                                                                  TextInputType
+                                                                      .text,
                                                               onChanged: (String
-                                                              value) {}),
+                                                                  value) {}),
                                                         ),
                                                       ),
                                                       Utils.addHGap(10),
@@ -938,7 +1074,8 @@ class _InventoryConsumedState extends State<InventoryConsumed> {
                                           padding: EdgeInsets.all(10),
                                           width: width / 3,
                                           decoration: BoxDecoration(
-                                              borderRadius: BorderRadius.circular(5),
+                                              borderRadius:
+                                                  BorderRadius.circular(5),
                                               color: AppColors.maroon),
                                           child: Center(
                                             child: Text(
@@ -961,7 +1098,7 @@ class _InventoryConsumedState extends State<InventoryConsumed> {
                                             width: width / 3,
                                             decoration: BoxDecoration(
                                                 borderRadius:
-                                                BorderRadius.circular(5),
+                                                    BorderRadius.circular(5),
                                                 color: AppColors.green1),
                                             child: Center(
                                               child: Text(
@@ -994,7 +1131,7 @@ class _InventoryConsumedState extends State<InventoryConsumed> {
               ),
             ),
             Utils.addGap(10),
-         /*   Padding(
+            /*   Padding(
               padding: EdgeInsets.symmetric(horizontal: 50),
               child: RoundedButton(
                 buttonText: 'Request New Inventory',
@@ -1009,7 +1146,10 @@ class _InventoryConsumedState extends State<InventoryConsumed> {
               padding: EdgeInsets.symmetric(horizontal: 20),
               child: Text(
                 "Attach your files",
-                style: TextStyle(color: Colors.black, fontSize: 18),
+                style: Styles.textFontRegular(
+                    size: 12.0.sp,
+                    weight: FontWeight.w500,
+                    color: AppColors.black),
               ),
             ),
             GestureDetector(
@@ -1041,8 +1181,8 @@ class _InventoryConsumedState extends State<InventoryConsumed> {
                       5.height,
                       Text(
                         "Drag and Drop file",
-                        style:
-                            TextStyle(color: Colors.grey.shade800, fontSize: 17),
+                        style: TextStyle(
+                            color: Colors.grey.shade800, fontSize: 17),
                       ),
                     ],
                   )),
@@ -1075,6 +1215,7 @@ class _InventoryConsumedState extends State<InventoryConsumed> {
           ],
         ));
   }
+
   PageController? _dialogpageController;
   @override
   void dispose() {

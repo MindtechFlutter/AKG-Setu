@@ -4,17 +4,19 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'color_constants.dart';
 
 class Styles {
-  static RegulareNoteText(size, {required Color color,required FontWeight fontWeight}) => TextStyle(
-      fontFamily: "Roboto",
-      color: color,
-      fontStyle: FontStyle.normal,
-      fontSize: size,
-      fontWeight: fontWeight);
+  static RegulareNoteText(size,
+          {required Color color, required FontWeight fontWeight}) =>
+      TextStyle(
+          fontFamily: "Roboto",
+          color: color,
+          fontStyle: FontStyle.normal,
+          fontSize: size,
+          fontWeight: fontWeight);
 
   static TextStyle textFontRegular(
       {Color color = AppColors.darkGray,
       required double size,
-      required FontWeight weight}) {
+      FontWeight weight = FontWeight.w500}) {
     return TextStyle(
         color: color,
         fontSize: size.sp,

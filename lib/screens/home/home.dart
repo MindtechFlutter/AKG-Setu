@@ -90,7 +90,13 @@ class _HomePageState extends State<HomePage> {
                                     color: Colors.green),
                               ),
                               5.width,
-                              Text("Online")
+                              Text(
+                                "Online",
+                                style: Styles.textFontRegular(
+                                    size: 8.0.sp,
+                                    weight: FontWeight.w500,
+                                    color: Colors.black),
+                              )
                             ],
                           ),
                         ),
@@ -106,7 +112,11 @@ class _HomePageState extends State<HomePage> {
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
                               Text(
-                                "Offline",
+                                "OFFLINE",
+                                style: Styles.textFontRegular(
+                                    size: 8.0.sp,
+                                    weight: FontWeight.w500,
+                                    color: Colors.black),
                               ),
                               5.width,
                               Container(
@@ -177,7 +187,10 @@ class _HomePageState extends State<HomePage> {
                   children: [
                     Text(
                       "Active task",
-                      style: TextStyle(fontSize: 19),
+                      style: Styles.textFontRegular(
+                          size: 14.0.sp,
+                          weight: FontWeight.w500,
+                          color: Colors.black),
                     ),
                     Container(
                       height: 2,
@@ -188,13 +201,13 @@ class _HomePageState extends State<HomePage> {
                 )),
           ),
           Container(
-              margin: EdgeInsets.all(20),
-              padding: EdgeInsets.symmetric(horizontal: 10),
+              margin: const EdgeInsets.all(20),
+              padding: const EdgeInsets.symmetric(horizontal: 10),
               width: width,
               decoration: BoxDecoration(boxShadow: [
                 BoxShadow(
                     color: AppColors.black53.withOpacity(0.1),
-                    offset: Offset(0, 0),
+                    offset: const Offset(0, 0),
                     spreadRadius: 2.sp,
                     blurRadius: 5.0.sp)
               ], color: Colors.white, borderRadius: BorderRadius.circular(15)),
@@ -208,8 +221,13 @@ class _HomePageState extends State<HomePage> {
                   Expanded(
                     child: TextFormField(
                       decoration: InputDecoration(
-                          border: InputBorder.none,
-                          hintText: "Search Location"),
+                        border: InputBorder.none,
+                        hintText: "Search Location",
+                        hintStyle: Styles.textFontRegular(
+                            size: 12.0.sp,
+                            weight: FontWeight.w400,
+                            color: AppColors.grayA5),
+                      ),
                     ),
                   ),
                 ],
@@ -235,11 +253,27 @@ class _HomePageState extends State<HomePage> {
                     child: Row(
                       children: [
                         Text(
-                          "Ticket No - #03s5468",
-                          style: TextStyle(fontSize: 18, color: Colors.black87),
+                          "Ticket No -",
+                          style: Styles.textFontRegular(
+                              size: 12.0.sp,
+                              weight: FontWeight.w400,
+                              color: AppColors.black),
+                        ),
+                        Text(
+                          " #03s5468",
+                          style: Styles.textFontRegular(
+                              size: 12.0.sp,
+                              weight: FontWeight.w400,
+                              color: Colors.brown),
                         ),
                         Spacer(),
-                        Text("22-05-2023"),
+                        Text(
+                          "22-05-2023",
+                          style: Styles.textFontRegular(
+                              size: 10.0.sp,
+                              weight: FontWeight.w400,
+                              color: AppColors.black),
+                        ),
                       ],
                     ),
                   ),
@@ -248,13 +282,19 @@ class _HomePageState extends State<HomePage> {
                     padding: EdgeInsets.only(left: 20),
                     child: Text(
                       "102, Shivam Complex,Nana Bazaar,Vallabh Vidyanagar,Anand,Gujarat 388120",
-                      style: TextStyle(fontSize: 15, color: Colors.black54),
+                      style: Styles.textFontRegular(
+                          size: 10.0.sp,
+                          weight: FontWeight.w400,
+                          color: Colors.black54),
                     ),
                   ),
                   Utils.addGap(7),
                   Text(
                     "25 min away form your current location",
-                    style: TextStyle(fontSize: 14, color: Colors.green),
+                    style: Styles.textFontRegular(
+                        size: 10.0.sp,
+                        weight: FontWeight.w400,
+                        color: AppColors.green),
                   ),
                   Utils.addGap(8),
                   Row(
@@ -277,10 +317,10 @@ class _HomePageState extends State<HomePage> {
                               5.width,
                               Text(
                                 "Decline",
-                                style: TextStyle(
-                                  fontSize: 14,
-                                  color: AppColors.white,
-                                ),
+                                  style: Styles.textFontRegular(
+                                      size: 10.0.sp,
+                                      weight: FontWeight.w400,
+                                      color: AppColors.white),
                               )
                             ],
                           ),
@@ -307,10 +347,10 @@ class _HomePageState extends State<HomePage> {
                                 5.width,
                                 Text(
                                   "Accept",
-                                  style: TextStyle(
-                                    fontSize: 14,
-                                    color: AppColors.white,
-                                  ),
+                                  style: Styles.textFontRegular(
+                                      size: 10.0.sp,
+                                      weight: FontWeight.w400,
+                                      color: AppColors.white),
                                 )
                               ],
                             ),

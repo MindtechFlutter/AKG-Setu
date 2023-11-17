@@ -1,3 +1,5 @@
+import 'package:akgsetu/common/utils/Styles.dart';
+import 'package:akgsetu/common/utils/color_constants.dart';
 import 'package:akgsetu/screens/home/dashboard.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
@@ -48,7 +50,10 @@ class _ProfilePageState extends State<ProfilePage> {
                       10.width,
                       Text(
                         "My Profile",
-                        style: TextStyle(color: Colors.white, fontSize: 24),
+                        style: Styles.textFontRegular(
+                            size: 20.0.sp,
+                            weight: FontWeight.w500,
+                            color: Colors.white),
                       ),
                       Spacer(),
                     ],
@@ -77,13 +82,17 @@ class _ProfilePageState extends State<ProfilePage> {
           Center(
             child: Text(
               "Parshuram Kalvikatte",
-              style: TextStyle(color: Colors.black, fontSize: 20),
+              style: Styles.textFontRegular(
+                  size: 16.0.sp, weight: FontWeight.w500, color: Colors.black),
             ),
           ),
           Center(
             child: Text(
               "Field Staff Engineer",
-              style: TextStyle(color: Colors.grey.shade700, fontSize: 18),
+              style: Styles.textFontRegular(
+                  size: 14.0.sp,
+                  weight: FontWeight.w500,
+                  color: AppColors.grayA5),
             ),
           ),
           Row(
@@ -91,11 +100,17 @@ class _ProfilePageState extends State<ProfilePage> {
             children: [
               Text(
                 "Emp Code - ",
-                style: TextStyle(color: Colors.grey.shade700, fontSize: 18),
+                style: Styles.textFontRegular(
+                    size: 14.0.sp,
+                    weight: FontWeight.w500,
+                    color: AppColors.grayA5),
               ),
               Text(
                 "00xx",
-                style: TextStyle(color: Colors.black, fontSize: 18),
+                style: Styles.textFontRegular(
+                    size: 14.0.sp,
+                    weight: FontWeight.w500,
+                    color: Colors.black),
               ),
             ],
           ),
@@ -112,11 +127,17 @@ class _ProfilePageState extends State<ProfilePage> {
             children: [
               Text(
                 "Mobile Number - ",
-                style: TextStyle(color: Colors.grey.shade700, fontSize: 18),
+                style: Styles.textFontRegular(
+                    size: 14.0.sp,
+                    weight: FontWeight.w500,
+                    color: AppColors.grayA5),
               ),
               Text(
                 "+91 9999999999",
-                style: TextStyle(color: Colors.black, fontSize: 18),
+                style: Styles.textFontRegular(
+                    size: 14.0.sp,
+                    weight: FontWeight.w500,
+                    color: AppColors.black),
               ),
             ],
           ),
@@ -125,11 +146,17 @@ class _ProfilePageState extends State<ProfilePage> {
             children: [
               Text(
                 "Email Id - ",
-                style: TextStyle(color: Colors.grey.shade700, fontSize: 18),
+                style: Styles.textFontRegular(
+                    size: 14.0.sp,
+                    weight: FontWeight.w500,
+                    color: AppColors.grayA5),
               ),
               Text(
                 "smitmindtech@gmail.com",
-                style: TextStyle(color: Colors.black, fontSize: 18),
+                style: Styles.textFontRegular(
+                    size: 14.0.sp,
+                    weight: FontWeight.w500,
+                    color: AppColors.black),
               ),
             ],
           ),

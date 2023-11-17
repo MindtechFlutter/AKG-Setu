@@ -71,10 +71,10 @@ class _OtpVerifyScreenState extends State<OtpVerifyScreen> {
                               color: Colors.brown,
                               fontSize: 30.sp,
                               fontWeight: FontWeight.w600),*/
-                          Styles.textFontRegular(
-                              size: 24.0.sp,
-                              weight: FontWeight.w600,
-                              color: Colors.brown),
+                              Styles.textFontRegular(
+                                  size: 26.0.sp,
+                                  weight: FontWeight.w600,
+                                  color: Colors.brown),
                         ),
                       ],
                     ),
@@ -110,18 +110,19 @@ class _OtpVerifyScreenState extends State<OtpVerifyScreen> {
                       children: [
                         TextSpan(
                             text: "Didn't receive OTP? ",
-                            style: Styles.textFontRegular(size: 12.sp,
+                            style: Styles.textFontRegular(
+                                size: 12.sp,
                                 weight: FontWeight.w400,
-                                color: AppColors.black)
-                        ),
+                                color: AppColors.black)),
                         TextSpan(
                           text: "Resend",
-                          style: Styles.textFontRegular(size: 12.sp,
+                          style: Styles.textFontRegular(
+                              size: 12.sp,
                               weight: FontWeight.w400,
                               color: AppColors.pink),
                           recognizer: TapGestureRecognizer()
                             ..onTap = () {
-                            print("Resend OTP clicked");
+                              print("Resend OTP clicked");
                             },
                         ),
                       ],

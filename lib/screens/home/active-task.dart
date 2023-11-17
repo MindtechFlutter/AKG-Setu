@@ -1,3 +1,4 @@
+import 'package:akgsetu/common/utils/Styles.dart';
 import 'package:akgsetu/screens/home/dashboard.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
@@ -50,7 +51,10 @@ class _ActiveTaskState extends State<ActiveTask> {
                       10.width,
                       Text(
                         "Active Task",
-                        style: TextStyle(color: Colors.white, fontSize: 24),
+                        style: Styles.textFontRegular(
+                            size: 20.0.sp,
+                            weight: FontWeight.w500,
+                            color: Colors.white),
                       ),
                       Spacer(),
                       NavToProfile(),
@@ -67,7 +71,10 @@ class _ActiveTaskState extends State<ActiveTask> {
                   children: [
                     Text(
                       "Active task",
-                      style: TextStyle(fontSize: 19),
+                      style: Styles.textFontRegular(
+                          size: 14.0.sp,
+                          weight: FontWeight.w500,
+                          color: Colors.black),
                     ),
                     Container(
                       height: 2,
@@ -79,7 +86,10 @@ class _ActiveTaskState extends State<ActiveTask> {
                 Spacer(),
                 Text(
                   "Total Task : 10",
-                  style: TextStyle(fontSize: 15),
+                  style: Styles.textFontRegular(
+                      size: 14.0.sp,
+                      weight: FontWeight.w500,
+                      color: Colors.black),
                 ),
               ],
             ),
@@ -133,11 +143,27 @@ class _ActiveTaskState extends State<ActiveTask> {
                     child: Row(
                       children: [
                         Text(
-                          "Ticket No - #03s5468",
-                          style: TextStyle(fontSize: 18, color: Colors.black87),
+                          "Ticket No -",
+                          style: Styles.textFontRegular(
+                              size: 12.0.sp,
+                              weight: FontWeight.w400,
+                              color: AppColors.black),
+                        ),
+                        Text(
+                          " #03s5468",
+                          style: Styles.textFontRegular(
+                              size: 12.0.sp,
+                              weight: FontWeight.w400,
+                              color: Colors.brown),
                         ),
                         Spacer(),
-                        Text("22-05-2023"),
+                        Text(
+                          "22-05-2023",
+                          style: Styles.textFontRegular(
+                              size: 10.0.sp,
+                              weight: FontWeight.w400,
+                              color: AppColors.black),
+                        ),
                       ],
                     ),
                   ),
@@ -146,13 +172,19 @@ class _ActiveTaskState extends State<ActiveTask> {
                     padding: EdgeInsets.only(left: 20),
                     child: Text(
                       "102, Shivam Complex,Nana Bazaar,Vallabh Vidyanagar,Anand,Gujarat 388120",
-                      style: TextStyle(fontSize: 15, color: Colors.black54),
+                      style: Styles.textFontRegular(
+                          size: 10.0.sp,
+                          weight: FontWeight.w400,
+                          color: Colors.black54),
                     ),
                   ),
                   Utils.addGap(7),
                   Text(
                     "25 min away form your current location",
-                    style: TextStyle(fontSize: 14, color: Colors.green),
+                    style: Styles.textFontRegular(
+                        size: 10.0.sp,
+                        weight: FontWeight.w400,
+                        color: AppColors.green),
                   ),
                   Utils.addGap(8),
                   Row(
@@ -175,10 +207,10 @@ class _ActiveTaskState extends State<ActiveTask> {
                               5.width,
                               Text(
                                 "Decline",
-                                style: TextStyle(
-                                  fontSize: 14,
-                                  color: AppColors.white,
-                                ),
+                                style: Styles.textFontRegular(
+                                    size: 10.0.sp,
+                                    weight: FontWeight.w400,
+                                    color: AppColors.white),
                               )
                             ],
                           ),
@@ -204,10 +236,10 @@ class _ActiveTaskState extends State<ActiveTask> {
                                 5.width,
                                 Text(
                                   "Accept",
-                                  style: TextStyle(
-                                    fontSize: 14,
-                                    color: AppColors.white,
-                                  ),
+                                  style: Styles.textFontRegular(
+                                      size: 10.0.sp,
+                                      weight: FontWeight.w400,
+                                      color: AppColors.white),
                                 )
                               ],
                             ),

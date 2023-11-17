@@ -1,3 +1,4 @@
+import 'package:akgsetu/common/utils/Styles.dart';
 import 'package:akgsetu/screens/completed-task/add-expense.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
@@ -19,9 +20,6 @@ class CompletedTask extends StatefulWidget {
 }
 
 class _CompletedTaskState extends State<CompletedTask> {
-
-
-
   @override
   Widget build(BuildContext context) {
     var width = Utils.getScreenWidth(context);
@@ -54,8 +52,7 @@ class _CompletedTaskState extends State<CompletedTask> {
                         style: TextStyle(color: Colors.white, fontSize: 24),
                       ),
                       Spacer(),
-                                              NavToProfile(),
-
+                      NavToProfile(),
                     ],
                   )),
             ),
@@ -92,12 +89,14 @@ class _CompletedTaskState extends State<CompletedTask> {
             padding: EdgeInsets.only(left: 20),
             child: Text(
               "Total - 10",
-              style: TextStyle(fontSize: 18),
+              style: Styles.textFontRegular(
+                  size: 14.0.sp, weight: FontWeight.w500, color: Colors.black),
             ),
           ),
           Utils.addGap(10),
-          InkWell(      splashColor: Colors.transparent,
-      highlightColor: Colors.transparent,
+          InkWell(
+            splashColor: Colors.transparent,
+            highlightColor: Colors.transparent,
             onTap: () => showTicketDetails(context),
             child: Container(
               margin: EdgeInsets.symmetric(horizontal: 20),
@@ -116,11 +115,27 @@ class _CompletedTaskState extends State<CompletedTask> {
                     child: Row(
                       children: [
                         Text(
-                          "Ticket No - #03s5468",
-                          style: TextStyle(fontSize: 18, color: Colors.black87),
+                          "Ticket No -",
+                          style: Styles.textFontRegular(
+                              size: 12.0.sp,
+                              weight: FontWeight.w400,
+                              color: AppColors.black),
+                        ),
+                        Text(
+                          " #03s5468",
+                          style: Styles.textFontRegular(
+                              size: 12.0.sp,
+                              weight: FontWeight.w400,
+                              color: Colors.brown),
                         ),
                         Spacer(),
-                        Text("22-05-2023"),
+                        Text(
+                          "22-05-2023",
+                          style: Styles.textFontRegular(
+                              size: 10.0.sp,
+                              weight: FontWeight.w400,
+                              color: AppColors.black),
+                        ),
                       ],
                     ),
                   ),
@@ -129,7 +144,10 @@ class _CompletedTaskState extends State<CompletedTask> {
                     padding: EdgeInsets.only(left: 20),
                     child: Text(
                       "102, Shivam Complex,Nana Bazaar,Vallabh Vidyanagar,Anand,Gujarat 388120",
-                      style: TextStyle(fontSize: 15, color: Colors.black54),
+                      style: Styles.textFontRegular(
+                          size: 10.0.sp,
+                          weight: FontWeight.w400,
+                          color: Colors.black54),
                     ),
                   ),
                   Utils.addGap(7),
@@ -140,11 +158,15 @@ class _CompletedTaskState extends State<CompletedTask> {
                       children: [
                         Text(
                           "Completed",
-                          style: TextStyle(fontSize: 14, color: Colors.green),
+                          style: Styles.textFontRegular(
+                              size: 12.0.sp,
+                              weight: FontWeight.w400,
+                              color: AppColors.green),
                         ),
                         Spacer(),
                         InkWell(
-                          onTap: () => Get.to(AddExpense(), transition: Transition.fadeIn),
+                          onTap: () => Get.to(AddExpense(),
+                              transition: Transition.fadeIn),
                           child: Container(
                               padding: EdgeInsets.symmetric(
                                   horizontal: 15, vertical: 4),
@@ -153,10 +175,10 @@ class _CompletedTaskState extends State<CompletedTask> {
                                   color: AppColors.maroon),
                               child: Text(
                                 "Add Expense",
-                                style: TextStyle(
-                                  fontSize: 14,
-                                  color: AppColors.white,
-                                ),
+                                style: Styles.textFontRegular(
+                                    size: 12.0.sp,
+                                    weight: FontWeight.w400,
+                                    color: AppColors.white),
                               )),
                         ),
                       ],

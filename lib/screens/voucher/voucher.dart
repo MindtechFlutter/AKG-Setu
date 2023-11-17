@@ -1,3 +1,4 @@
+import 'package:akgsetu/common/utils/Styles.dart';
 import 'package:akgsetu/common/utils/color_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
@@ -25,7 +26,7 @@ class _VoucherPageState extends State<VoucherPage> {
   bool isApproved = false;
   bool isPending = false;
   bool isRejected = false;
-    @override
+  @override
   Widget build(BuildContext context) {
     var width = Utils.getScreenWidth(context);
     var height = Utils.getScreenHeight(context);
@@ -129,7 +130,7 @@ class _VoucherPageState extends State<VoucherPage> {
           ticket(Colors.red, false, false, true),
         ],
       ),
-      floatingActionButton:  FloatingActionButton(
+      floatingActionButton: FloatingActionButton(
         shape: CircleBorder(
           eccentricity: 0.9,
         ),
@@ -169,10 +170,19 @@ class _VoucherPageState extends State<VoucherPage> {
                 children: [
                   Text(
                     "Food Voucher",
-                    style: TextStyle(fontSize: 18, color: Colors.black87),
+                    style: Styles.textFontRegular(
+                        size: 14.0.sp,
+                        weight: FontWeight.w500,
+                        color: AppColors.black),
                   ),
                   Spacer(),
-                  Text("22-05-2023"),
+                  Text(
+                    "22-05-2023",
+                    style: Styles.textFontRegular(
+                        size: 12.0.sp,
+                        weight: FontWeight.w400,
+                        color: AppColors.black),
+                  ),
                 ],
               ),
             ),
@@ -183,12 +193,18 @@ class _VoucherPageState extends State<VoucherPage> {
                 children: [
                   Text(
                     "Ticket No - #03s5468",
-                    style: TextStyle(fontSize: 16, color: Colors.grey.shade600),
+                    style: Styles.textFontRegular(
+                        size: 12.0.sp,
+                        weight: FontWeight.w400,
+                        color: AppColors.grayA5),
                   ),
                   Spacer(),
                   Text(
                     "INR 500",
-                    style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
+                    style: Styles.textFontRegular(
+                        size: 12.0.sp,
+                        weight: FontWeight.w400,
+                        color: AppColors.black),
                   ),
                 ],
               ),
@@ -205,7 +221,10 @@ class _VoucherPageState extends State<VoucherPage> {
                   ),
                   Text(
                     " 5 Attachment",
-                    style: TextStyle(fontSize: 15, color: primaryColor),
+                    style: Styles.textFontRegular(
+                        size: 12.0.sp,
+                        weight: FontWeight.w400,
+                        color: primaryColor),
                   ),
                   Spacer(),
                   Icon(
@@ -215,7 +234,10 @@ class _VoucherPageState extends State<VoucherPage> {
                   ),
                   Text(
                     " Delete",
-                    style: TextStyle(fontSize: 15, color: Colors.redAccent),
+                    style: Styles.textFontRegular(
+                        size: 12.0.sp,
+                        weight: FontWeight.w400,
+                        color: Colors.redAccent),
                   ),
                 ],
               ),

@@ -1,3 +1,4 @@
+import 'package:akgsetu/common/utils/Styles.dart';
 import 'package:akgsetu/screens/holiday/apply-holiday.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
@@ -170,7 +171,10 @@ class _HolidayPageState extends State<HolidayPage> {
                   alignment: Alignment.centerRight,
                   child: Text(
                     "22-05-2023 to 22-05-2023",
-                    style: TextStyle(color: Colors.grey),
+                    style: Styles.textFontRegular(
+                        size: 10.0.sp,
+                        weight: FontWeight.w400,
+                        color: AppColors.grayA5),
                   ),
                 )),
             Padding(
@@ -179,7 +183,10 @@ class _HolidayPageState extends State<HolidayPage> {
                 alignment: Alignment.centerLeft,
                 child: Text(
                   "Reason",
-                  style: TextStyle(fontSize: 16, color: Colors.black87),
+                  style: Styles.textFontRegular(
+                      size: 14.0.sp,
+                      weight: FontWeight.w500,
+                      color: Colors.black),
                 ),
               ),
             ),
@@ -188,7 +195,10 @@ class _HolidayPageState extends State<HolidayPage> {
               padding: EdgeInsets.only(left: 20, right: 20),
               child: Text(
                 "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummsdf sd......",
-                style: TextStyle(fontSize: 15, color: Colors.black54),
+                style: Styles.textFontRegular(
+                    size: 12.0.sp,
+                    weight: FontWeight.w400,
+                    color: AppColors.grayA5),
               ),
             ),
             Utils.addGap(9),

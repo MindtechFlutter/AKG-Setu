@@ -1,4 +1,5 @@
 import 'package:akgsetu/common/rounded_button.dart';
+import 'package:akgsetu/common/utils/Styles.dart';
 import 'package:akgsetu/common/utils/color_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
@@ -197,7 +198,10 @@ class _AttendancePageState extends State<AttendancePage> {
                       10.width,
                       Text(
                         "Attendance",
-                        style: TextStyle(color: Colors.white, fontSize: 24),
+                        style: Styles.textFontRegular(
+                            size: 20.0.sp,
+                            weight: FontWeight.w500,
+                            color: Colors.white),
                       ),
                       Spacer(),
                       NavToProfile(),

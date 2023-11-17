@@ -1,3 +1,4 @@
+import 'package:akgsetu/common/utils/Styles.dart';
 import 'package:akgsetu/common/utils/color_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
@@ -160,23 +161,25 @@ class _InventoryPageState extends State<InventoryPage> {
                                         children: [
                                           Text(
                                             "Item -1",
-                                            style: TextStyle(
-                                              fontSize: 20,
-                                              color: Colors.black87,
-                                            ),
+                                            style: Styles.textFontRegular(
+                                                size: 14.0.sp,
+                                                weight: FontWeight.w500,
+                                                color: Colors.black),
                                           ),
                                           Spacer(),
-                                          Text("SKU-",
-                                              style: TextStyle(
-                                                fontSize: 16,
-                                                color: Colors.grey,
-                                              )),
+                                          Text(
+                                            "SKU-",
+                                            style: Styles.textFontRegular(
+                                                size: 14.0.sp,
+                                                weight: FontWeight.w500,
+                                                color: AppColors.grayA5),
+                                          ),
                                           Text(
                                             "#1234",
-                                            style: TextStyle(
-                                              fontSize: 14,
-                                              color: Colors.black87,
-                                            ),
+                                            style: Styles.textFontRegular(
+                                                size: 12.0.sp,
+                                                weight: FontWeight.w500,
+                                                color: Colors.black),
                                           ),
                                         ],
                                       ),
@@ -187,19 +190,17 @@ class _InventoryPageState extends State<InventoryPage> {
                                             children: [
                                               Text(
                                                 "Smit Parmar",
-                                                style: TextStyle(
-                                                    fontSize: 16,
-                                                    color: Colors.black87,
-                                                    fontWeight:
-                                                        FontWeight.w400),
+                                                style: Styles.textFontRegular(
+                                                    size: 14.0.sp,
+                                                    weight: FontWeight.w500,
+                                                    color: AppColors.black),
                                               ),
                                               Text(
                                                 "22-05-2023",
-                                                style: TextStyle(
-                                                    fontSize: 16,
-                                                    color: Colors.black87,
-                                                    fontWeight:
-                                                        FontWeight.w400),
+                                                style: Styles.textFontRegular(
+                                                    size: 12.0.sp,
+                                                    weight: FontWeight.w500,
+                                                    color: AppColors.black),
                                               ),
                                             ],
                                           ),
@@ -222,11 +223,13 @@ class _InventoryPageState extends State<InventoryPage> {
                                                       fontSize: 16,
                                                       color: Colors.grey,
                                                     )),
-                                                Text("5",
-                                                    style: TextStyle(
-                                                      fontSize: 16,
-                                                      color: Colors.black87,
-                                                    )),
+                                                Text(
+                                                  "5",
+                                                  style: Styles.textFontRegular(
+                                                      size: 12.0.sp,
+                                                      weight: FontWeight.w500,
+                                                      color: AppColors.black),
+                                                ),
                                               ],
                                             ),
                                           ),

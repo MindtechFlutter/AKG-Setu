@@ -1,4 +1,6 @@
+import 'package:akgsetu/common/utils/Styles.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../common/utils/color_constants.dart';
 import '../../common/utils/utility.dart';
@@ -89,7 +91,10 @@ showDeclineDialog(BuildContext context) {
               children: [
                 Text(
                   "Decline Reason",
-                  style: TextStyle(fontSize: 19),
+                  style: Styles.textFontRegular(
+                      size: 14.0.sp,
+                      weight: FontWeight.w500,
+                      color: Colors.black),
                 ),
                 Container(
                   height: 2,
@@ -103,25 +108,47 @@ showDeclineDialog(BuildContext context) {
               child: Row(
                 children: [
                   Text(
-                    "Ticket No - #03s5468",
-                    style: TextStyle(fontSize: 18, color: Colors.black87),
+                    "Ticket No - ",
+                    style: Styles.textFontRegular(
+                        size: 12.0.sp,
+                        weight: FontWeight.w400,
+                        color: AppColors.black),
+                  ),
+                  Text(
+                    " #03s5468",
+                    style: Styles.textFontRegular(
+                        size: 12.0.sp,
+                        weight: FontWeight.w400,
+                        color: Colors.brown),
                   ),
                   Spacer(),
-                  Text("22-05-2023"),
+                  Text(
+                    "22-05-2023",
+                    style: Styles.textFontRegular(
+                        size: 10.0.sp,
+                        weight: FontWeight.w400,
+                        color: AppColors.black),
+                  ),
                 ],
               ),
             ),
             Utils.addGap(5),
             Text(
               "102, Shivam Complex,Nana Bazaar,Vallabh Vidyanagar,Anand,Gujarat 388120",
-              style: TextStyle(fontSize: 15, color: Colors.black54),
+              style: Styles.textFontRegular(
+                  size: 10.0.sp,
+                  weight: FontWeight.w400,
+                  color: Colors.black54),
             ),
             Utils.addGap(7),
             Align(
               alignment: Alignment.centerLeft,
               child: Text(
                 "Reason",
-                style: TextStyle(fontSize: 15, color: AppColors.maroon),
+                style: Styles.textFontRegular(
+                    size: 10.0.sp,
+                    weight: FontWeight.w400,
+                    color: AppColors.maroon),
               ),
             ),
             Row(
@@ -136,7 +163,11 @@ showDeclineDialog(BuildContext context) {
                       onChanged: (value) {}),
                 ),
                 Text(
-                  "Reason 1",
+                  "Reason - 1",
+                  style: Styles.textFontRegular(
+                      size: 10.0.sp,
+                      weight: FontWeight.w400,
+                      color: Colors.black54),
                 ),
               ],
             ),
@@ -145,7 +176,10 @@ showDeclineDialog(BuildContext context) {
               alignment: Alignment.centerLeft,
               child: Text(
                 "Comments",
-                style: TextStyle(fontSize: 15, color: Colors.black87),
+                style: Styles.textFontRegular(
+                    size: 12.0.sp,
+                    weight: FontWeight.w400,
+                    color: AppColors.black),
               ),
             ),
             Utils.addGap(5),
@@ -153,11 +187,10 @@ showDeclineDialog(BuildContext context) {
               height: 100,
               width: width(context),
               decoration: BoxDecoration(
-                                color: Colors.white,
-
+                  color: Colors.white,
                   borderRadius: BorderRadius.circular(10),
                   border: Border.all(color: Colors.black54)),
-              child:  TextFormField(
+              child: TextFormField(
                 decoration: InputDecoration(border: InputBorder.none),
               ),
             ),
@@ -174,8 +207,10 @@ showDeclineDialog(BuildContext context) {
                   child: Center(
                     child: Text(
                       "Submit",
-                      style: TextStyle(
-                          color: Colors.white, fontWeight: FontWeight.bold),
+                      style: Styles.textFontRegular(
+                          size: 10.0.sp,
+                          weight: FontWeight.w500,
+                          color: AppColors.white),
                     ),
                   ),
                 ),
