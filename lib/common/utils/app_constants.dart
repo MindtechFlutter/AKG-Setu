@@ -52,4 +52,13 @@ class AppConstants {
   static const String vouchers = 'Vouchers';
   static const String holidays = 'Holidays';
   static const String WIP = 'WIP';
+
+
+  static const List<String> listExpenses = [
+    "Travel",
+    "Food",
+    "Lodge",
+    "Other",
+  ];
+
 }

@@ -211,7 +211,7 @@ class _AttendancePageState extends State<AttendancePage> {
           ),
           Utils.addGap(10),
           Padding(
-              padding: EdgeInsets.symmetric(horizontal: 10),
+              padding: EdgeInsets.symmetric(horizontal: 15),
               child: Container(
                 height: height / 2,
                 child: SfDateRangePicker(

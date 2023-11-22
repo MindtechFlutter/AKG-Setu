@@ -4,12 +4,11 @@ import '../constant/endpoints.dart';
 
 class DioClient {
   // dio instance
-  final Dio _dio;
+  final Dio dio;
 
   // injecting dio instance
-  DioClient(this._dio) {
-
-    _dio
+  DioClient(this.dio) {
+    dio
       ..options.baseUrl = Endpoints.baseUrl
       ..options.connectTimeout = Endpoints.connectionTimeout
       ..options.receiveTimeout = Endpoints.receiveTimeout
@@ -32,7 +31,7 @@ class DioClient {
     ProgressCallback ?onReceiveProgress,
   }) async {
     try {
-      final Response response = await _dio.get(
+      final Response response = await dio.get(
         url,
         queryParameters: queryParameters,
         options: options,
@@ -56,7 +55,7 @@ class DioClient {
     ProgressCallback? onReceiveProgress,
   }) async {
     try {
-      final Response response = await _dio.post(
+      final Response response = await dio.post(
         uri,
         data: data,
         queryParameters: queryParameters,
@@ -82,7 +81,7 @@ class DioClient {
     ProgressCallback? onReceiveProgress,
   }) async {
     try {
-      final Response response = await _dio.put(
+      final Response response = await dio.put(
         uri,
         data: data,
         queryParameters: queryParameters,
@@ -108,7 +107,7 @@ class DioClient {
     ProgressCallback? onReceiveProgress,
   }) async {
     try {
-      final Response response = await _dio.delete(
+      final Response response = await dio.delete(
         uri,
         data: data,
         queryParameters: queryParameters,

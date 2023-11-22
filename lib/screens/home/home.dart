@@ -9,6 +9,7 @@ import 'package:akgsetu/screens/home/dashboard.dart';
 import 'package:akgsetu/screens/inventory/inventory.dart';
 import 'package:akgsetu/screens/profile/profile.dart';
 import 'package:akgsetu/screens/voucher/voucher.dart';
+import 'package:akgsetu/screens/wip/wip.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
@@ -174,7 +175,7 @@ class _HomePageState extends State<HomePage> {
               Expanded(
                   flex: 1,
                   child:
-                      cards(AppConstants.WIP, AppIcons.wip, "5", ActiveTask())),
+                      cards(AppConstants.WIP, AppIcons.wip, "5", WipScreen())),
               Utils.addHGap(10),
             ],
           ),

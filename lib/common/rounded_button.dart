@@ -205,3 +205,68 @@ class AcceptButton extends StatelessWidget {
     );
   }
 }
+class UploadButton extends StatelessWidget {
+  final String buttonText;
+  final double width;
+  final double height;
+  final Function onpressed;
+
+  UploadButton(
+      {required this.buttonText,
+        required this.width,
+        this.height = 50,
+        required this.onpressed});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: width / 2.5),
+      child: Container(
+        decoration: BoxDecoration(
+          boxShadow: [
+            BoxShadow(
+                color: greenColor.withOpacity(0.15),
+                offset: Offset(0, 0),
+                spreadRadius: 10,
+                blurRadius: 10.0)
+          ],
+          color: greenColor.withOpacity(0.7),
+          borderRadius: BorderRadius.circular(10),
+
+        ),
+        child: ElevatedButton(
+            style: ButtonStyle(
+              shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(8.0.sp),
+                ),
+              ),
+              minimumSize: MaterialStateProperty.all(Size(width, height)),
+              backgroundColor: MaterialStateProperty.all(Colors.transparent),
+              // elevation: MaterialStateProperty.all(3),
+              shadowColor: MaterialStateProperty.all(Colors.transparent),
+            ),
+            onPressed: () {
+              onpressed();
+            },
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(
+                  FontAwesomeIcons.upload,
+                  color: Colors.white,
+                ),
+                10.width,
+                Text(
+                  buttonText,
+                  style: Styles.textFontRegular(
+                      size: 16.sp,
+                      weight: FontWeight.normal,
+                      color: AppColors.white),
+                ),
+              ],
+            )),
+      ),
+    );
+  }
+}

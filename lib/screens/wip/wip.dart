@@ -1,0 +1,176 @@
+import 'package:akgsetu/screens/home/dashboard.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:nb_utils/nb_utils.dart';
+
+import '../../common/routes/app_pages.dart';
+import '../../common/utils/color_constants.dart';
+import '../../common/utils/utility.dart';
+import '../../constants.dart';
+import '../common/navToProfile.dart';
+import '../common/ticket-details.dart';
+
+class WipScreen extends StatefulWidget {
+  const WipScreen({super.key});
+
+  @override
+  State<WipScreen> createState() => _WipScreenState();
+}
+
+class _WipScreenState extends State<WipScreen> {
+  @override
+  Widget build(BuildContext context) {
+    var width = Utils.getScreenWidth(context);
+    var height = Utils.getScreenHeight(context);
+    return Scaffold(
+      backgroundColor: backgroundColor,
+      body: ListView(
+        padding: EdgeInsets.zero,
+        physics: BouncingScrollPhysics(),
+        children: [
+          ClipPath(
+            clipper: WaveClipperTwo(flip: false, reverse: false),
+            child: Container(
+              height: height / 6,
+              color: primaryColor,
+              child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 16.sp),
+                  child: Row(
+                    children: [
+                      InkWell(
+                        onTap: () =>
+                            Get.to(Dashboard(), transition: Transition.fadeIn),
+                        child: Icon(
+                          Icons.arrow_back,
+                          color: Colors.white,
+                        ),
+                      ),
+                      10.width,
+                      Text(
+                        "WIP",
+                        style: TextStyle(color: Colors.white, fontSize: 24),
+                      ),
+                      Spacer(),
+                      NavToProfile(),
+                    ],
+                  )),
+            ),
+          ),
+          Utils.addGap(10),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 20),
+            child: Row(
+              children: [
+                Column(
+                  children: [
+                    Text(
+                      "WIP Task",
+                      style: TextStyle(fontSize: 19),
+                    ),
+                    Container(
+                      height: 2,
+                      width: width / 4,
+                      color: primaryColor,
+                    ),
+                  ],
+                ),
+                Spacer(),
+                Text(
+                  "Total Task : 10",
+                  style: TextStyle(fontSize: 15),
+                ),
+              ],
+            ),
+          ),
+          Container(
+            margin: EdgeInsets.all(20),
+            padding: EdgeInsets.symmetric(horizontal: 10),
+            width: width,
+            decoration: BoxDecoration(boxShadow: [
+              BoxShadow(
+                  color: AppColors.black53.withOpacity(0.1),
+                  offset: Offset(0, 0),
+                  spreadRadius: 2.sp,
+                  blurRadius: 5.0.sp)
+            ], color: Colors.white, borderRadius: BorderRadius.circular(15)),
+            child: Row(
+              children: [
+                Icon(
+                  Icons.search,
+                  color: primaryColor,
+                ),
+                10.width,
+                Expanded(
+                  child: TextFormField(
+                    decoration: InputDecoration(
+                        border: InputBorder.none, hintText: "Search Item"),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Utils.addGap(10),
+          InkWell(
+            splashColor: Colors.transparent,
+            highlightColor: Colors.transparent,
+            onTap: () => showTicketDetails(context),
+            child: Container(
+              margin: EdgeInsets.symmetric(horizontal: 20),
+              width: width,
+              decoration: BoxDecoration(boxShadow: [
+                BoxShadow(
+                    color: AppColors.black53.withOpacity(0.1),
+                    offset: Offset(0, 0),
+                    spreadRadius: 2.sp,
+                    blurRadius: 5.0.sp)
+              ], color: Colors.white, borderRadius: BorderRadius.circular(15)),
+              child: Column(
+                children: [
+                  Padding(
+                    padding: EdgeInsets.only(left: 20, right: 20, top: 10),
+                    child: Row(
+                      children: [
+                        Text(
+                          "Ticket No - #03s5468",
+                          style: TextStyle(fontSize: 18, color: Colors.black87),
+                        ),
+                        Spacer(),
+                        Text("22-05-2023"),
+                      ],
+                    ),
+                  ),
+                  Utils.addGap(5),
+                  Padding(
+                    padding: EdgeInsets.only(left: 20),
+                    child: Text(
+                      "102, Shivam Complex,Nana Bazaar,Vallabh Vidyanagar,Anand,Gujarat 388120",
+                      style: TextStyle(fontSize: 15, color: Colors.black54),
+                    ),
+                  ),
+
+                  Utils.addGap(8),
+                  Container(
+                    padding: EdgeInsets.symmetric(vertical: 3),
+                    decoration: BoxDecoration(
+                        color: Colors.grey.shade400,
+                        borderRadius: BorderRadius.only(
+                            bottomLeft: Radius.circular(15),
+                            bottomRight: Radius.circular(15))),
+                    child: Center(
+                      child: Text(
+                        "Problem statement....",
+                        style: TextStyle(color: Colors.redAccent),
+                      ),
+                    ),
+                  )
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}

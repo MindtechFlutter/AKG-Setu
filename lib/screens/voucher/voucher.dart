@@ -26,10 +26,12 @@ class _VoucherPageState extends State<VoucherPage> {
   bool isApproved = false;
   bool isPending = false;
   bool isRejected = false;
+
   @override
   Widget build(BuildContext context) {
     var width = Utils.getScreenWidth(context);
     var height = Utils.getScreenHeight(context);
+
     return Scaffold(
       backgroundColor: backgroundColor,
       body: ListView(
@@ -135,7 +137,8 @@ class _VoucherPageState extends State<VoucherPage> {
           eccentricity: 0.9,
         ),
         backgroundColor: AppColors.pink,
-        onPressed: () => Get.to(AddExpense(), transition: Transition.fadeIn),
+        onPressed: () => Get.to(
+            AddExpense(), transition: Transition.fadeIn),
         child: Center(
           child: Icon(
             Icons.add,
@@ -146,8 +149,7 @@ class _VoucherPageState extends State<VoucherPage> {
     );
   }
 
-  ticket(
-      MaterialColor color, bool isApproved, bool isPending, bool isRejected) {
+  ticket(MaterialColor color, bool isApproved, bool isPending, bool isRejected) {
     return InkWell(
       splashColor: Colors.transparent,
       highlightColor: Colors.transparent,

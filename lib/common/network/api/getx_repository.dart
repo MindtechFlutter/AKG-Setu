@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import '../../../common/utils/storage_service.dart';
 import 'getx_api.dart';
+
 class GetxRepository {
   final GetxApi getxApi;
   final storageService = StorageService();

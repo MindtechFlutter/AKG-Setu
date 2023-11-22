@@ -1,10 +1,14 @@
+import 'package:akgsetu/common/utils/app_constants.dart';
 import 'package:akgsetu/common/utils/color_constants.dart';
+import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
+import 'package:flutter_rounded_date_picker/flutter_rounded_date_picker.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:nb_utils/nb_utils.dart';
 
+import '../../common/CommanTextField.dart';
 import '../../common/rounded_button.dart';
 import '../../common/utils/utility.dart';
 import '../../constants.dart';
@@ -21,6 +25,40 @@ class _AddExpenseState extends State<AddExpense> {
   bool isFood = true;
   bool isTravel = false;
   bool isOthers = false;
+  String? selectedValue;
+  DateTime? fromDate;
+bool enabled=true;
+  _showDatePicker(ctx, DateTime? date) async {
+    date = await showRoundedDatePicker(
+      styleDatePicker: MaterialRoundedDatePickerStyle(
+          textStyleYearButton:
+          const TextStyle(color: Colors.white, fontSize: 16),
+          textStyleDayButton: const TextStyle(
+              color: Colors.white, fontSize: 25, fontWeight: FontWeight.w600)),
+      theme: ThemeData(
+        cardColor: primaryColor,
+        primaryColor: primaryColor,
+        textTheme: const TextTheme(
+          bodyText1: TextStyle(
+            color: Colors.white,
+          ),
+        ),
+        colorScheme: ColorScheme.fromSwatch(
+            primarySwatch: createMaterialColor(primaryColor))
+            .copyWith(background: primaryColor),
+      ),
+      context: context,
+      height: height(context) * 0.4,
+      barrierDismissible: false,
+      initialDate: DateTime.now(),
+      firstDate: DateTime(DateTime.now().year - 1),
+      lastDate: DateTime.now(),
+      borderRadius: borderRadius,
+    );
+    setState(() {});
+  }
+
+
   @override
   Widget build(BuildContext context) {
     var width = Utils.getScreenWidth(context);
@@ -49,7 +87,7 @@ class _AddExpenseState extends State<AddExpense> {
                       ),
                       10.width,
                       Text(
-                        "Completed Task",
+                        "Add Voucher",
                         style: TextStyle(color: Colors.white, fontSize: 24),
                       ),
                       Spacer(),
@@ -59,7 +97,7 @@ class _AddExpenseState extends State<AddExpense> {
             ),
           ),
           Utils.addGap(10),
-          Padding(
+       /*   Padding(
             padding: EdgeInsets.symmetric(
               horizontal: 20,
               vertical: 10,
@@ -74,7 +112,7 @@ class _AddExpenseState extends State<AddExpense> {
                 Text("22-05-2023"),
               ],
             ),
-          ),
+          ),*/
           Padding(
             padding: EdgeInsets.symmetric(
               horizontal: 20.sp,
@@ -84,8 +122,84 @@ class _AddExpenseState extends State<AddExpense> {
               "Select your Expense and add releted attachment",
             ),
           ),
-          Utils.addGap(5),
+          Utils.addGap(10),
           Padding(
+            padding:  EdgeInsets.symmetric(horizontal: 20.sp),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                InkWell(
+                  onTap: () => _showDatePicker(context, fromDate),
+                  child: Container(
+                      padding: EdgeInsets.symmetric(horizontal: 15),
+                      height: 45.sp,
+                      decoration: BoxDecoration(
+                          border: Border.all(color: Colors.grey),
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(10)),
+                      child: Row(
+                        children: [
+                          Expanded(
+                            child: Text("Select Date"),
+                          ),
+                          Icon(
+                            FontAwesomeIcons.calendar,
+                            color: primaryColor,
+                          )
+                        ],
+                      )),
+                ),
+              ],
+            ),
+          ),
+          Utils.addGap(5),
+          Container(
+            margin: EdgeInsets.symmetric(horizontal: 20.sp),
+            height: 50,
+            width: width,
+            decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(10),
+                border: Border.all(color: Colors.black54)),
+            child: DropdownButtonHideUnderline(
+              child: DropdownButton2<String>(
+                isExpanded: true,
+                hint: Text(
+                  'Select Expenses',
+                  style: TextStyle(
+                    fontSize: 14,
+                    color: Theme.of(context).hintColor,
+                  ),
+                ),
+                items: AppConstants.listExpenses
+                    .map((String item) => DropdownMenuItem<String>(
+                          value: item,
+                          child: Text(
+                            item,
+                            style: const TextStyle(
+                              fontSize: 14,
+                            ),
+                          ),
+                        ))
+                    .toList(),
+                value: selectedValue,
+                onChanged: (String? value) {
+                  setState(() {
+                    selectedValue = value;
+                  });
+                },
+                buttonStyleData: const ButtonStyleData(
+                  padding: EdgeInsets.symmetric(horizontal: 16),
+                  height: 40,
+                  width: 140,
+                ),
+                menuItemStyleData: const MenuItemStyleData(
+                  height: 40,
+                ),
+              ),
+            ),
+          ),
+   /*       Padding(
             padding: EdgeInsets.symmetric(horizontal: 20),
             child: Row(
               children: [
@@ -134,7 +248,7 @@ class _AddExpenseState extends State<AddExpense> {
                 Spacer()
               ],
             ),
-          ),
+          ),*/
           Utils.addGap(10),
           Padding(
             padding: EdgeInsets.only(right: 25.sp, bottom: 10.sp),
@@ -147,16 +261,26 @@ class _AddExpenseState extends State<AddExpense> {
                 ),
                 10.width,
                 Container(
-                  height: 35.sp,
+                  height: 40.sp,
                   width: 80.sp,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
                       border: Border.all(color: Colors.grey),
                       color: Colors.white),
-                  child: TextField(
+                  child:  getTransparentTextFormField(
+                      validator: (String? value) {
+                      },
+                      isObscureText: false,
+                      enabled: enabled,
+                      hintText: "",
+                      length: 5,
+                      maxlines: 1,
+                      inputType: TextInputType.number,
+                      onChanged: (String value) {
+                      })/*(
                     keyboardType: TextInputType.number,
                     decoration: InputDecoration(border: InputBorder.none),
-                  ),
+                  ),*/
                 )
               ],
             ),
@@ -166,7 +290,7 @@ class _AddExpenseState extends State<AddExpense> {
             child: Align(
               alignment: Alignment.centerLeft,
               child: Text(
-                "Comments",
+                "Remarks  ",
                 style: TextStyle(fontSize: 15, color: Colors.black87),
               ),
             ),
@@ -185,22 +309,17 @@ class _AddExpenseState extends State<AddExpense> {
             ),
           ),
           Utils.addGap(20),
-          AcceptButton(
+          UploadButton(
             buttonText: "Choose file(s)",
             width: width / 2,
             onpressed: ()async {
-
-
                 String? imagePath = await Utils.pickImageOrPDF();
-
                 if (imagePath != null) {
                   print('Selected file path: $imagePath');
                   // Use the imagePath variable to access the selected file
                 } else {
                   print('No file selected');
                 }
-
-
             },
           ),
           Utils.addGap(20),

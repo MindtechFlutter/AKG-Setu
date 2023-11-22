@@ -164,7 +164,7 @@ class _CompletedTaskState extends State<CompletedTask> {
                               color: AppColors.green),
                         ),
                         Spacer(),
-                        InkWell(
+                      /*  InkWell(
                           onTap: () => Get.to(AddExpense(),
                               transition: Transition.fadeIn),
                           child: Container(
@@ -180,7 +180,7 @@ class _CompletedTaskState extends State<CompletedTask> {
                                     weight: FontWeight.w400,
                                     color: AppColors.white),
                               )),
-                        ),
+                        ),*/
                       ],
                     ),
                   ),

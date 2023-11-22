@@ -60,9 +60,9 @@ dependencies:
   persistent_bottom_nav_bar: ^5.0.2
   google_maps_flutter: ^2.5.0
   font_awesome_flutter: ^10.6.0
-  syncfusion_flutter_datepicker: any
+  syncfusion_flutter_datepicker: 23.1.43
   flutter_rounded_date_picker: ^3.0.4
-
+  dropdown_button2: ^2.3.8
 dev_dependencies:
   flutter_test:
     sdk: flutter

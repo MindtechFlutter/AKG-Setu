@@ -13,8 +13,8 @@ class GetxApi {
 
   Future<Response> loadPostFormData(endpoint, body, params, token) async {
     Dio dio = new Dio();
-    dio.options.contentType = Headers.formUrlEncodedContentType;
-    dio.options.headers["Content-Type"] = "multipart/form-data";
+    dioClient.dio.options.contentType = Headers.formUrlEncodedContentType;
+    dioClient.dio.options.headers["Content-Type"] = "multipart/form-data";
     dio.options.headers["token"] = token;
 
     try {

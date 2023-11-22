@@ -1590,7 +1590,7 @@ class _InventoryPageState extends State<InventoryPage> {
                       )
                     : null,
                 child: Text(
-                  "To Issue",
+                  "Requested",
                   style: (activePageIndex == 1)
                       ? TextStyle(
                           color: Colors.white, fontWeight: FontWeight.bold)
@@ -1615,7 +1615,7 @@ class _InventoryPageState extends State<InventoryPage> {
                       )
                     : null,
                 child: Text(
-                  "Buy Now",
+                  "To Issue ",
                   style: (activePageIndex == 2)
                       ? TextStyle(
                           color: Colors.white, fontWeight: FontWeight.bold)

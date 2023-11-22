@@ -255,6 +255,7 @@ class getTransparentTextFormField extends StatelessWidget {
         filled: true,
         fillColor: Colors.transparent,
         suffixIcon: passwordButton,
+        counterText:"",
         labelText: labelText,
         labelStyle: Styles.TextBoxLableStyle(16.0),
         //  floatingLabelStyle: Styles.TextBoxFlotingLableStyle(16.0),
