@@ -8,7 +8,7 @@ import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 
 class Dashboard extends StatefulWidget {
   int? index;
-   Dashboard({Key? key, this.index}) : super(key: key);
+  Dashboard({Key? key, this.index}) : super(key: key);
 
   @override
   State<StatefulWidget> createState() => DashboardState();
@@ -21,7 +21,7 @@ class DashboardState extends State<Dashboard> {
   @override
   void initState() {
     super.initState();
-    _controller = PersistentTabController(initialIndex: widget.index ??  0);
+    _controller = PersistentTabController(initialIndex: widget.index ?? 0);
     _hideNavBar = false;
   }
 

@@ -43,9 +43,9 @@ class AppConstants {
   static const String logout = 'Logout';
   static const String otpVerification = 'OTP Verification';
 
-      static const String activeTask = 'Active Task';
+  static const String activeTask = 'Active Task';
   static const String visitsCompleted = 'Visits';
-    static const String completedTasks = 'Completed';
+  static const String completedTasks = 'Completed';
   static const String dsr = 'Digital Service Report';
 
   static const String inventory = 'Inventory';
@@ -53,12 +53,70 @@ class AppConstants {
   static const String holidays = 'Holidays';
   static const String WIP = 'WIP';
 
-
   static const List<String> listExpenses = [
+    "Type of Expense",
     "Travel",
     "Food",
     "Lodge",
     "Other",
   ];
 
+  static const List<String> listModeOfTravel = [
+    "Mode of Travel",
+    "Bike",
+    "Car",
+    "Public Transport",
+  ];
+
+  static const List<String> listTypeOfTravel = [
+    "Type of Travel",
+    "Customer Site",
+    "OnWay",
+    "EndJourney",
+  ];
+
+  static const List<String> listPurposeOfvisit = [
+    "Purpose Of Visit",
+    "ServiceCall",
+    "Payment Recovery",
+    "Installing",
+    "Marketing",
+    "Other",
+  ];
+
+  static const List<String> listcallStatus = [
+    "Call Status",
+    "Solved",
+    "Pending",
+    "Not A Call",
+  ];
+
+  static const List<String> installingStatus = [
+    "Installing Status",
+    "Complete",
+    "Partly",
+    "Not Done",
+  ];
+
+  static const List<String> listFoodType = [
+    "Food Type",
+    "Daily",
+    "Paid",
+  ];
+
+  static const List<String> listInstallingStatus = [
+    "Installing Status",
+    "Complete",
+    "Partly",
+    "Not Done",
+  ];
+
+  static const List<String> listTypeofVehicle = [
+    "Type",
+    "Bus",
+    "Railway",
+    "Rickshaw",
+    "Private",
+    "Other",
+  ];
 }

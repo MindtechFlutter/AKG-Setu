@@ -318,10 +318,10 @@ class _HomePageState extends State<HomePage> {
                               5.width,
                               Text(
                                 "Decline",
-                                  style: Styles.textFontRegular(
-                                      size: 10.0.sp,
-                                      weight: FontWeight.w400,
-                                      color: AppColors.white),
+                                style: Styles.textFontRegular(
+                                    size: 10.0.sp,
+                                    weight: FontWeight.w400,
+                                    color: AppColors.white),
                               )
                             ],
                           ),

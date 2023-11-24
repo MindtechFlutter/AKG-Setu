@@ -1185,7 +1185,8 @@ class _InventoryConsumedState extends State<InventoryConsumed> {
                             color: Colors.grey.shade800, fontSize: 17),
                       ),
                     ],
-                  )),
+                  )
+                  ),
             ),
             Container(
               padding: EdgeInsets.symmetric(horizontal: 20),
