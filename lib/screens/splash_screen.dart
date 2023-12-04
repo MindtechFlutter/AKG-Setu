@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../common/controller/splash_controller.dart';
+import '../common/network/model/token_model.dart';
 import '../common/routes/app_pages.dart';
 import '../common/utils/dimensions.dart';
 import '../common/utils/image_paths.dart';
@@ -70,15 +72,17 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+  final SplashController _splashController =
+  Get.put(SplashController());
+
   @override
   void initState() {
     super.initState();
-    route();
+   // route();
   }
 
   route() async {
     Future.delayed(const Duration(seconds: 3), () {
-      Get.offAllNamed(Routes.login);
       /*
       navigation(context, const LoginPage());
 */
@@ -126,3 +130,4 @@ class _SplashScreenState extends State<SplashScreen> {
     );
   }
 }
+

@@ -18,6 +18,14 @@ class AppConstants {
   static const String isLoggedIn = 'isLoggedInPr';
   static const String loginPref = 'loginPref';
 
+
+  //apiparams
+  static const String usernameK = 'username';
+  static const String passwordK = 'password';
+
+
+
+
   //errors
   static const String errorFName = "Please enter first name";
   static const String errorLName = "Please enter last name";

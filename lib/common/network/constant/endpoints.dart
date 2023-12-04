@@ -1,16 +1,17 @@
 class Endpoints {
   Endpoints._();
   // base url
-  static const String baseUrl = "";
+  static const String baseUrl = "http://api.akgsetu.in/Mindtech/";
   // receiveTimeout
   static const int receiveTimeout = 15000;
   // connectTimeout
   static const int connectionTimeout = 15000;
   static const String languageCode = 'en';
+  static const String token = '/token';
+
   static const String login = '/otp/login';
   static const String validate = '/otp/validate';
 
-  static const String token = '/request/token';
   static const String updateProfilePhoto = '/update-profile-photo';
   static const String homePageBanner = '/get/homepage-banners';
   static const String services = '/get/b2c-services';

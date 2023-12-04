@@ -50,9 +50,9 @@ class GetxApi {
           await dioClient.get(endpoint, queryParameters: params);
       Map<String, dynamic> data = response.data;
       // print(response.data);
-      if (data['show'] == true) {
+/*      if (data['show'] == true) {
         await Utils.showToast(data["message"]);
-      }
+      }*/
       if (data?['status'] == 401) {
         //    await storageService.clearData();
         // Get.offAllNamed(Routes.loginonboardscreen);
@@ -77,9 +77,9 @@ class GetxApi {
       await dioClient.get(endpoint, queryParameters: params,options: Options(headers: header));
       Map<String, dynamic> data = response.data;
       // print(response.data);
-      if (data['show'] == true) {
+      /*if (data['show'] == true) {
         await Utils.showToast(data["message"]);
-      }
+      }*/
       if (data?['status'] == 401) {
         //    await storageService.clearData();
         // Get.offAllNamed(Routes.loginonboardscreen);
@@ -106,9 +106,9 @@ class GetxApi {
           await   dioClient.get(endpoint, options: Options(headers: header));
       Map<String, dynamic> data = response.data;
       // print(response.data);
-      if (data['show'] == true) {
+    /*  if (data['show'] == true) {
         await Utils.showToast(data["message"]);
-      }
+      }*/
       if (data['status'] == 401) {
         //    await storageService.clearData();
         // Get.offAllNamed(Routes.loginonboardscreen);
@@ -124,14 +124,14 @@ class GetxApi {
     }
   }
 
-  Future<Response> loadPostData(endpoint, params, token) async {
+  Future<Response> loadPostData(endpoint, params) async {
 
-    final Map<String, dynamic> header = new Map<String, dynamic>();
-    header["token"] = token;
+/*    final Map<String, dynamic> header = new Map<String, dynamic>();
+    header["token"] = token;*/
 
     try {
       final Response response = await dioClient.post(endpoint,
-          queryParameters: params ,options: Options(headers: header,contentType: 'text/html'));
+          queryParameters: params ,options: Options(contentType: 'text/html'));
 
       Map<String, dynamic> data = response.data;
 
