@@ -218,15 +218,15 @@ class _AttendancePageState extends State<AttendancePage> {
                   showNavigationArrow: true,
                   todayHighlightColor: primaryColor,
                   maxDate: DateTime.now(),
-                  selectionColor: Colors.transparent,
-                  selectionTextStyle: TextStyle(color: Colors.black),
+                  selectionColor: AppColors.maroon,
+                  selectionTextStyle: TextStyle(color: Colors.white),
                   view: DateRangePickerView.month,
                   monthViewSettings: DateRangePickerMonthViewSettings(
-                    specialDates: [
-                      DateTime.now().subtract(Duration(days: 2)),
-                      DateTime.now().subtract(Duration(days: 3))
-                    ],
-                  ),
+                      // specialDates: [
+                      //   DateTime.now().subtract(Duration(days: 2)),
+                      //   DateTime.now().subtract(Duration(days: 3))
+                      // ],
+                      ),
                   monthCellStyle: DateRangePickerMonthCellStyle(
                     weekendTextStyle: TextStyle(
                         color: AppColors.maroon.withOpacity(0.2),

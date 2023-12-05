@@ -72,99 +72,103 @@ class _AcceptLocationState extends State<AcceptLocation> {
     var width = Utils.getScreenWidth(context);
     var height = Utils.getScreenHeight(context);
     return Scaffold(
-        backgroundColor: backgroundColor,
-        body: ListView(
-            padding: EdgeInsets.zero,
-            physics: BouncingScrollPhysics(),
-            children: [
-              ClipPath(
-                clipper: WaveClipperTwo(flip: false, reverse: false),
-                child: Container(
-                  height: height / 6,
-                  color: primaryColor,
-                  child: Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 16.sp),
-                      child: Row(
-                        children: [
-                          InkWell(
-                            onTap: () => Navigator.of(context).pop(),
-                            child: Icon(
-                              Icons.arrow_back,
-                              color: Colors.white,
-                            ),
-                          ),
-                          10.width,
-                          Text(
-                            "Location",
-                            style: TextStyle(color: Colors.white, fontSize: 24),
-                          ),
-                          Spacer(),
-                          NavToProfile(),
-                        ],
-                      )),
+      backgroundColor: backgroundColor,
+      body: ListView(
+        padding: EdgeInsets.zero,
+        physics: BouncingScrollPhysics(),
+        children: [
+          ClipPath(
+            clipper: WaveClipperTwo(flip: false, reverse: false),
+            child: Container(
+              height: height / 6,
+              color: primaryColor,
+              child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 16.sp),
+                  child: Row(
+                    children: [
+                      InkWell(
+                        onTap: () => Navigator.of(context).pop(),
+                        child: Icon(
+                          Icons.arrow_back,
+                          color: Colors.white,
+                        ),
+                      ),
+                      10.width,
+                      Text(
+                        "Location",
+                        style: TextStyle(color: Colors.white, fontSize: 24),
+                      ),
+                      Spacer(),
+                      NavToProfile(),
+                    ],
+                  )),
+            ),
+          ),
+          Utils.addGap(10),
+          Padding(
+            padding: EdgeInsets.only(left: 20, right: 20, top: 10),
+            child: Row(
+              children: [
+                Text(
+                  "Ticket No - #03s5468",
+                  style: TextStyle(fontSize: 19, color: Colors.black87),
                 ),
+                Spacer(),
+                Text("22-05-2023"),
+              ],
+            ),
+          ),
+          Utils.addGap(5),
+          Padding(
+            padding: EdgeInsets.only(left: 20),
+            child: Text(
+              "102, Shivam Complex,Nana Bazaar,Vallabh Vidyanagar,Anand,Gujarat 388120",
+              style: TextStyle(fontSize: 16, color: Colors.black54),
+            ),
+          ),
+          Utils.addGap(12),
+          Align(
+            alignment: Alignment.center,
+            child: Text(
+              "25 min away form your current location",
+              style: TextStyle(fontSize: 16, color: Colors.green),
+            ),
+          ),
+          Utils.addGap(15),
+          Container(
+            margin: EdgeInsets.symmetric(horizontal: 20),
+            height: height / 3,
+            width: width,
+            decoration: BoxDecoration(
+              border: Border.all(color: Colors.grey, width: 3),
+            ),
+            child: GoogleMap(
+              zoomControlsEnabled: false,
+              onMapCreated: (controller) {
+                setState(() {
+                  _mapController = controller;
+                });
+              },
+              initialCameraPosition: CameraPosition(
+                target: LatLng(37.7749, -122.4194),
+                zoom: 10.0,
               ),
-              Utils.addGap(10),
-              Padding(
-                padding: EdgeInsets.only(left: 20, right: 20, top: 10),
-                child: Row(
-                  children: [
-                    Text(
-                      "Ticket No - #03s5468",
-                      style: TextStyle(fontSize: 19, color: Colors.black87),
-                    ),
-                    Spacer(),
-                    Text("22-05-2023"),
-                  ],
-                ),
-              ),
-              Utils.addGap(5),
-              Padding(
-                padding: EdgeInsets.only(left: 20),
-                child: Text(
-                  "102, Shivam Complex,Nana Bazaar,Vallabh Vidyanagar,Anand,Gujarat 388120",
-                  style: TextStyle(fontSize: 16, color: Colors.black54),
-                ),
-              ),
-              Utils.addGap(12),
-              Align(
-                alignment: Alignment.center,
-                child: Text(
-                  "25 min away form your current location",
-                  style: TextStyle(fontSize: 16, color: Colors.green),
-                ),
-              ),
-              Utils.addGap(15),
-              Container(
-                margin: EdgeInsets.symmetric(horizontal: 20),
-                height: height / 3, width: width, decoration: BoxDecoration(border: Border.all(color: Colors.grey, width: 3),), child: 
-              GoogleMap(
-                zoomControlsEnabled: false,
-                onMapCreated: (controller) {
-                  setState(() {
-                    _mapController = controller;
-                  });
-                },
-                initialCameraPosition: CameraPosition(
-                  target: LatLng(37.7749,
-                      -122.4194),
-                  zoom: 10.0, 
-                ),
-                markers: Set.from(markers),
-                polylines: Set.from(polylines),
-              ),),
-
-                 Padding(
-                  padding:  EdgeInsets.only(top:40.0.sp),
-                  child: AcceptButton(
-                    buttonText: 'Checkin',
-                    width: width/1.7,
-                    onpressed: () {
-                      Get.toNamed(Routes.inventoryConsumed);
-                    },
-                  ),
-                )
-
-            ],),);
+              markers: Set.from(markers),
+              polylines: Set.from(polylines),
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.only(top: 40.0.sp),
+            child: AcceptButton(
+              buttonText: 'Checkin',
+              width: width / 1.7,
+              onpressed: () {
+                Get.toNamed(Routes.inventoryConsumed);
+              },
+            ),
+          )
+        ],
+      ),
+    );
   }
 }

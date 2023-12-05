@@ -72,20 +72,17 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-  final SplashController _splashController =
-  Get.put(SplashController());
+  final SplashController _splashController = Get.put(SplashController());
 
   @override
   void initState() {
     super.initState();
-   // route();
+    route();
   }
 
   route() async {
     Future.delayed(const Duration(seconds: 3), () {
-      /*
-      navigation(context, const LoginPage());
-*/
+      Get.offAllNamed(Routes.login);
     });
   }
 
@@ -130,4 +127,3 @@ class _SplashScreenState extends State<SplashScreen> {
     );
   }
 }
-

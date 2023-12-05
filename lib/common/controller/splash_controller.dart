@@ -15,7 +15,7 @@ class SplashController extends BaseController {
 
   @override
   Future<void> onInit() async {
-    await getTokenApi();
+   // await getTokenApi();
     super.onInit();
   }
 
