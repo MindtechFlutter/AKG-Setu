@@ -1,7 +1,7 @@
 import 'package:akgsetu/common/rounded_button.dart';
-import 'package:akgsetu/common/routes/app_pages.dart';
-import 'package:akgsetu/common/utils/app_constants.dart';
+import 'package:akgsetu/network/model/problem_model.dart';
 import 'package:akgsetu/screens/holiday/apply-holiday.dart';
+import 'package:dropdown_search/dropdown_search.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -10,10 +10,13 @@ import 'package:get/get.dart';
 import 'package:nb_utils/nb_utils.dart';
 
 import '../../common/CommanTextField.dart';
-import '../../common/utils/Styles.dart';
-import '../../common/utils/color_constants.dart';
-import '../../common/utils/utility.dart';
-import '../../constants.dart';
+
+import '../../common/constants.dart';
+import '../../routes/app_pages.dart';
+import '../../utils/Styles.dart';
+import '../../utils/app_constants.dart';
+import '../../utils/color_constants.dart';
+import '../../utils/utility.dart';
 import '../common/navToProfile.dart';
 import '../common/ticket-details.dart';
 
@@ -27,6 +30,25 @@ class DsrScreen extends StatefulWidget {
 class _DsrScreenState extends State<DsrScreen> {
   int selectedOption = 1;
   String _partStatus = 'returned';
+  String selectedValueone = '';
+  String selectedValuetwo = '';
+  List<ProblemData> problemList = [
+    ProblemData(
+        error: "1.)SMPS  2.)Power Cable 3.)Ram 4.)Mother Board 5.)Harddisk",
+        id: 23,
+        problem: "CPU Problem",
+        solution: ""),
+    ProblemData(
+        error: "1.)SMPS  2.)Power Cable 3.)Ram 4.)Mother Board 5.)Harddisk",
+        id: 23,
+        problem: "Motherboard Problem",
+        solution: ""),
+    ProblemData(
+        error: "1.)SMPS  2.)Power Cable 3.)Ram 4.)Mother Board 5.)Harddisk",
+        id: 23,
+        problem: "Pata nahi Problem",
+        solution: ""),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -1422,6 +1444,118 @@ class _DsrScreenState extends State<DsrScreen> {
                   //   ],
                   // ),
                   // Utils.addGap(15),
+                  // Utils.addGap(15),
+                  // Row(
+                  //   children: [
+                  //     Expanded(
+                  //       child: Column(
+                  //         mainAxisAlignment: MainAxisAlignment.start,
+                  //         crossAxisAlignment: CrossAxisAlignment.start,
+                  //         children: [
+                  //           Text(
+                  //             "Problem Details",
+                  //             style: Styles.textFontRegular(
+                  //                 size: 12.sp,
+                  //                 color: Colors.black87,
+                  //                 weight: FontWeight.w400),
+                  //           ),
+                  //           SizedBox(
+                  //             height: 10.sp,
+                  //           ),
+                  //           Container(
+                  //               height: 50.sp,
+                  //               width: MediaQuery.of(context).size.width,
+                  //               decoration: BoxDecoration(
+                  //                   color: AppColors.white,
+                  //                   border: Border.all(
+                  //                     color: AppColors.grayA5,
+                  //                     width: 1.sp,
+                  //                   ),
+                  //                   borderRadius: BorderRadius.circular(10.sp)),
+                  //               child: Padding(
+                  //                 padding: EdgeInsets.only(left: 5),
+                  //                 child: DropdownSearch<ProblemData>(
+                  //                   popupProps:
+                  //                       PopupProps.menu(showSearchBox: true),
+                  //                   items: problemList,
+                  //                   dropdownDecoratorProps:
+                  //                       DropDownDecoratorProps(
+                  //                     dropdownSearchDecoration: InputDecoration(
+                  //                         border: InputBorder.none),
+                  //                   ),
+                  //                   onChanged: (value) {
+                  //                     setState(() {
+                  //                       // selectedValueone = value!;
+                  //                     });
+                  //                   },
+                  //                   // selectedItem: selectedValueone,
+                  //                 ),
+                  //               )),
+                  //         ],
+                  //       ),
+                  //     ),
+                  //     Utils.addHGap(8),
+                  //     Expanded(
+                  //       child: Column(
+                  //         mainAxisAlignment: MainAxisAlignment.start,
+                  //         crossAxisAlignment: CrossAxisAlignment.start,
+                  //         children: [
+                  //           Text(
+                  //             "Problem Details",
+                  //             style: Styles.textFontRegular(
+                  //                 size: 12.sp,
+                  //                 color: Colors.black87,
+                  //                 weight: FontWeight.w400),
+                  //           ),
+                  //           SizedBox(
+                  //             height: 10.sp,
+                  //           ),
+                  //           Container(
+                  //               height: 50.sp,
+                  //               decoration: BoxDecoration(
+                  //                   color: AppColors.white,
+                  //                   border: Border.all(
+                  //                     color: AppColors.grayA5,
+                  //                     width: 1.sp,
+                  //                   ),
+                  //                   borderRadius: BorderRadius.circular(10.sp)),
+                  //               child: DropdownSearch<String>(
+                  //                 popupProps: PopupProps.menu(
+                  //                   showSearchBox: true,
+                  //                 ),
+                  //                 items: [
+                  //                   "Apple",
+                  //                   "Banana",
+                  //                   "Orange",
+                  //                   "Mango",
+                  //                   "Grapefruit",
+                  //                   "Apple",
+                  //                   "Banana",
+                  //                   "Orange",
+                  //                   "Mango",
+                  //                   "Grapefruit"
+                  //                 ],
+                  //                 dropdownDecoratorProps:
+                  //                     DropDownDecoratorProps(
+                  //                   dropdownSearchDecoration: InputDecoration(
+                  //                       // labelText: "Menu mode",
+                  //                       // hintText: "Type to Search",
+                  //                       border: InputBorder.none),
+                  //                 ),
+                  //                 onChanged: (value) {
+                  //                   setState(() {
+                  //                     selectedValuetwo = value!;
+                  //                   });
+                  //                 },
+                  //                 selectedItem: selectedValuetwo,
+                  //               )),
+                  //         ],
+                  //       ),
+                  //     ),
+                  //     Utils.addHGap(8),
+                  //   ],
+                  // ),
+
                   Utils.addGap(15),
                   Row(
                     children: [
@@ -2149,11 +2283,9 @@ class _DsrScreenState extends State<DsrScreen> {
                                       border: Border.all(
                                           color: Colors.grey.shade700,
                                           width: 1),
-                                      borderRadius:
-                                          BorderRadius.circular(10)),
+                                      borderRadius: BorderRadius.circular(10)),
                                   child: Column(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.center,
+                                    mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       Icon(
                                         FontAwesomeIcons.upload,

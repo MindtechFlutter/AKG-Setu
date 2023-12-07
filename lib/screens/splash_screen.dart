@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../common/controller/splash_controller.dart';
-import '../common/network/model/token_model.dart';
-import '../common/routes/app_pages.dart';
-import '../common/utils/dimensions.dart';
-import '../common/utils/image_paths.dart';
-import '../constants.dart';
+
+import '../common/constants.dart';
+import '../controller/splash_controller.dart';
+import '../routes/app_pages.dart';
 import 'auth/login.dart';
 
 /*class SplashScreen extends StatefulWidget {
@@ -77,7 +75,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    route();
+    // route();
   }
 
   route() async {

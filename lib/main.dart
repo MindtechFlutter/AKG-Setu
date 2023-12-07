@@ -1,14 +1,14 @@
+import 'package:akgsetu/common/constants.dart';
+import 'package:akgsetu/common/service_locator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
-import 'common/dependency_injection.dart';
-import 'common/routes/app_pages.dart';
-import 'common/service_locator.dart';
-import 'common/utils/storage_service.dart';
-import 'common/utils/strings.dart';
-import 'constants.dart';
+import '../routes/app_pages.dart';
+import '../utils/dependency_injection.dart';
+import '../utils/storage_service.dart';
+import '../utils/strings.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -61,5 +61,3 @@ class _MyAppState extends State<MyApp> {
     );
   }
 }
-
-

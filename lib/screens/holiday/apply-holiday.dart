@@ -8,10 +8,10 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:nb_utils/nb_utils.dart';
 
+import '../../common/constants.dart';
 import '../../common/rounded_button.dart';
-import '../../common/utils/color_constants.dart';
-import '../../common/utils/utility.dart';
-import '../../constants.dart';
+import '../../utils/utility.dart';
+
 
 class ApplyHoliday extends StatefulWidget {
   const ApplyHoliday({super.key});

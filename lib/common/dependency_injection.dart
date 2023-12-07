@@ -1,5 +1,6 @@
-import 'package:akgsetu/common/utils/storage_service.dart';
 import 'package:get/get.dart';
+
+import '../utils/storage_service.dart';
 
 class DependencyInjection {
   static Future<void> init() async {

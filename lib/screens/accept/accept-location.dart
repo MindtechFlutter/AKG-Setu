@@ -6,9 +6,10 @@ import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:nb_utils/nb_utils.dart';
 
-import '../../common/routes/app_pages.dart';
-import '../../common/utils/utility.dart';
-import '../../constants.dart';
+
+import '../../common/constants.dart';
+import '../../routes/app_pages.dart';
+import '../../utils/utility.dart';
 import '../common/navToProfile.dart';
 import '../profile/profile.dart';
 

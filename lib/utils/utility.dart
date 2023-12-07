@@ -1,7 +1,9 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:akgsetu/common/utils/storage_service.dart';
+import 'package:akgsetu/common/constants.dart';
+import 'package:akgsetu/network/model/login_model.dart';
+import 'package:akgsetu/utils/storage_service.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:file_picker/file_picker.dart';
@@ -14,7 +16,6 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:permission_handler/permission_handler.dart';
-
 
 import '../routes/app_pages.dart';
 import 'app_constants.dart';
@@ -38,19 +39,24 @@ class Utils {
     return false;
   }
 
-  static void showSnackBar(error, context, onRetry) {
-    final snackBar = SnackBar(
-      backgroundColor: Colors.black,
-      content: Text(error),
-      duration: const Duration(hours: 1),
-      action: SnackBarAction(
-        label: 'Retry',
+  static showSnackBar(error, onRetry) {
+    Get.snackbar(
+      'Error',
+      error,
+      backgroundColor: Colors.red,
+      duration: const Duration(seconds: 5),
+      snackPosition: SnackPosition.BOTTOM, // Adjust the position as needed
+      mainButton: TextButton(
         onPressed: () {
           onRetry();
+          Get.back(); // Close the snackbar
         },
+        child: Text(
+          'Retry',
+          style: TextStyle(color: Colors.white),
+        ),
       ),
     );
-    ScaffoldMessenger.of(context).showSnackBar(snackBar);
   }
 
   static String getDeviceType() {
@@ -74,7 +80,7 @@ class Utils {
         child: const CircularProgressIndicator(
           backgroundColor: Colors.white,
           valueColor: AlwaysStoppedAnimation<Color>(
-            AppColors.appRed,
+            AppColors.blue,
           ),
         ),
       ),
@@ -100,8 +106,6 @@ class Utils {
       backgroundColor: Colors.black,
       textColor: Colors.white,
       fontSize: 15.0);
-
-
 
   static String convertiEnDateEtHeure(n) {
     String date = DateFormat('yyyy-MM-dd').format(n);
@@ -208,19 +212,18 @@ class Utils {
     );
   }
 
-/*  static Future<ValidateModel> getLoginData() async {
+  static Future<LoginModel> getLoginData() async {
     var value = await StorageService.to.getString(AppConstants.loginPref);
 
     if (value != "") {
       var data = jsonDecode(value);
-      ValidateModel validateModel = ValidateModel.fromJson(data);
+      LoginModel validateModel = LoginModel.fromJson(data);
       return validateModel;
     } else {
-      return ValidateModel();
+      return LoginModel();
     }
-  }*/
+  }
 
-/*
   static Future<bool> isLoggedIn() async {
     var isloggedInPref =
         await StorageService.to.getString(AppConstants.loginPref);
@@ -229,7 +232,6 @@ class Utils {
         isloggedInPref == "" || isloggedInPref == null ? false : true;
     return isLogin;
   }
-*/
 
   static void getLogoutDialog(context) {
     Platform.isAndroid
@@ -237,20 +239,31 @@ class Utils {
             AlertDialog(
               title: Text('Are you sure you want to logout?'),
               actions: [
-                TextButton(
-                  child: Text(AppConstants.yes),
-                  onPressed: () {
-                    Navigator.of(Get.overlayContext!, rootNavigator: true)
-                        .pop(AppConstants.logout);                    //  Get.back();
-                    StorageService().clearData();
-                    Get.offNamedUntil(Routes.splash, (route) => false);
-                  },
+                Container(
+                  decoration: BoxDecoration(
+                      color: primaryColor.withOpacity(0.4),
+                      borderRadius: BorderRadius.circular(25)),
+                  child: TextButton(
+                    child: Text(AppConstants.yes),
+                    onPressed: () {
+                      Navigator.of(Get.overlayContext!, rootNavigator: true)
+                          .pop(AppConstants.logout); //  Get.back();
+                      StorageService().clearData();
+                      Get.offNamedUntil(Routes.splash, (route) => false);
+                    },
+                  ),
                 ),
-                TextButton(
-                  child: Text(AppConstants.no),
-                  onPressed: () {
-                    Navigator.of(Get.overlayContext!, rootNavigator: true)
-                        .pop(AppConstants.logout);                  },
+                Container(
+                  decoration: BoxDecoration(
+                      color: primaryColor.withOpacity(0.4),
+                      borderRadius: BorderRadius.circular(25)),
+                  child: TextButton(
+                    child: Text(AppConstants.no),
+                    onPressed: () {
+                      Navigator.of(Get.overlayContext!, rootNavigator: true)
+                          .pop(AppConstants.logout);
+                    },
+                  ),
                 ),
               ],
             ),
@@ -273,7 +286,8 @@ class Utils {
                   child: Text(AppConstants.no),
                   onPressed: () {
                     Navigator.of(Get.overlayContext!, rootNavigator: true)
-                        .pop(AppConstants.logout);                  },
+                        .pop(AppConstants.logout);
+                  },
                 )
               ],
             ),
@@ -332,16 +346,13 @@ class Utils {
         width: width,
       );
 
-
-
- static Future<String?> pickImageOrPDF() async {
-
+  static Future<String?> pickImageOrPDF() async {
     if (Platform.isAndroid) {
       final DeviceInfoPlugin deviceInfoPlugin = DeviceInfoPlugin();
       final AndroidDeviceInfo info = await deviceInfoPlugin.androidInfo;
-      if ((info.version.sdkInt ?? 0) >= 33){
+      if ((info.version.sdkInt ?? 0) >= 33) {
         return await _pickFile();
-      } else{
+      } else {
         final permissionStatus = await Permission.storage.request();
         if (permissionStatus.isDenied) {
           // Here just ask for the permission for the first time
@@ -360,8 +371,7 @@ class Utils {
           return await _pickFile();
         }
       }
-
-    }else{
+    } else {
       final permissionStatus = await Permission.storage.request();
       if (permissionStatus.isDenied) {
         // Here just ask for the permission for the first time
@@ -396,5 +406,4 @@ class Utils {
       return null;
     }
   }
-
 }

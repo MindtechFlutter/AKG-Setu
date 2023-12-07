@@ -1,7 +1,5 @@
 import 'package:akgsetu/common/CommanTextField.dart';
-import 'package:akgsetu/common/utils/app_constants.dart';
-import 'package:akgsetu/common/utils/color_constants.dart';
-import 'package:akgsetu/constants.dart';
+
 import 'package:akgsetu/screens/home/dashboard.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -11,10 +9,13 @@ import 'package:get/get.dart';
 import 'package:nb_utils/nb_utils.dart';
 import 'package:pinput/pinput.dart';
 
+import '../../common/constants.dart';
 import '../../common/rounded_button.dart';
-import '../../common/routes/app_pages.dart';
-import '../../common/utils/Styles.dart';
-import '../../common/utils/utility.dart';
+import '../../utils/Styles.dart';
+import '../../utils/app_constants.dart';
+import '../../utils/color_constants.dart';
+import '../../utils/utility.dart';
+
 
 class OtpVerifyScreen extends StatefulWidget {
   const OtpVerifyScreen({super.key});

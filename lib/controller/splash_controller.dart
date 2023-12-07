@@ -1,12 +1,15 @@
 import 'dart:async';
 import 'package:akgsetu/screens/home/dashboard.dart';
+import 'package:akgsetu/utils/utility.dart';
 import 'package:get/get.dart';
+import 'package:nb_utils/nb_utils.dart';
 import '../../common/service_locator.dart';
-import '../../common/utils/dimensions.dart';
-import '../../common/utils/storage_service.dart';
+
 import '../network/api/getx_repository.dart';
 import '../routes/app_pages.dart';
 import '../utils/app_constants.dart';
+import '../utils/dimensions.dart';
+import '../utils/storage_service.dart';
 import 'base_controller.dart';
 
 class SplashController extends BaseController {
@@ -15,7 +18,7 @@ class SplashController extends BaseController {
 
   @override
   Future<void> onInit() async {
-   // await getTokenApi();
+    await getTokenApi();
     super.onInit();
   }
 
@@ -39,15 +42,24 @@ class SplashController extends BaseController {
 
   Future getTokenApi() async {
     var params = {
-      AppConstants.usernameK: "MindTech",
-      AppConstants.passwordK: "\$auuzqI@t_DWAUw8K",
+      "username": "MindTech",
+      "password":
+          r"$auuzqI@t_DWAUw8K", // Use the raw string (r"") for the password
     };
 
     await repo.getToken(params).then((value) async {
-      await storageService.setString(
-          AppConstants.tokenPr, value.accessToken ?? "");
-      Get.offAllNamed(Routes.login);
-      print("accessToken  =======> ${value.accessToken}");
+      if (value != null) {
+        await storageService.setString(
+            AppConstants.tokenPr, value.accessToken ?? "");
+
+        if (await Utils.isLoggedIn()) {
+          Get.offAllNamed(Routes.home);
+        } else {
+          Get.offAllNamed(Routes.login);
+        }
+
+        print("accessToken  =======> ${value.accessToken}");
+      }
     });
   }
 }

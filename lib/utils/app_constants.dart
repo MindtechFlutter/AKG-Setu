@@ -5,11 +5,14 @@ class AppConstants {
   static const String yes = 'Yes';
   static const String no = 'No';
   static const String enterPhnNo = 'Enter Your Phone Number';
+  static const String enterEmailId = 'Enter Email ID';
+  static const String enterPassword = 'Enter Password';
   static const String enterOtpSent = 'Enter OTP sent to';
 
-  static const String sendVerificationCode =
-      'We will send you 4 digit verification code';
+  static const String enterCredentials = 'Enter Your Email Id And Password';
   static const String mobileno = "Mobile number";
+  static const String email = "Email Id";
+  static const String password = "Password";
 
   static const String noInternet = 'Please check your internet connection';
 
@@ -18,13 +21,11 @@ class AppConstants {
   static const String isLoggedIn = 'isLoggedInPr';
   static const String loginPref = 'loginPref';
 
-
   //apiparams
   static const String usernameK = 'username';
   static const String passwordK = 'password';
 
-
-
+  // static const String passwordK = 'phone';
 
   //errors
   static const String errorFName = "Please enter first name";

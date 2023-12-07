@@ -1,9 +1,11 @@
-import 'package:akgsetu/common/utils/Styles.dart';
-import 'package:akgsetu/common/utils/color_constants.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:nb_utils/nb_utils.dart';
+
+import '../utils/Styles.dart';
+import '../utils/color_constants.dart';
 
 class RoundedButton extends StatelessWidget {
   final String buttonText;

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 
-import 'common/utils/color_constants.dart';
+import '../utils/color_constants.dart';
+
 
 Color backgroundColor =AppColors.lightblue;
 Color primaryColor = HexColor("2283A0");

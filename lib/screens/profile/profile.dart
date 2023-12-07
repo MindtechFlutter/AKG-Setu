@@ -1,5 +1,4 @@
-import 'package:akgsetu/common/utils/Styles.dart';
-import 'package:akgsetu/common/utils/color_constants.dart';
+import 'package:akgsetu/common/rounded_button.dart';
 import 'package:akgsetu/screens/home/dashboard.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
@@ -7,9 +6,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:nb_utils/nb_utils.dart';
-
-import '../../common/utils/utility.dart';
-import '../../constants.dart';
+import '../../common/constants.dart';
+import '../../utils/Styles.dart';
+import '../../utils/color_constants.dart';
+import '../../utils/utility.dart';
 import '../common/navToProfile.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -158,6 +158,22 @@ class _ProfilePageState extends State<ProfilePage> {
                     weight: FontWeight.w500,
                     color: AppColors.black),
               ),
+            ],
+          ),
+          Utils.addGap(20),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Padding(
+                padding: EdgeInsets.only(top: 40.0.sp),
+                child: RoundedButton(
+                  buttonText: 'Logout',
+                  width: width / 2,
+                  onpressed: () async {
+                    Utils.getLogoutDialog(context);
+                  },
+                ),
+              )
             ],
           ),
         ],

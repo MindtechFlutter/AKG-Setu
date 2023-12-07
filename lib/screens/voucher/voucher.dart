@@ -1,5 +1,4 @@
-import 'package:akgsetu/common/utils/Styles.dart';
-import 'package:akgsetu/common/utils/color_constants.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -8,8 +7,10 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:nb_utils/nb_utils.dart';
 
-import '../../common/utils/utility.dart';
-import '../../constants.dart';
+import '../../common/constants.dart';
+import '../../utils/Styles.dart';
+import '../../utils/color_constants.dart';
+import '../../utils/utility.dart';
 import '../common/navToProfile.dart';
 import '../common/ticket-details.dart';
 import '../completed-task/add-expense.dart';

@@ -1,8 +1,9 @@
-
+import 'package:akgsetu/network/constant/endpoints.dart';
 import 'package:dio/dio.dart';
+import 'package:nb_utils/nb_utils.dart';
 
-import '../../../common/utils/storage_service.dart';
-import '../../../common/utils/utility.dart';
+import '../../utils/storage_service.dart';
+import '../../utils/utility.dart';
 import '../dio/dio_client.dart';
 
 class GetxApi {
@@ -45,7 +46,6 @@ class GetxApi {
 
   Future<Response> loadGetData(endpoint, params) async {
     try {
-
       final Response response =
           await dioClient.get(endpoint, queryParameters: params);
       Map<String, dynamic> data = response.data;
@@ -68,13 +68,12 @@ class GetxApi {
     }
   }
 
-
-  Future<Response> loadGetDataWithParams(endpoint, params,token) async {
+  Future<Response> loadGetDataWithParams(endpoint, params, token) async {
     try {
       final Map<String, dynamic> header = new Map<String, dynamic>();
       header["token"] = token;
-      final Response response =
-      await dioClient.get(endpoint, queryParameters: params,options: Options(headers: header));
+      final Response response = await dioClient.get(endpoint,
+          queryParameters: params, options: Options(headers: header));
       Map<String, dynamic> data = response.data;
       // print(response.data);
       /*if (data['show'] == true) {
@@ -102,11 +101,11 @@ class GetxApi {
       final Map<String, dynamic> header = new Map<String, dynamic>();
       header["token"] = token;
 
-    final Response response =
-          await   dioClient.get(endpoint, options: Options(headers: header));
+      final Response response =
+          await dioClient.get(endpoint, options: Options(headers: header));
       Map<String, dynamic> data = response.data;
       // print(response.data);
-    /*  if (data['show'] == true) {
+      /*  if (data['show'] == true) {
         await Utils.showToast(data["message"]);
       }*/
       if (data['status'] == 401) {
@@ -125,24 +124,20 @@ class GetxApi {
   }
 
   Future<Response> loadPostData(endpoint, params) async {
-
-/*    final Map<String, dynamic> header = new Map<String, dynamic>();
-    header["token"] = token;*/
+    // final Map<String, dynamic> header = new Map<String, dynamic>();
+    // header["token"] = "";
 
     try {
       final Response response = await dioClient.post(endpoint,
-          queryParameters: params ,options: Options(contentType: 'text/html'));
+          data: params,
+          options: Options(contentType: 'application/x-www-form-urlencoded'));
 
       Map<String, dynamic> data = response.data;
 
-    /*  if (data['status'] == 1) {
+      /*  if (data['status'] == 1) {
         await Utils.showToast(data["message"]);
       }*/
 
-      if (data['status'] == 401) {
-        //    await storageService.clearData();
-        //Get.offAllNamed(Routes.loginonboardscreen);
-      }
       return response;
     } catch (e) {
       rethrow;
@@ -150,14 +145,16 @@ class GetxApi {
   }
 
   Future<Response> loadPostDataJsonType(endpoint, params, token) async {
-
     final Map<String, dynamic> header = new Map<String, dynamic>();
     header["token"] = token;
 
     try {
       final Response response = await dioClient.post(endpoint,
           data: params,
-           options: Options(headers: header,contentType: 'application/json',));
+          options: Options(
+            headers: header,
+            contentType: 'application/json',
+          ));
 
       Map<String, dynamic> data = response.data;
 
@@ -174,12 +171,17 @@ class GetxApi {
       rethrow;
     }
   }
-  Future<Response> loadGetDataWithParamsJsonType(endpoint, params,token) async {
+
+  Future<Response> loadGetDataWithParamsJsonType(
+      endpoint, params, token) async {
     try {
       final Map<String, dynamic> header = new Map<String, dynamic>();
       header["token"] = token;
-      final Response response =
-      await dioClient.get(endpoint, queryParameters: params,options: Options(headers: header),);
+      final Response response = await dioClient.get(
+        endpoint,
+        queryParameters: params,
+        options: Options(headers: header),
+      );
       Map<String, dynamic> data = response.data;
       // print(response.data);
       if (data['show'] == true) {
@@ -200,5 +202,18 @@ class GetxApi {
     }
   }
 
-
+  Future<Response> loadPostDataBearerToken(endpoint, params, token) async {
+    try {
+      final Map<String, dynamic> header = new Map<String, dynamic>();
+      header["Authorization"] = "Bearer $token";
+      final response = await dioClient.dio.post(endpoint,
+          data: params,
+          options: Options(
+              headers: header,
+          ));
+      return response;
+    } catch (e) {
+      rethrow;
+    }
+  }
 }

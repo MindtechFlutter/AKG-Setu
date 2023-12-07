@@ -1,6 +1,5 @@
 import 'dart:io';
 
-import 'package:akgsetu/common/utils/Styles.dart';
 import 'package:akgsetu/screens/home/dashboard.dart';
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:file_picker/file_picker.dart';
@@ -13,12 +12,13 @@ import 'package:nb_utils/nb_utils.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 import '../../common/CommanTextField.dart';
-import '../../common/controller/inventory-consumed_controller.dart';
+
+import '../../common/constants.dart';
 import '../../common/rounded_button.dart';
-import '../../common/routes/app_pages.dart';
-import '../../common/utils/color_constants.dart';
-import '../../common/utils/utility.dart';
-import '../../constants.dart';
+import '../../controller/inventory-consumed_controller.dart';
+import '../../utils/Styles.dart';
+import '../../utils/color_constants.dart';
+import '../../utils/utility.dart';
 import '../common/navToProfile.dart';
 import '../home/dsr_screen.dart';
 

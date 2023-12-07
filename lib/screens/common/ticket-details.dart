@@ -1,10 +1,12 @@
-import 'package:akgsetu/common/utils/Styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../common/utils/color_constants.dart';
-import '../../common/utils/utility.dart';
-import '../../constants.dart';
+import '../../common/constants.dart';
+import '../../utils/Styles.dart';
+import '../../utils/color_constants.dart';
+import '../../utils/utility.dart';
+
+
 
 showTicketDetails(BuildContext context) {
   showDialog(
