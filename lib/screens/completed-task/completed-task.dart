@@ -1,10 +1,10 @@
+import 'package:akgsetu/network/model/active_task_model.dart';
 import 'package:akgsetu/screens/completed-task/add-expense.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:nb_utils/nb_utils.dart';
-
 
 import '../../common/constants.dart';
 import '../../utils/Styles.dart';
@@ -98,7 +98,7 @@ class _CompletedTaskState extends State<CompletedTask> {
           InkWell(
             splashColor: Colors.transparent,
             highlightColor: Colors.transparent,
-            onTap: () => showTicketDetails(context),
+            onTap: () => showTicketDetails(context, ActiveTaskData()),
             child: Container(
               margin: EdgeInsets.symmetric(horizontal: 20),
               width: width,
@@ -165,7 +165,7 @@ class _CompletedTaskState extends State<CompletedTask> {
                               color: AppColors.green),
                         ),
                         Spacer(),
-                      /*  InkWell(
+                        /*  InkWell(
                           onTap: () => Get.to(AddExpense(),
                               transition: Transition.fadeIn),
                           child: Container(

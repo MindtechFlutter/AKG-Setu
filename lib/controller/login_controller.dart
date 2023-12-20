@@ -49,12 +49,16 @@ class LoginController extends BaseController {
     await repo.login(params, token).then((value) async {
       LoginModel model = value;
       if (model.data?.employeeId != null && model.data?.employeeId != "") {
+        // storageService.setString(key, value);
         isLoading.value = false;
 
         //model.tojson() gives you a map; & jsonencode creates a json string from the map and now we are saving the json string into the sharedpreference;
 
         var jsonString = jsonEncode(model.toJson());
         storageService.setString(AppConstants.loginPref, jsonString);
+        //Storing Employee Id for further use
+        var employeeId = model.data?.employeeId;
+        storageService.setString(AppConstants.employeeIdK, employeeId);
         Get.offAllNamed(Routes.home);
       } else {
         Utils.showToast(model.message);

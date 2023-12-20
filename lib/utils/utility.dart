@@ -295,6 +295,22 @@ class Utils {
           );
   }
 
+  static void checkImageDialog(context) {
+    Platform.isAndroid
+        ? Get.dialog(
+            const AlertDialog(
+              title: Text('Upload Bill Image Before Proceeding'),
+            ),
+            barrierDismissible: false,
+          )
+        : Get.dialog(
+            const CupertinoAlertDialog(
+              title: Text('Upload Bill Image Before Proceeding'),
+            ),
+            barrierDismissible: false,
+          );
+  }
+
 /*
   static void getSessionExpiredDialog() {
     Platform.isAndroid

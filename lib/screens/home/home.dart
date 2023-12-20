@@ -1,4 +1,5 @@
 
+import 'package:akgsetu/network/model/active_task_model.dart';
 import 'package:akgsetu/screens/accept/inventory-consumed.dart';
 import 'package:akgsetu/screens/completed-task/completed-task.dart';
 import 'package:akgsetu/screens/home/active-task.dart';
@@ -238,7 +239,7 @@ class _HomePageState extends State<HomePage> {
           InkWell(
             splashColor: Colors.transparent,
             highlightColor: Colors.transparent,
-            onTap: () => showTicketDetails(context),
+            onTap: () => showTicketDetails(context,ActiveTaskData()),
             child: Container(
               margin: EdgeInsets.symmetric(horizontal: 20),
               width: width,

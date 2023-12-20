@@ -1,6 +1,4 @@
-import 'package:akgsetu/network/constant/endpoints.dart';
 import 'package:dio/dio.dart';
-import 'package:nb_utils/nb_utils.dart';
 
 import '../../utils/storage_service.dart';
 import '../../utils/utility.dart';
@@ -209,7 +207,7 @@ class GetxApi {
       final response = await dioClient.dio.post(endpoint,
           data: params,
           options: Options(
-              headers: header,
+            headers: header,
           ));
       return response;
     } catch (e) {

@@ -1,3 +1,4 @@
+import 'package:akgsetu/network/model/active_task_model.dart';
 import 'package:akgsetu/screens/home/dashboard.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
@@ -114,7 +115,7 @@ class _WipScreenState extends State<WipScreen> {
           InkWell(
             splashColor: Colors.transparent,
             highlightColor: Colors.transparent,
-            onTap: () => showTicketDetails(context),
+            onTap: () => showTicketDetails(context, ActiveTaskData()),
             child: Container(
               margin: EdgeInsets.symmetric(horizontal: 20),
               width: width,
@@ -148,7 +149,6 @@ class _WipScreenState extends State<WipScreen> {
                       style: TextStyle(fontSize: 15, color: Colors.black54),
                     ),
                   ),
-
                   Utils.addGap(8),
                   Container(
                     padding: EdgeInsets.symmetric(vertical: 3),

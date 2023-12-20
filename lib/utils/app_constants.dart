@@ -24,6 +24,8 @@ class AppConstants {
   //apiparams
   static const String usernameK = 'username';
   static const String passwordK = 'password';
+  static const String employeeIdK = 'employeeId';
+  static const String productMasterIdK = 'productMaster';
 
   // static const String passwordK = 'phone';
 

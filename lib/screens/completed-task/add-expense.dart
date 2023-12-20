@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'dart:math';
 
+import 'package:akgsetu/controller/device_info_controller.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
@@ -45,8 +46,8 @@ class _AddExpenseState extends State<AddExpense> {
   String? typeOfTravel;
   String? purposeOfvisit;
   String? finalResult;
-  String _partStatus = 'returned';
-  String _billAmountStatus = 'returned';
+  String _partStatus = '';
+  String _billAmountStatus = '';
   String _serviceReportStatus = 'returned';
 
   String paymentType = 'Check';
@@ -70,6 +71,7 @@ class _AddExpenseState extends State<AddExpense> {
       length, (_) => _chars.codeUnitAt(_rnd.nextInt(_chars.length))));
   //Controller instance
   ExpenseController expenseController = Get.put(ExpenseController());
+  DeviceController deviceController = Get.put(DeviceController());
 
   Future<DateTime?> _showDatePicker(ctx, DateTime? date) async {
     date = await showRoundedDatePicker(
@@ -1927,7 +1929,23 @@ class _AddExpenseState extends State<AddExpense> {
                       buttonText: 'Submit',
                       width: width,
                       onpressed: () {
-                        Navigator.of(context).pop();
+                        deviceController.getDeviceInfo();
+                        if (_billAmountStatus == "returned" &&
+                            expenseController.selectedFilesString.isEmpty) {
+                          Utils.showToast(
+                              "Please upload Bill Amount Image before proceeding ");
+                        } else if (_partStatus == "returned" &&
+                            expenseController.selectedFilesString.isEmpty) {
+                          Utils.showToast(
+                              "Please upload Bill Amount Image before proceeding ");
+                        } else if (expenseController.paymentStatus.value ==
+                                "Yes" &&
+                            expenseController.selectedFilesString.isEmpty) {
+                          Utils.showToast(
+                              "Please upload Bill Amount Image before proceeding ");
+                        }
+
+                        // Navigator.of(context).pop();
                       },
                     ),
                   )

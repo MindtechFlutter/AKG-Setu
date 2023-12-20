@@ -1,6 +1,8 @@
 import 'dart:convert';
 
+import 'package:akgsetu/network/model/active_task_model.dart';
 import 'package:akgsetu/network/model/login_model.dart';
+import 'package:akgsetu/screens/home/active-task.dart';
 import 'package:dio/dio.dart';
 import 'package:nb_utils/nb_utils.dart';
 
@@ -46,6 +48,23 @@ class GetxRepository {
         return LoginModel.fromJson(response.data);
       } else {
         return LoginModel();
+      }
+    } on DioError catch (e) {
+      final errorMessage = DioExceptions.fromDioError(e).toString();
+
+      rethrow;
+    }
+  }
+
+   Future<ActiveTaskModel> activeTask(params, token) async {
+    try {
+      Response response =
+          await getxApi.loadPostDataBearerToken(Endpoints.activeTaskList, params, token);
+
+      if (response.data != null) {
+        return ActiveTaskModel.fromJson(response.data);
+      } else {
+        return ActiveTaskModel();
       }
     } on DioError catch (e) {
       final errorMessage = DioExceptions.fromDioError(e).toString();

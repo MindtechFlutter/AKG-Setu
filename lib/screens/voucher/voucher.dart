@@ -1,4 +1,5 @@
 
+import 'package:akgsetu/network/model/active_task_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -154,7 +155,7 @@ class _VoucherPageState extends State<VoucherPage> {
     return InkWell(
       splashColor: Colors.transparent,
       highlightColor: Colors.transparent,
-      onTap: () => showTicketDetails(context),
+      onTap: () => showTicketDetails(context,ActiveTaskData()),
       child: Container(
         margin: EdgeInsets.symmetric(horizontal: 20),
         width: width(context),

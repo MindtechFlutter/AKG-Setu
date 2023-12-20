@@ -1,3 +1,4 @@
+import 'package:akgsetu/network/model/active_task_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -6,9 +7,7 @@ import '../../utils/Styles.dart';
 import '../../utils/color_constants.dart';
 import '../../utils/utility.dart';
 
-
-
-showTicketDetails(BuildContext context) {
+showTicketDetails(BuildContext context, ActiveTaskData activeTaskData) {
   showDialog(
     context: context,
     builder: (BuildContext context) => Dialog(
@@ -20,17 +19,21 @@ showTicketDetails(BuildContext context) {
           color: Colors.white,
         ),
         padding: EdgeInsets.symmetric(horizontal: 20),
-        height: height(context) * 0.42,
-        width: width(context) * 0.8,
+        width: MediaQuery.of(context).size.width,
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Utils.addGap(10),
             Column(
               children: [
-                Text(
-                  "Ticket Details",
-                  style: TextStyle(fontSize: 19),
+                Align(
+                  alignment: Alignment.center,
+                  child: Text(
+                    "Ticket Details",
+                    style: TextStyle(fontSize: 19),
+                  ),
                 ),
                 Container(
                   height: 2,
@@ -44,27 +47,344 @@ showTicketDetails(BuildContext context) {
               child: Row(
                 children: [
                   Text(
-                    "Ticket No - #03s5468",
+                    "Ticket No - ${activeTaskData.callId}",
                     style: TextStyle(fontSize: 18, color: Colors.black87),
                   ),
-                  Spacer(),
-                  Text("22-05-2023"),
+                  // Spacer(),
+                  // Text("22-05-2023"),
+                ],
+              ),
+            ),
+            Utils.addGap(10),
+            Padding(
+              padding: EdgeInsets.only(top: 5.h),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text("Date - ", style: Styles.textFontRegular(size: 14)),
+                  Flexible(
+                    child: Text(
+                      "${activeTaskData.callDate}",
+                      softWrap: true,
+                      maxLines: 100,
+                      style: Styles.textFontRegular(
+                          size: 12, weight: FontWeight.w400),
+                    ),
+                  ),
                 ],
               ),
             ),
             Utils.addGap(5),
-            Align(
-              alignment: Alignment.centerLeft,
-              child: Text(
-                "Problem Details",
-                style: TextStyle(fontSize: 18, color: Colors.black54),
+            Padding(
+              padding: EdgeInsets.only(top: 5.h),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text("CallIssueName - ",
+                      style: Styles.textFontRegular(size: 14)),
+                  Flexible(
+                    child: Text(
+                      "${activeTaskData.callIssueName}",
+                      softWrap: true,
+                      maxLines: 100,
+                      style: Styles.textFontRegular(
+                          size: 12, weight: FontWeight.w400),
+                    ),
+                  ),
+                ],
               ),
             ),
             Utils.addGap(5),
-            Expanded(
-              child: Text(
-                  "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo "),
+            Padding(
+              padding: EdgeInsets.only(top: 5.h),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text("CallIssueNumber - ",
+                      style: Styles.textFontRegular(size: 14)),
+                  Flexible(
+                    child: Text(
+                      "${activeTaskData.callIssueNumber}",
+                      softWrap: true,
+                      maxLines: 100,
+                      style: Styles.textFontRegular(
+                          size: 12, weight: FontWeight.w400),
+                    ),
+                  ),
+                ],
+              ),
             ),
+            Utils.addGap(5),
+            Padding(
+              padding: EdgeInsets.only(top: 5.h),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text("CallPriority - ",
+                      style: Styles.textFontRegular(size: 14)),
+                  Flexible(
+                    child: Text(
+                      "${activeTaskData.callPriority}",
+                      softWrap: true,
+                      maxLines: 100,
+                      style: Styles.textFontRegular(
+                          size: 12, weight: FontWeight.w400),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Utils.addGap(5),
+            Padding(
+              padding: EdgeInsets.only(top: 5.h),
+              child: Row(
+                children: [
+                  Text("DistrictName - ",
+                      style: Styles.textFontRegular(size: 14)),
+                  Flexible(
+                    child: Text(
+                      "${activeTaskData.districtName}",
+                      softWrap: true,
+                      maxLines: 100,
+                      style: Styles.textFontRegular(
+                          size: 12, weight: FontWeight.w400),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Utils.addGap(5),
+            Padding(
+              padding: EdgeInsets.only(top: 5.h),
+              child: Row(
+                children: [
+                  Text(
+                    "ErrorDetails - ",
+                    style: Styles.textFontRegular(size: 14),
+                  ),
+                  Flexible(
+                    child: Text(
+                      "${activeTaskData.errorDetails}",
+                      softWrap: true,
+                      maxLines: 100,
+                      style: Styles.textFontRegular(
+                          size: 12, weight: FontWeight.w400),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Utils.addGap(5),
+            Padding(
+              padding: EdgeInsets.only(top: 5.h),
+              child: Row(
+                children: [
+                  Text(
+                    "Latitude - ",
+                    style: Styles.textFontRegular(size: 14),
+                  ),
+                  Flexible(
+                    child: Text(
+                      "${activeTaskData.latitude}",
+                      softWrap: true,
+                      maxLines: 100,
+                      style: Styles.textFontRegular(
+                          size: 12, weight: FontWeight.w400),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Utils.addGap(5),
+            Padding(
+              padding: EdgeInsets.only(top: 5.h),
+              child: Row(
+                children: [
+                  Text(
+                    "Longitude - ",
+                    style: Styles.textFontRegular(size: 14),
+                  ),
+                  Flexible(
+                    child: Text(
+                      "${activeTaskData.longitude}",
+                      softWrap: true,
+                      maxLines: 100,
+                      style: Styles.textFontRegular(
+                          size: 12, weight: FontWeight.w400),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Utils.addGap(5),
+            Padding(
+              padding: EdgeInsets.only(top: 5.h),
+              child: Row(
+                children: [
+                  Text(
+                    "ProblemDetails - ",
+                    style: Styles.textFontRegular(size: 14),
+                  ),
+                  Flexible(
+                    child: Text(
+                      "${activeTaskData.problemDetails}",
+                      softWrap: true,
+                      maxLines: 100,
+                      style: Styles.textFontRegular(
+                          size: 12, weight: FontWeight.w400),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Utils.addGap(5),
+            Padding(
+              padding: EdgeInsets.only(top: 5.h),
+              child: Row(
+                children: [
+                  Text(
+                    "ProblemExtraDetails - ",
+                    style: Styles.textFontRegular(size: 14),
+                  ),
+                  Flexible(
+                    child: Text(
+                      "${activeTaskData.problemExtraDetails}",
+                      softWrap: true,
+                      maxLines: 100,
+                      style: Styles.textFontRegular(
+                          size: 12, weight: FontWeight.w400),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Utils.addGap(5),
+            Padding(
+              padding: EdgeInsets.only(top: 5.h),
+              child: Row(
+                children: [
+                  Text(
+                    "ProductGroupName - ",
+                    style: Styles.textFontRegular(size: 14),
+                  ),
+                  Flexible(
+                    child: Text(
+                      "${activeTaskData.productGroupName}",
+                      softWrap: true,
+                      maxLines: 100,
+                      style: Styles.textFontRegular(
+                          size: 12, weight: FontWeight.w400),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Utils.addGap(5),
+            Padding(
+              padding: EdgeInsets.only(top: 5.h),
+              child: Row(
+                children: [
+                  Text(
+                    "ProductName - ",
+                    style: Styles.textFontRegular(size: 14),
+                  ),
+                  Flexible(
+                    child: Text(
+                      "${activeTaskData.productName}",
+                      softWrap: true,
+                      maxLines: 100,
+                      style: Styles.textFontRegular(
+                          size: 12, weight: FontWeight.w400),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Utils.addGap(5),
+            Padding(
+              padding: EdgeInsets.only(top: 5.h),
+              child: Row(
+                children: [
+                  Text(
+                    "Remarks - ",
+                    style: Styles.textFontRegular(size: 14),
+                  ),
+                  Flexible(
+                    child: Text(
+                      "${activeTaskData.remarks}",
+                      softWrap: true,
+                      maxLines: 100,
+                      style: Styles.textFontRegular(
+                          size: 12, weight: FontWeight.w400),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Utils.addGap(5),
+            Padding(
+              padding: EdgeInsets.only(top: 5.h),
+              child: Row(
+                children: [
+                  Text(
+                    "SocietyCode - ",
+                    style: Styles.textFontRegular(size: 14),
+                  ),
+                  Flexible(
+                    child: Text(
+                      "${activeTaskData.societyCode}",
+                      softWrap: true,
+                      maxLines: 100,
+                      style: Styles.textFontRegular(
+                          size: 12, weight: FontWeight.w400),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Utils.addGap(5),
+            Padding(
+              padding: EdgeInsets.only(top: 5.h),
+              child: Row(
+                children: [
+                  Text(
+                    "SocietyName - ",
+                    style: Styles.textFontRegular(size: 14),
+                  ),
+                  Flexible(
+                    child: Text(
+                      "${activeTaskData.societyName}",
+                      softWrap: true,
+                      maxLines: 100,
+                      style: Styles.textFontRegular(
+                          size: 12, weight: FontWeight.w400),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Utils.addGap(5),
+            Padding(
+              padding: EdgeInsets.only(top: 5.h),
+              child: Row(
+                children: [
+                  Text(
+                    "TalukaName - ",
+                    style: Styles.textFontRegular(size: 14),
+                  ),
+                  Flexible(
+                    child: Text(
+                      "${activeTaskData.talukaName}",
+                      softWrap: true,
+                      maxLines: 100,
+                      style: Styles.textFontRegular(
+                          size: 12, weight: FontWeight.w400),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Utils.addGap(15),
           ],
         ),
       ),
