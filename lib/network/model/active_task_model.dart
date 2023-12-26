@@ -1,3 +1,5 @@
+import 'package:get/get.dart';
+
 class ActiveTaskModel {
   String? message;
   int? responseCode;
@@ -8,10 +10,10 @@ class ActiveTaskModel {
   ActiveTaskModel.fromJson(Map<String, dynamic> json) {
     message = json['Message'];
     responseCode = json['ResponseCode'];
-    if (json['data'] != null) {
+    if (json['data'] != null && (json['data'].toString() != "{}")) {
       data = <ActiveTaskData>[];
       json['data'].forEach((v) {
-        data!.add(new ActiveTaskData.fromJson(v));
+        data?.add(new ActiveTaskData.fromJson(v));
       });
     }
   }
@@ -21,7 +23,7 @@ class ActiveTaskModel {
     data['Message'] = this.message;
     data['ResponseCode'] = this.responseCode;
     if (this.data != null) {
-      data['data'] = this.data!.map((v) => v.toJson()).toList();
+      data['data'] = this.data?.map((v) => v.toJson()).toList();
     }
     return data;
   }

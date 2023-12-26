@@ -1,7 +1,7 @@
 class AppConstants {
   //App related
   static const String appName = 'Busybees';
-  static const int appVersion = 1;
+  static const String appVersion = "";
   static const String yes = 'Yes';
   static const String no = 'No';
   static const String enterPhnNo = 'Enter Your Phone Number';
@@ -26,6 +26,14 @@ class AppConstants {
   static const String passwordK = 'password';
   static const String employeeIdK = 'employeeId';
   static const String productMasterIdK = 'productMaster';
+
+  //Device details
+  static const String platform = "android";
+  static const String version = "13";
+  static const String sdk = "33";
+  static const String brandName = "google";
+  static const String deviceName = "emu64x";
+  static const String deviceId = "TE1A.220922.010";
 
   // static const String passwordK = 'phone';
 

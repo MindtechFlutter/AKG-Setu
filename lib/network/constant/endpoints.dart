@@ -13,4 +13,8 @@ class Endpoints {
   static const String productGroupMaster = '/LISTProductGroupMasters';
   static const String productMaster = '/LISTProductMasters';
   static const String activeTaskList = '/LISTActiveTask';
+  static const String spareMaster = '/LISTSpareMasters';
+  static const String employeeList = '/LISTEmployee';
+  static const String voucherEntry = '/VoucherEntry';
+  static const String voucherDetail = '/VoucherDetails';
 }

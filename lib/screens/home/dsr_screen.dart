@@ -1,5 +1,5 @@
 import 'package:akgsetu/common/rounded_button.dart';
-import 'package:akgsetu/network/model/problem_model.dart';
+import 'package:akgsetu/network/model/problem_master_model.dart';
 import 'package:akgsetu/screens/holiday/apply-holiday.dart';
 import 'package:dropdown_search/dropdown_search.dart';
 import 'package:flutter/material.dart';
@@ -32,23 +32,23 @@ class _DsrScreenState extends State<DsrScreen> {
   String _partStatus = 'returned';
   String selectedValueone = '';
   String selectedValuetwo = '';
-  List<ProblemData> problemList = [
-    ProblemData(
-        error: "1.)SMPS  2.)Power Cable 3.)Ram 4.)Mother Board 5.)Harddisk",
-        id: 23,
-        problem: "CPU Problem",
-        solution: ""),
-    ProblemData(
-        error: "1.)SMPS  2.)Power Cable 3.)Ram 4.)Mother Board 5.)Harddisk",
-        id: 23,
-        problem: "Motherboard Problem",
-        solution: ""),
-    ProblemData(
-        error: "1.)SMPS  2.)Power Cable 3.)Ram 4.)Mother Board 5.)Harddisk",
-        id: 23,
-        problem: "Pata nahi Problem",
-        solution: ""),
-  ];
+  // List<ProblemMasterData> problemList = [
+  //   ProblemMasterData(
+  //       error: "1.)SMPS  2.)Power Cable 3.)Ram 4.)Mother Board 5.)Harddisk",
+  //       id: 23,
+  //       problem: "CPU Problem",
+  //       solution: ""),
+  //   ProblemMasterData(
+  //       error: "1.)SMPS  2.)Power Cable 3.)Ram 4.)Mother Board 5.)Harddisk",
+  //       id: 23,
+  //       problem: "Motherboard Problem",
+  //       solution: ""),
+  //   ProblemMasterData(
+  //       error: "1.)SMPS  2.)Power Cable 3.)Ram 4.)Mother Board 5.)Harddisk",
+  //       id: 23,
+  //       problem: "Pata nahi Problem",
+  //       solution: ""),
+  // ];
 
   @override
   Widget build(BuildContext context) {

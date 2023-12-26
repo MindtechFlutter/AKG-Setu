@@ -36,14 +36,14 @@ class DioExceptions implements Exception {
     }
   }
 
-  String _handleError(int? statusCode, dynamic error) {
+  String _handleError(int? statusCode, dynamic error) { 
     switch (statusCode) {
       case 400:
         return 'Bad request';
       case 401:
         return 'Unauthorized';
       case 403:
-        return 'Forbidden';
+        return 'Forbidden'; 
       case 404:
         return 'Not Found';
       case 500:

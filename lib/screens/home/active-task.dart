@@ -25,14 +25,21 @@ class ActiveTask extends StatefulWidget {
 class _ActiveTaskState extends State<ActiveTask> {
   ActiveTaskController activeTaskController = ActiveTaskController();
   getData() async {
-    await activeTaskController.activeTaskApiCall();
+    //await activeTaskController.activeTaskApiCall();
+    //await activeTaskController.productGroupMaster();
+    //await activeTaskController.productMaster();
+    // await activeTaskController.problemMaster();
+    // await activeTaskController.spareMaster();
+    // await activeTaskController.EmployeeMaster();
+    // await activeTaskController.VoucherEntry();
+    await activeTaskController.VoucherDetail();
   }
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    // getData();
+    getData();
   }
 
   @override

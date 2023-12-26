@@ -71,7 +71,7 @@ class _AddExpenseState extends State<AddExpense> {
       length, (_) => _chars.codeUnitAt(_rnd.nextInt(_chars.length))));
   //Controller instance
   ExpenseController expenseController = Get.put(ExpenseController());
-  DeviceController deviceController = Get.put(DeviceController());
+  // DeviceController deviceController = Get.put(DeviceController());
 
   Future<DateTime?> _showDatePicker(ctx, DateTime? date) async {
     date = await showRoundedDatePicker(
@@ -1929,7 +1929,7 @@ class _AddExpenseState extends State<AddExpense> {
                       buttonText: 'Submit',
                       width: width,
                       onpressed: () {
-                        deviceController.getDeviceInfo();
+                        // deviceController.getDeviceInfo();
                         if (_billAmountStatus == "returned" &&
                             expenseController.selectedFilesString.isEmpty) {
                           Utils.showToast(
