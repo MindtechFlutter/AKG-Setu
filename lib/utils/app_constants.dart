@@ -8,7 +8,6 @@ class AppConstants {
   static const String enterEmailId = 'Enter Email ID';
   static const String enterPassword = 'Enter Password';
   static const String enterOtpSent = 'Enter OTP sent to';
-
   static const String enterCredentials = 'Enter Your Email Id And Password';
   static const String mobileno = "Mobile number";
   static const String email = "Email Id";
@@ -16,26 +15,51 @@ class AppConstants {
 
   static const String noInternet = 'Please check your internet connection';
 
-  //keys for pref
+  //keys for Sharedpref
   static const String tokenPr = 'tokenPr';
   static const String isLoggedIn = 'isLoggedInPr';
   static const String loginPref = 'loginPref';
+  static const String employeeIdPr = 'employeeId';
 
-  //apiparams
+  //**********************apiparams*************************
   static const String usernameK = 'username';
+  static const String emailk = 'email';
   static const String passwordK = 'password';
-  static const String employeeIdK = 'employeeId';
   static const String productMasterIdK = 'productMaster';
 
-  //Device details
-  static const String platform = "android";
-  static const String version = "13";
-  static const String sdk = "33";
-  static const String brandName = "google";
-  static const String deviceName = "emu64x";
-  static const String deviceId = "TE1A.220922.010";
+  //For device details login
+  static const String platformK = 'platform';
+  static const String versionK = 'version';
+  static const String sdkK = 'sdk';
+  static const String brandNameK = 'brandName';
+  static const String deviceNameK = 'deviceName';
+  static const String deviceIdK = 'deviceId';
+  static const String appversionK = 'appversion';
 
-  // static const String passwordK = 'phone';
+  //For voucher api
+  static const String voucherdateK = 'voucherdate';
+  static const String employeeidK = 'employeeid';
+  static const String expensetypeK = 'expensetype';
+  static const String modeK = 'mode';
+  static const String fromplaceK = 'fromplace';
+  static const String toplaceK = 'toplace';
+  static const String totalkmK = 'totalkm';
+  static const String rateK = 'rate';
+  static const String amountK = 'amount';
+  static const String vehicletypeK = 'vehicletype';
+  static const String ticketbillK = 'ticketbill';
+  static const String traveltypeK = 'traveltype';
+  static const String visitpurposeK = 'visitpurpose';
+  static const String servicereportK = 'servicereport';
+  static const String callidK = 'callid';
+  static const String callidnumberK = 'callidnumber';
+  static const String callstatusK = 'callstatus';
+  static const String paymentreceivedK = 'paymentreceived';
+  static const String paymenttypeK = 'paymenttype';
+  static const String paymentamountK = 'paymentamount';
+  static const String oreasontK = 'oreasont';
+  static const String gstbillK = 'gstbill';
+  static const String employeeremarksK = 'employeeremarks';
 
   //errors
   static const String errorFName = "Please enter first name";
@@ -46,6 +70,15 @@ class AppConstants {
   static const String validPhoneCode = "Phone number must start with \"971\"";
   static const String otpDoesntMatch = "Otp doesn't match";
   static const String validOtp = "Please enter valid otp";
+  static const String errorDate = "Please select a date";
+  static const String errorTypeOfExpense = "Please select a type of Expense";
+  static const String errorModeOfTravel = "Please select a mode of Travel";
+  static const String errorFromPlace = "Please select from Place";
+  static const String errorToPlace = "Please select To Place";
+  static const String errortotalKilometer = "Please select Total Kilometer";
+  static const String errorratePerKilometer =
+      "Please select Rate Per Kilometer";
+  static const String errorAmount = "Please enter Valid Amount";
 
   static const String errorName = "Please enter your name";
   static const String errorStreet = "Please enter Street";
@@ -73,7 +106,6 @@ class AppConstants {
   static const String WIP = 'WIP';
 
   static const List<String> listExpenses = [
-    "Type of Expense",
     "Travel",
     "Food",
     "Lodge",

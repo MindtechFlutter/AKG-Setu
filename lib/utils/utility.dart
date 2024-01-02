@@ -15,6 +15,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 import '../routes/app_pages.dart';
@@ -295,6 +296,67 @@ class Utils {
           );
   }
 
+  static void getDeleteDialog(context, function) {
+    Platform.isAndroid
+        ? Get.dialog(
+            AlertDialog(
+              title: const Text('Are you sure you want to delete this voucher'),
+              actions: [
+                Container(
+                  decoration: BoxDecoration(
+                      color: primaryColor.withOpacity(0.4),
+                      borderRadius: BorderRadius.circular(25)),
+                  child: TextButton(
+                    child: const Text(AppConstants.yes),
+                    onPressed: () {
+                      Navigator.of(Get.overlayContext!, rootNavigator: true)
+                          .pop();
+                      function();
+                    },
+                  ),
+                ),
+                Container(
+                  decoration: BoxDecoration(
+                      color: primaryColor.withOpacity(0.4),
+                      borderRadius: BorderRadius.circular(25)),
+                  child: TextButton(
+                    child: const Text(AppConstants.no),
+                    onPressed: () {
+                      Navigator.of(Get.overlayContext!, rootNavigator: true)
+                          .pop();
+                    },
+                  ),
+                ),
+              ],
+            ),
+            barrierDismissible: false,
+          )
+        : Get.dialog(
+            CupertinoAlertDialog(
+              title: Text('Are you sure you want to logout?'),
+              actions: [
+                CupertinoDialogAction(
+                  child: Text(AppConstants.yes),
+                  onPressed: () {
+                    Navigator.of(Get.overlayContext!, rootNavigator: true)
+                        .pop(AppConstants.logout);
+                    StorageService().clearData();
+                    Get.offNamedUntil(Routes.splash, (route) => false);
+                  },
+                ),
+                CupertinoDialogAction(
+                  child: Text(AppConstants.no),
+                  onPressed: () {
+                    Navigator.of(Get.overlayContext!, rootNavigator: true)
+                        .pop(AppConstants.logout);
+                  },
+                )
+              ],
+            ),
+            barrierDismissible: false,
+          );
+  }
+
   static void checkImageDialog(context) {
     Platform.isAndroid
         ? Get.dialog(
@@ -421,5 +483,146 @@ class Utils {
     } else {
       return null;
     }
+  }
+
+  //*******************Methods to get device info*****************************
+
+  // version get method
+  static Future<String> getVersion() async {
+    String version = "";
+    if (Platform.isAndroid) {
+      try {
+        DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
+        AndroidDeviceInfo androidInfo = await deviceInfo.androidInfo;
+        version = androidInfo.version.release;
+        return version;
+      } catch (e) {
+        return version;
+      }
+    } else if (Platform.isIOS) {
+      try {
+        DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
+        IosDeviceInfo iosDeviceInfo = await deviceInfo.iosInfo;
+        version = iosDeviceInfo.systemVersion;
+        return version;
+      } catch (e) {
+        return version;
+      }
+    }
+    return version;
+  }
+
+  //Android sdk get method
+  static Future<String> getAndroidSdk() async {
+    String sdk = "";
+    try {
+      DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
+      AndroidDeviceInfo androidInfo = await deviceInfo.androidInfo;
+      final sdkInt = androidInfo.version.sdkInt;
+      sdk = sdkInt.toString();
+      return sdk;
+    } catch (e) {
+      return sdk;
+    }
+  }
+
+  //BrandName get method
+  static Future<String> getBrandName() async {
+    String brandName = "";
+    if (Platform.isAndroid) {
+      try {
+        DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
+        AndroidDeviceInfo androidInfo = await deviceInfo.androidInfo;
+        brandName = androidInfo.brand;
+        return brandName;
+      } catch (e) {
+        return brandName;
+      }
+    } else if (Platform.isIOS) {
+      try {
+        DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
+        IosDeviceInfo iosDeviceInfo = await deviceInfo.iosInfo;
+        brandName = iosDeviceInfo.model;
+        return brandName;
+      } catch (e) {
+        return brandName;
+      }
+    }
+    return brandName;
+  }
+
+  //DeviceName get method
+  static Future<String> getDevice() async {
+    String device = "";
+    if (Platform.isAndroid) {
+      try {
+        DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
+        AndroidDeviceInfo androidInfo = await deviceInfo.androidInfo;
+        device = androidInfo.device;
+        return device;
+      } catch (e) {
+        return device;
+      }
+    } else if (Platform.isIOS) {
+      try {
+        DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
+        IosDeviceInfo iosDeviceInfo = await deviceInfo.iosInfo;
+        device = iosDeviceInfo.name;
+        return device;
+      } catch (e) {
+        return device;
+      }
+    }
+    return device;
+  }
+
+  //Device Id get method
+  static Future<String> getDeviceId() async {
+    String id = "";
+    if (Platform.isAndroid) {
+      try {
+        DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
+        AndroidDeviceInfo androidInfo = await deviceInfo.androidInfo;
+        id = androidInfo.id;
+        return id;
+      } catch (e) {
+        return id;
+      }
+    } else if (Platform.isIOS) {
+      try {
+        DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
+        IosDeviceInfo iosDeviceInfo = await deviceInfo.iosInfo;
+        id = iosDeviceInfo.systemVersion;
+        return id;
+      } catch (e) {
+        return id;
+      }
+    }
+    return id;
+  }
+
+  //App version get method
+  static Future<String> getAppVersion() async {
+    String appVersion = "";
+    try {
+      PackageInfo packageInfo = await PackageInfo.fromPlatform();
+      appVersion = packageInfo.version;
+      return appVersion;
+    } catch (e) {
+      return appVersion;
+    }
+  }
+
+  //Platform get method
+  static Future<String> getPlatform() async {
+    String platform = "";
+    if (Platform.isAndroid) {
+      platform = "android";
+      return platform;
+    } else if (Platform.isIOS) {
+      platform = "ios";
+      return platform;
+    }
+    return platform;
   }
 }

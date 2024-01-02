@@ -36,8 +36,8 @@ class ActiveTaskController extends BaseController {
   //ApiCalling Method for active task list
   Future activeTaskApiCall() async {
     var token = await storageService.getString(AppConstants.tokenPr);
-    var employeeId = await storageService.getString(AppConstants.employeeIdK);
-    var params = {"employeeid": employeeId};
+    var employeeId = await storageService.getString(AppConstants.employeeIdPr);
+    var params = {"employeeid": 110};
     isLoading.value = true;
     await repo.activeTask(params, token).then((value) async {
       ActiveTaskModel model = value;
@@ -59,7 +59,7 @@ class ActiveTaskController extends BaseController {
   //Product Group Master Api Call
   Future productGroupMaster() async {
     var token = await storageService.getString(AppConstants.tokenPr);
-    var employeeId = await storageService.getString(AppConstants.employeeIdK);
+    var employeeId = await storageService.getString(AppConstants.employeeIdPr);
     var params = {"employeeid": employeeId};
     isLoading.value = true;
     await repo.productGroupMaster(params, token).then((value) async {
@@ -82,7 +82,7 @@ class ActiveTaskController extends BaseController {
   //Product  Master Api Call
   Future productMaster() async {
     var token = await storageService.getString(AppConstants.tokenPr);
-    var employeeId = await storageService.getString(AppConstants.employeeIdK);
+    var employeeId = await storageService.getString(AppConstants.employeeIdPr);
     var params = {"employeeid": employeeId, "productgroupmasterid": "2"};
     isLoading.value = true;
     await repo.productMaster(params, token).then((value) async {
@@ -105,7 +105,7 @@ class ActiveTaskController extends BaseController {
   //Problem Master Api Call
   Future problemMaster() async {
     var token = await storageService.getString(AppConstants.tokenPr);
-    var employeeId = await storageService.getString(AppConstants.employeeIdK);
+    var employeeId = await storageService.getString(AppConstants.employeeIdPr);
     var params = {"employeeid": employeeId, "productmasterid": "56"};
     isLoading.value = true;
     await repo.problemMaster(params, token).then((value) async {
@@ -128,7 +128,7 @@ class ActiveTaskController extends BaseController {
   //Spare Master Api Call
   Future spareMaster() async {
     var token = await storageService.getString(AppConstants.tokenPr);
-    var employeeId = await storageService.getString(AppConstants.employeeIdK);
+    var employeeId = await storageService.getString(AppConstants.employeeIdPr);
     var params = {"employeeid": employeeId, "productmasterid": "2"};
     isLoading.value = true;
     await repo.spareMaster(params, token).then((value) async {
@@ -151,7 +151,7 @@ class ActiveTaskController extends BaseController {
   //Employee Master Api Call
   Future EmployeeMaster() async {
     var token = await storageService.getString(AppConstants.tokenPr);
-    var employeeId = await storageService.getString(AppConstants.employeeIdK);
+    var employeeId = await storageService.getString(AppConstants.employeeIdPr);
     var params = {"employeeid": "90"};
     isLoading.value = true;
     await repo.employeeMaster(params, token).then((value) async {
@@ -171,57 +171,57 @@ class ActiveTaskController extends BaseController {
     });
   }
 
-  //Employee Master Api Call
-  Future VoucherEntry() async {
-    var token = await storageService.getString(AppConstants.tokenPr);
-    var employeeId = await storageService.getString(AppConstants.employeeIdK);
-    var params = {
-      "voucherdate": "2023-12-23",
-      "employeeid": "283",
-      "expensetype": "Travel",
-      "mode": "Car",
-      "fromplace": "City A",
-      "toplace": "City B",
-      "totalkm": 150.0,
-      "rate": 0.5,
-      "amount": 75.0,
-      "vehicletype": "Bike",
-      "ticketbill": "No",
-      "traveltype": "Reached Customer Site",
-      "visitpurpose": "Service Call",
-      "servicereport": "Yes",
-      "callid": "Yes",
-      "callidnumber": "031223/T00012",
-      "callstatus": "Solved Or Completed",
-      "paymentreceived": "No",
-      "paymenttype": "",
-      "paymentamount": 0,
-      "oreason": "",
-      "gstbill": "No",
-      "employeeremarks": ""
-    };
-    isLoading.value = true;
-    await repo.voucherEntry(params, token).then((value) async {
-      VoucherEntryModel model = value;
-      isLoading.value = false;
-      if (model.data != null) {
-        // if (model.data != {}) {
-        //   employeeMasterList.value = model.data ?? [];
-        // }
-      } else {
-        Utils.showToast(model.message);
-        isLoading.value = false;
-      }
-    }).onError((error, stackTrace) {
-      isLoading.value = false;
-      Utils.showSnackBar(error, activeTaskApiCall());
-    });
-  }
+  // //Employee Master Api Call
+  // Future VoucherEntry() async {
+  //   var token = await storageService.getString(AppConstants.tokenPr);
+  //   var employeeId = await storageService.getString(AppConstants.employeeIdPr);
+  //   var params = {
+  //     AppConstants.voucherdateK: "2023-12-23",
+  //     AppConstants.employeeidK: "283",
+  //     AppConstants.expensetypeK: "Travel",
+  //     AppConstants.modeK: "Car",
+  //     AppConstants.fromplaceK: "City A",
+  //     AppConstants.toplaceK: "City B",
+  //     AppConstants.totalkmK: 150.0,
+  //     AppConstants.rateK: 0.5,
+  //     AppConstants.amountK: 75.0,
+  //     AppConstants.vehicletypeK: "Bike",
+  //     AppConstants.ticketbillK: "No",
+  //     AppConstants.traveltypeK: "Reached Customer Site",
+  //     AppConstants.visitpurposeK: "Service Call",
+  //     AppConstants.servicereportK: "Yes",
+  //     AppConstants.callidK: "Yes",
+  //     AppConstants.callidnumberK: "031223/T00012",
+  //     AppConstants.callstatusK: "Solved Or Completed",
+  //     AppConstants.paymentreceivedK: "No",
+  //     AppConstants.paymenttypeK: "",
+  //     AppConstants.paymentamountK: 0,
+  //     AppConstants.oreasontK: "",
+  //     AppConstants.gstbillK: "No",
+  //     AppConstants.employeeremarksK: ""
+  //   };
+  //   isLoading.value = true;
+  //   await repo.voucherEntry(params, token).then((value) async {
+  //     VoucherEntryModel model = value;
+  //     isLoading.value = false;
+  //     if (model.data != null) {
+  //       // if (model.data != {}) {
+  //       //   employeeMasterList.value = model.data ?? [];
+  //       // }
+  //     } else {
+  //       Utils.showToast(model.message);
+  //       isLoading.value = false;
+  //     }
+  //   }).onError((error, stackTrace) {
+  //     isLoading.value = false;
+  //     Utils.showSnackBar(error, activeTaskApiCall());
+  //   });
+  // }
 
   //Employee Master Api Call
   Future VoucherDetail() async {
     var token = await storageService.getString(AppConstants.tokenPr);
-    var employeeId = await storageService.getString(AppConstants.employeeIdK);
+    var employeeId = await storageService.getString(AppConstants.employeeIdPr);
     var params = {
       "employeeid": 283,
       "fromdate": "2022-01-01",

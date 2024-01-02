@@ -17,4 +17,6 @@ class Endpoints {
   static const String employeeList = '/LISTEmployee';
   static const String voucherEntry = '/VoucherEntry';
   static const String voucherDetail = '/VoucherDetails';
+  static const String voucherDelete = '/VoucherDelete';
+  static const String voucherImageUpload = '/VoucherImageUpload';
 }

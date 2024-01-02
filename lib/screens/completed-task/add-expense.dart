@@ -1,7 +1,9 @@
+import 'dart:convert';
 import 'dart:io';
 import 'dart:math';
 
 import 'package:akgsetu/controller/device_info_controller.dart';
+import 'package:dio/dio.dart' as diovala;
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
@@ -12,6 +14,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:nb_utils/nb_utils.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:pdf_compressor/pdf_compressor.dart';
@@ -45,12 +48,9 @@ class _AddExpenseState extends State<AddExpense> {
   // String? foodType;
   String? typeOfTravel;
   String? purposeOfvisit;
-  String? finalResult;
-  String _partStatus = '';
+  // String? finalResult;
   String _billAmountStatus = '';
   String _serviceReportStatus = 'returned';
-
-  String paymentType = 'Check';
 
   TextEditingController fromPlace = TextEditingController();
   TextEditingController toPlace = TextEditingController();
@@ -73,6 +73,48 @@ class _AddExpenseState extends State<AddExpense> {
   ExpenseController expenseController = Get.put(ExpenseController());
   // DeviceController deviceController = Get.put(DeviceController());
 
+  Future uploadingImage() async {
+    expenseController.isLoading.value = true;
+    var headers = {
+      'Authorization':
+          'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcwNDE3NzE1NiwianRpIjoiMzU5NDgxZjUtMmJkOS00NDE2LTgwMWQtYzljZDAxMDMzNGNjIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6Ik1pbmRUZWNoIiwibmJmIjoxNzA0MTc3MTU2LCJleHAiOjE3MDQyNjM1NTYsInVzZXJuYW1lIjp7InVzZXJuYW1lIjoiTWluZFRlY2gifX0.Ouze92bKBEAfWIPWtKPjr7znlu20fqHztJKLhgzPoPk'
+    };
+    List<diovala.MultipartFile> files = [];
+    for (var filePath in expenseController.selectedFilesString) {
+      files.add(await diovala.MultipartFile.fromFile(filePath));
+    }
+    var data = diovala.FormData.fromMap({
+      'file': files,
+      'employeeid': '283',
+      'voucherid': '23',
+    });
+
+    var dio = diovala.Dio()
+      ..interceptors.add(diovala.LogInterceptor(
+        request: true,
+        requestHeader: true,
+        requestBody: true,
+        responseHeader: true,
+        responseBody: true,
+      ));
+    var response = await dio.post(
+      'http://api.akgsetu.in/Mindtech/VoucherImageUpload',
+      options: diovala.Options(
+        method: 'POST',
+        headers: headers,
+      ),
+      data: data,
+    );
+
+    if (response.statusCode == 200) {
+      Utils.showToast(response.statusMessage);
+      expenseController.selectedFilesString.clear();
+      expenseController.isLoading.value = false;
+    } else {
+      expenseController.isLoading.value = false;
+    }
+  }
+
   Future<DateTime?> _showDatePicker(ctx, DateTime? date) async {
     date = await showRoundedDatePicker(
       styleDatePicker: MaterialRoundedDatePickerStyle(
@@ -90,7 +132,7 @@ class _AddExpenseState extends State<AddExpense> {
         ),
         colorScheme: ColorScheme.fromSwatch(
                 primarySwatch: createMaterialColor(primaryColor))
-            .copyWith(background: primaryColor),
+            .copyWith(background: Colors.white),
       ),
       context: context,
       height: height(context) * 0.4,
@@ -111,7 +153,7 @@ class _AddExpenseState extends State<AddExpense> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Text("Select your Expense and add releted attachment",
+          Text("Select your Expense and add related attachment",
               style: TextStyle(
                   fontSize: 14.sp,
                   color: Colors.black,
@@ -125,7 +167,7 @@ class _AddExpenseState extends State<AddExpense> {
                   var date = await _showDatePicker(context, fromDate);
                   var dateString;
                   if (date != null) {
-                    final formatter = DateFormat('dd/MM/yy');
+                    final formatter = DateFormat('yyyy-MM-dd');
                     final formattedDate = formatter.format(date);
                     dateString = formattedDate;
                   }
@@ -292,6 +334,7 @@ class _AddExpenseState extends State<AddExpense> {
                       borderRadius: BorderRadius.circular(10.sp)),
                   child: getTransparentTextFormField(
                       validator: (String? value) {},
+                      controller: expenseController.fromPlace,
                       isObscureText: false,
                       hintText: "From Place",
                       inputType: TextInputType.text,
@@ -312,6 +355,7 @@ class _AddExpenseState extends State<AddExpense> {
                       borderRadius: BorderRadius.circular(10.sp)),
                   child: getTransparentTextFormField(
                       validator: (String? value) {},
+                      controller: expenseController.toPlace,
                       isObscureText: false,
                       hintText: "To Place",
                       inputType: TextInputType.text,
@@ -338,6 +382,7 @@ class _AddExpenseState extends State<AddExpense> {
                             ),
                             borderRadius: BorderRadius.circular(10.sp)),
                         child: getTransparentTextFormField(
+                            controller: expenseController.totalKilometer,
                             validator: (String? value) {},
                             isObscureText: false,
                             hintText: "Total Kilometer",
@@ -358,6 +403,7 @@ class _AddExpenseState extends State<AddExpense> {
                             ),
                             borderRadius: BorderRadius.circular(10.sp)),
                         child: getTransparentTextFormField(
+                            controller: expenseController.ratePerKilometer,
                             validator: (String? value) {},
                             isObscureText: false,
                             hintText: "Rate Per/Km",
@@ -389,6 +435,7 @@ class _AddExpenseState extends State<AddExpense> {
                             ),
                             borderRadius: BorderRadius.circular(10.sp)),
                         child: getTransparentTextFormField(
+                            controller: expenseController.amount,
                             validator: (String? value) {},
                             isObscureText: false,
                             hintText: "Enter Amount",
@@ -517,11 +564,11 @@ class _AddExpenseState extends State<AddExpense> {
                               fontWeight: FontWeight.w400),
                         ),
                         Radio(
-                          value: 'returned',
-                          groupValue: _partStatus,
+                          value: 'Yes',
+                          groupValue: expenseController.ticketStatus.value,
                           onChanged: (value) {
                             setState(() {
-                              _partStatus = value!;
+                              expenseController.ticketStatus.value = value!;
                             });
                           },
                           activeColor: Colors.green,
@@ -534,11 +581,11 @@ class _AddExpenseState extends State<AddExpense> {
                               fontWeight: FontWeight.w400),
                         ),
                         Radio(
-                          value: 'not_returned',
-                          groupValue: _partStatus,
+                          value: 'No',
+                          groupValue: expenseController.ticketStatus.value,
                           onChanged: (value) {
                             setState(() {
-                              _partStatus = value!;
+                              expenseController.ticketStatus.value = value!;
                             });
                           },
                           activeColor: Colors.red,
@@ -833,10 +880,12 @@ class _AddExpenseState extends State<AddExpense> {
                                 children: [
                                   Radio(
                                     value: 'Check',
-                                    groupValue: paymentType,
+                                    groupValue:
+                                        expenseController.paymentType.value,
                                     onChanged: (value) {
                                       setState(() {
-                                        paymentType = value!;
+                                        expenseController.paymentType.value =
+                                            value!;
                                       });
                                     },
                                     activeColor: Colors.green,
@@ -850,10 +899,12 @@ class _AddExpenseState extends State<AddExpense> {
                                   ),
                                   Radio(
                                     value: 'Cash',
-                                    groupValue: paymentType,
+                                    groupValue:
+                                        expenseController.paymentType.value,
                                     onChanged: (value) {
                                       setState(() {
-                                        paymentType = value!;
+                                        expenseController.paymentType.value =
+                                            value!;
                                       });
                                     },
                                     activeColor: Colors.green,
@@ -867,10 +918,12 @@ class _AddExpenseState extends State<AddExpense> {
                                   ),
                                   Radio(
                                     value: 'Deduction Letter',
-                                    groupValue: paymentType,
+                                    groupValue:
+                                        expenseController.paymentType.value,
                                     onChanged: (value) {
                                       setState(() {
-                                        paymentType = value!;
+                                        expenseController.paymentType.value =
+                                            value!;
                                       });
                                     },
                                     activeColor: Colors.green,
@@ -901,10 +954,12 @@ class _AddExpenseState extends State<AddExpense> {
                                           borderRadius:
                                               BorderRadius.circular(10.sp)),
                                       child: getTransparentTextFormField(
+                                          controller: expenseController
+                                              .paymentRecievedAmount,
                                           validator: (String? value) {},
                                           isObscureText: false,
                                           hintText: "Enter Amount",
-                                          inputType: TextInputType.text,
+                                          inputType: TextInputType.number,
                                           onChanged: (String value) {}),
                                     ),
                                   ),
@@ -955,11 +1010,11 @@ class _AddExpenseState extends State<AddExpense> {
                           fontWeight: FontWeight.w400),
                     ),
                     Radio(
-                      value: 'returned',
-                      groupValue: _serviceReportStatus,
+                      value: 'Yes',
+                      groupValue: expenseController.serviceReportStatus.value,
                       onChanged: (value) {
                         setState(() {
-                          _serviceReportStatus = value!;
+                          expenseController.serviceReportStatus.value = value!;
                         });
                       },
                       activeColor: Colors.green,
@@ -972,11 +1027,11 @@ class _AddExpenseState extends State<AddExpense> {
                           fontWeight: FontWeight.w400),
                     ),
                     Radio(
-                      value: 'not_returned',
-                      groupValue: _serviceReportStatus,
+                      value: 'No',
+                      groupValue: expenseController.serviceReportStatus.value,
                       onChanged: (value) {
                         setState(() {
-                          _serviceReportStatus = value!;
+                          expenseController.serviceReportStatus.value = value!;
                         });
                       },
                       activeColor: Colors.red,
@@ -1006,10 +1061,10 @@ class _AddExpenseState extends State<AddExpense> {
                     ),
                     Radio(
                       value: 'Yes',
-                      groupValue: expenseController.callIdStatus.value,
+                      groupValue: expenseController.callIdNumberStatus.value,
                       onChanged: (value) {
                         setState(() {
-                          expenseController.callIdStatus.value = value!;
+                          expenseController.callIdNumberStatus.value = value!;
                         });
                       },
                       activeColor: Colors.green,
@@ -1023,10 +1078,10 @@ class _AddExpenseState extends State<AddExpense> {
                     ),
                     Radio(
                       value: 'No',
-                      groupValue: expenseController.callIdStatus.value,
+                      groupValue: expenseController.callIdNumberStatus.value,
                       onChanged: (value) {
                         setState(() {
-                          expenseController.callIdStatus.value = value!;
+                          expenseController.callIdNumberStatus.value = value!;
                         });
                       },
                       activeColor: Colors.red,
@@ -1046,7 +1101,7 @@ class _AddExpenseState extends State<AddExpense> {
               : Container(),
           //call Id Number
 
-          expenseController.callIdStatus.value == "Yes" &&
+          expenseController.callIdNumberStatus.value == "Yes" &&
                   expenseController.selectedPurposeOfVisit.value ==
                       "ServiceCall"
               ? Row(
@@ -1063,6 +1118,7 @@ class _AddExpenseState extends State<AddExpense> {
                             ),
                             borderRadius: BorderRadius.circular(10.sp)),
                         child: getTransparentTextFormField(
+                            controller: expenseController.callIdNumber,
                             validator: (String? value) {},
                             isObscureText: false,
                             hintText: "Enter CallId Number",
@@ -1074,7 +1130,7 @@ class _AddExpenseState extends State<AddExpense> {
                 )
               : Container(),
 
-          expenseController.callIdStatus.value == "Yes" &&
+          expenseController.callIdNumberStatus.value == "Yes" &&
                   expenseController.selectedPurposeOfVisit.value ==
                       "ServiceCall"
               ? Utils.addGap(5)
@@ -1109,11 +1165,9 @@ class _AddExpenseState extends State<AddExpense> {
                                 ),
                               ))
                           .toList(),
-                      value: finalResult,
+                      value: expenseController.callStatus.value,
                       onChanged: (String? value) {
-                        setState(() {
-                          finalResult = value;
-                        });
+                        expenseController.callStatus.value = value;
                       },
                       buttonStyleData: const ButtonStyleData(
                         padding: EdgeInsets.symmetric(horizontal: 16),
@@ -1405,6 +1459,7 @@ class _AddExpenseState extends State<AddExpense> {
                       ),
                       borderRadius: BorderRadius.circular(10.sp)),
                   child: getTransparentTextFormField(
+                      controller: expenseController.paymentRecievedAmount,
                       validator: (String? value) {},
                       isObscureText: false,
                       hintText: "Enter Amount",
@@ -1558,6 +1613,7 @@ class _AddExpenseState extends State<AddExpense> {
                         borderRadius: BorderRadius.circular(10),
                         border: Border.all(color: Colors.black54)),
                     child: getTransparentTextFormField(
+                        controller: expenseController.remarks,
                         validator: (String? value) {},
                         isObscureText: false,
                         hintText: "Remarks",
@@ -1620,90 +1676,6 @@ class _AddExpenseState extends State<AddExpense> {
                                                 .selectedFilesString
                                                 .add(sele);
                                           }
-                                          // for (int i = 0;
-                                          //     i < selectedFiles.length;
-                                          //     i++) {
-                                          // debugPrint(
-                                          //     'Image path is - ${selectedFiles[i].path}');
-
-                                          // if (
-                                          //     // result.files.single.path!
-                                          //     //   .contains('pdf')
-                                          //     selectedFiles[i]
-                                          //         .path!
-                                          //         .contains('pdf')) {
-                                          //   try {
-                                          //     String outputPath =
-                                          //         await getTempPath();
-                                          //     await PdfCompressor
-                                          //         .compressPdfFile(
-                                          //             // result
-                                          //             //     .files.single.path!,
-                                          //             selectedFiles[i].path!,
-                                          //             outputPath,
-                                          //             CompressQuality.MEDIUM);
-                                          //     documentImagePath2 = outputPath;
-                                          //     showImagePath = outputPath;
-                                          //   } catch (e) {
-                                          //     debugPrint(
-                                          //         'error from image compression is - $e');
-                                          //     documentImagePath2 =
-                                          //         result.files.single.path!;
-                                          //     showImagePath =
-                                          //         result.files.single.name;
-                                          //   }
-                                          // }
-                                          // else {
-                                          // final filePath =
-                                          //     File(selectedFiles[i].path!);
-                                          // debugPrint(
-                                          //     "This is filePath${filePath}");
-                                          // File(
-                                          //         result.files.single.path!)
-                                          //     .absolute
-                                          //     .path;
-
-                                          // Create output file path
-                                          // eg:- "Volume/VM/abcd_out.jpeg"
-                                          // bool isPng =
-                                          //     filePath.contains(".png");
-                                          // var lastIndex =
-                                          //     filePath.lastIndexOf(isPng
-                                          //         ? RegExp(r'.pn')
-                                          //         : RegExp(r'.jp'));
-                                          // final splitted = filePath
-                                          //     .substring(0, (lastIndex));
-                                          // final outPath =
-                                          //     "${splitted}_out${filePath.substring(lastIndex)}";
-
-                                          // var compressedImagePath =
-                                          //     await FlutterImageCompress
-                                          //         .compressAndGetFile(
-                                          //             filePath, outPath,
-                                          //             // minWidth: 1000,
-                                          //             // minHeight: 1000,
-                                          //             format: isPng
-                                          //                 ? CompressFormat
-                                          //                     .png
-                                          //                 : CompressFormat
-                                          //                     .jpeg,
-                                          //             quality:
-                                          //                 imageQuality);
-                                          // final bytes = compressedImagePath!
-                                          //     .readAsBytesSync()
-                                          //     .lengthInBytes;
-                                          // final kb = bytes / 1024;
-                                          // final mb = kb / 1024;
-
-                                          // debugPrint(
-                                          //     'image size is $kb and $mb');
-
-                                          // documentImagePath2 =
-                                          //     selectedFiles[i].path;
-
-                                          // debugPrint(
-                                          //   'image path - ${result.files.single.path!} image name - ${result.files.single.name}',
-                                          // );
                                           print(expenseController
                                               .selectedFiles.value.length);
                                           setState(() {});
@@ -1743,6 +1715,8 @@ class _AddExpenseState extends State<AddExpense> {
                                           debugPrint(
                                             'image path - ${image.path} image name - ${image.name}',
                                           );
+                                          print(expenseController
+                                              .selectedFilesString.length);
                                           setState(() {});
                                         }
                                       } catch (error) {
@@ -1797,99 +1771,107 @@ class _AddExpenseState extends State<AddExpense> {
                           height: 270.sp,
                           width: MediaQuery.of(context).size.width,
                           margin: EdgeInsets.symmetric(horizontal: 8.sp),
-                          child: GridView.builder(
-                              physics: NeverScrollableScrollPhysics(),
-                              gridDelegate:
-                                  SliverGridDelegateWithFixedCrossAxisCount(
-                                crossAxisCount: 3,
-                                crossAxisSpacing:
-                                    8.0, // Add spacing between images
-                                mainAxisSpacing: 8.0,
-                              ),
-                              itemCount: min(
-                                  6,
-                                  expenseController.selectedFilesString
-                                      .length), // Limit to 6 images),
-                              itemBuilder: (context, index) => Container(
-                                  height: 30.sp,
-                                  width: 30.sp,
-                                  child: (expenseController
-                                              .selectedFilesString[index]
-                                              ?.contains(".pdf") ??
-                                          false)
-                                      ? Stack(children: [
-                                          Container(
-                                            height: double.infinity,
-                                            width: double.infinity,
-                                            decoration: BoxDecoration(
-                                              color:
-                                                  Colors.grey.withOpacity(0.6),
-                                              borderRadius:
-                                                  BorderRadius.circular(10),
-                                            ),
-                                            child: ClipRRect(
-                                              borderRadius:
-                                                  BorderRadius.circular(10),
-                                              child: Icon(Icons.picture_as_pdf,
-                                                  size: 30.sp),
-                                            ),
-                                          ),
-                                          Positioned(
-                                              top: 3.sp,
-                                              right: 3.sp,
-                                              child: GestureDetector(
-                                                onTap: () {
-                                                  expenseController
-                                                      .selectedFilesString.value
-                                                      .removeAt(index);
-                                                  setState(() {});
-                                                },
-                                                child: Image.asset(
-                                                  AppIcons.closeIcon,
-                                                  height: 23.sp,
-                                                  width: 23.sp,
-                                                ),
-                                              )),
-                                        ])
-                                      : Stack(children: [
-                                          Container(
-                                            width: double.infinity,
-                                            decoration: BoxDecoration(
-                                              color:
-                                                  Colors.grey.withOpacity(0.6),
-                                              borderRadius:
-                                                  BorderRadius.circular(10),
-                                            ),
-                                            child: ClipRRect(
-                                              borderRadius:
-                                                  BorderRadius.circular(10),
-                                              child: Image.file(
-                                                File(expenseController
-                                                        .selectedFilesString[
-                                                    index]),
+                          child: Obx(
+                            () => ModalProgressHUD(
+                              inAsyncCall: expenseController.isLoading.value,
+                              child: GridView.builder(
+                                  physics: NeverScrollableScrollPhysics(),
+                                  gridDelegate:
+                                      SliverGridDelegateWithFixedCrossAxisCount(
+                                    crossAxisCount: 3,
+                                    crossAxisSpacing:
+                                        8.0, // Add spacing between images
+                                    mainAxisSpacing: 8.0,
+                                  ),
+                                  itemCount: min(
+                                      6,
+                                      expenseController.selectedFilesString
+                                          .length), // Limit to 6 images),
+                                  itemBuilder: (context, index) => Container(
+                                      height: 30.sp,
+                                      width: 30.sp,
+                                      child: (expenseController
+                                                  .selectedFilesString[index]
+                                                  ?.contains(".pdf") ??
+                                              false)
+                                          ? Stack(children: [
+                                              Container(
                                                 height: double.infinity,
-                                                fit: BoxFit.cover,
-                                                // width: 30.sp,
-                                              ),
-                                            ),
-                                          ),
-                                          Positioned(
-                                              top: 3.sp,
-                                              right: 3.sp,
-                                              child: GestureDetector(
-                                                onTap: () {
-                                                  expenseController
-                                                      .selectedFilesString.value
-                                                      .removeAt(index);
-                                                  setState(() {});
-                                                },
-                                                child: Image.asset(
-                                                  AppIcons.closeIcon,
-                                                  height: 23.sp,
-                                                  width: 23.sp,
+                                                width: double.infinity,
+                                                decoration: BoxDecoration(
+                                                  color: Colors.grey
+                                                      .withOpacity(0.6),
+                                                  borderRadius:
+                                                      BorderRadius.circular(10),
                                                 ),
-                                              )),
-                                        ]))),
+                                                child: ClipRRect(
+                                                  borderRadius:
+                                                      BorderRadius.circular(10),
+                                                  child: Icon(
+                                                      Icons.picture_as_pdf,
+                                                      size: 30.sp),
+                                                ),
+                                              ),
+                                              Positioned(
+                                                  top: 3.sp,
+                                                  right: 3.sp,
+                                                  child: GestureDetector(
+                                                    onTap: () {
+                                                      expenseController
+                                                          .selectedFilesString
+                                                          .value
+                                                          .removeAt(index);
+                                                      setState(() {});
+                                                    },
+                                                    child: Image.asset(
+                                                      AppIcons.closeIcon,
+                                                      height: 23.sp,
+                                                      width: 23.sp,
+                                                    ),
+                                                  )),
+                                            ])
+                                          : Stack(children: [
+                                              Container(
+                                                width: double.infinity,
+                                                decoration: BoxDecoration(
+                                                  color: Colors.grey
+                                                      .withOpacity(0.6),
+                                                  borderRadius:
+                                                      BorderRadius.circular(10),
+                                                ),
+                                                child: ClipRRect(
+                                                  borderRadius:
+                                                      BorderRadius.circular(10),
+                                                  child: Image.file(
+                                                    File(expenseController
+                                                            .selectedFilesString[
+                                                        index]),
+                                                    height: double.infinity,
+                                                    fit: BoxFit.cover,
+                                                    // width: 30.sp,
+                                                  ),
+                                                ),
+                                              ),
+                                              Positioned(
+                                                  top: 3.sp,
+                                                  right: 3.sp,
+                                                  child: GestureDetector(
+                                                    onTap: () {
+                                                      expenseController
+                                                          .selectedFilesString
+                                                          .value
+                                                          .removeAt(index);
+                                                      setState(() {});
+                                                    },
+                                                    child: Image.asset(
+                                                      AppIcons.closeIcon,
+                                                      height: 23.sp,
+                                                      width: 23.sp,
+                                                    ),
+                                                  )),
+                                            ]))),
+                            ),
+                          ),
                         )
                       : Container(
                           margin: EdgeInsets.symmetric(horizontal: width / 2.9),
@@ -1929,12 +1911,19 @@ class _AddExpenseState extends State<AddExpense> {
                       buttonText: 'Submit',
                       width: width,
                       onpressed: () {
+                        // expenseController.validate(context);
+                        // expenseController.voucherEntry();
                         // deviceController.getDeviceInfo();
+                        if (expenseController.selectedFilesString.length > 0) {
+                          uploadingImage();
+                        }
+
                         if (_billAmountStatus == "returned" &&
                             expenseController.selectedFilesString.isEmpty) {
                           Utils.showToast(
                               "Please upload Bill Amount Image before proceeding ");
-                        } else if (_partStatus == "returned" &&
+                        } else if (expenseController.ticketStatus.value ==
+                                "returned" &&
                             expenseController.selectedFilesString.isEmpty) {
                           Utils.showToast(
                               "Please upload Bill Amount Image before proceeding ");

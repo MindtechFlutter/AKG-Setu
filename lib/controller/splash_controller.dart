@@ -42,8 +42,8 @@ class SplashController extends BaseController {
 
   Future getTokenApi() async {
     var params = {
-      "username": "MindTech",
-      "password":
+      AppConstants.usernameK: "MindTech",
+      AppConstants.passwordK:
           r"$auuzqI@t_DWAUw8K", // Use the raw string (r"") for the password
     };
 

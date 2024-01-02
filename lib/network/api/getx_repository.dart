@@ -7,8 +7,10 @@ import 'package:akgsetu/network/model/problem_master_model.dart';
 import 'package:akgsetu/network/model/product_group_master_model.dart';
 import 'package:akgsetu/network/model/product_master_model.dart';
 import 'package:akgsetu/network/model/spare_master_model.dart';
+import 'package:akgsetu/network/model/voucher_delete_model.dart';
 import 'package:akgsetu/network/model/voucher_detail_model.dart';
 import 'package:akgsetu/network/model/voucher_entry_model.dart';
+import 'package:akgsetu/network/model/voucher_upload_image_model.dart';
 import 'package:akgsetu/screens/home/active-task.dart';
 import 'package:dio/dio.dart';
 import 'package:nb_utils/nb_utils.dart';
@@ -184,6 +186,38 @@ class GetxRepository {
         return VoucherDetailModel.fromJson(response.data);
       } else {
         return VoucherDetailModel();
+      }
+    } on DioError catch (e) {
+      final errorMessage = DioExceptions.fromDioError(e).toString();
+      rethrow;
+    }
+  }
+
+  Future<VoucherDeleteModel> voucherDelete(params, token) async {
+    try {
+      Response response =
+          await getxApi.deletePostApi(Endpoints.voucherDelete, params, token);
+
+      if (response.data != null) {
+        return VoucherDeleteModel.fromJson(response.data);
+      } else {
+        return VoucherDeleteModel();
+      }
+    } on DioError catch (e) {
+      final errorMessage = DioExceptions.fromDioError(e).toString();
+      rethrow;
+    }
+  }
+
+  Future<VoucherImageUploadModel> voucherUploadImage(params, token) async {
+    try {
+      Response response = await getxApi.loadPostDataMultiPart(
+          Endpoints.voucherImageUpload, params, token);
+
+      if (response.data != null) {
+        return VoucherImageUploadModel.fromJson(response.data);
+      } else {
+        return VoucherImageUploadModel();
       }
     } on DioError catch (e) {
       final errorMessage = DioExceptions.fromDioError(e).toString();
